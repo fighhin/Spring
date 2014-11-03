@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+	<bean id="department" class="com.somnus.collection.Department">
+		<property name="name" value="财务部" />
+
+		<!-- 给数组注入值 -->
+		<property name="empName">
+			<list>
+				<value>小明</value>
+				<value>小白</value>
+				<value>小月</value>
+			</list>
+		</property>
+		
+		
+		<!-- 给list注入值 list 中可以有相当的对象 -->
+		<property name="empList">
+			<list>
+				<ref bean="emp1" />
+				<ref bean="emp2" />
+				<ref bean="emp3" />
+			</list>
+		</property>
+		
+		
+		<!-- 给set注入值 set不能有相同的对象 -->
+		<property name="empset">
+			<set>
+				<ref bean="emp1" />
+				<ref bean="emp2" />
+				<ref bean="emp3" />
+			</set>
+		</property>
+		
+		<!-- 给map注入值 map只有key不一样，就可以装配value -->
+		<property name="empMap">
+			<map>
+				<entry key="11" value-ref="emp1" />
+				<entry key="22" value-ref="emp2" />
+				<entry key="33" value-ref="emp3" />
+			</map>
+		</property>
+		
+		<!-- 给属性集合配置 -->
+		<property name="pp">
+			<props>
+				<prop key="pp1">abcd</prop>
+				<prop key="pp2">hello</prop>
+			</props>
+		</property>
+	</bean>
+	
+	
+	<bean id="emp1" class="com.somnus.collection.Employee">
+		<property name="name" value="北京" />
+		<property name="id" value="1" />
+	</bean>
+	<bean id="emp2" class="com.somnus.collection.Employee">
+		<property name="name" value="天津" />
+		<property name="id" value="2" />
+	</bean>
+	<bean id="emp3" class="com.somnus.collection.Employee">
+		<property name="name" value="上海" />
+		<property name="id" value="3" />
+	</bean>
+</beans>

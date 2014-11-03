@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<context:annotation-config /><!-- 想要annotation必须加入这个配置 -->
+	
+	<context:component-scan base-package="com.somnus.annotation" /><!-- 如果使用@Component必须把需要的包中的类【扫描】加入进来 ，针对person-->
+
+	<bean id="userDAOImpl" class="com.somnus.annotation.dao.impl.UserDAOImpl"></bean>
+
+	<bean id="peopleDaoImpl" class="com.somnus.annotation.dao.impl.PeopleDAOImpl"></bean>
+	
+	
+
+	<bean id="userService" class="com.somnus.annotation.service.UserService"></bean>
+
+	<bean id="peopleService" class="com.somnus.annotation.service.PeopleService"></bean>
+
+</beans>
