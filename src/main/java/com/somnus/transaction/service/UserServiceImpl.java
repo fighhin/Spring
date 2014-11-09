@@ -4,16 +4,17 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import com.somnus.aop.dao.UserDAO;
-import com.somnus.aop.model.User;
-import com.somnus.transaction.dao.LogDAO;
+import com.somnus.transaction.dao.LogDao;
+import com.somnus.transaction.dao.UserDao;
 import com.somnus.transaction.model.Log;
+import com.somnus.transaction.model.User;
 
-@Component("userServiceImpl")
+@Component
 public class UserServiceImpl {
-	
-	private UserDAO userDAO;
-	private LogDAO logDAO;
+	@Resource
+	private UserDao userDao;
+	@Resource
+	private LogDao logDao;
 	
 	public void init() {
 		System.out.println("init");
@@ -26,20 +27,10 @@ public class UserServiceImpl {
 //	@Transactional(readOnly=false)
 	@Transactional(propagation=Propagation.REQUIRED)
 	public void add(User user) {
-		userDAO.save(user);
+		userDao.save(user);
 		Log log = new Log();
 		log.setMsg("a user saved!");
-		logDAO.save(log);
-	}
-	
-	@Resource(name="u")
-	public void setUserDAO( UserDAO userDAO) {
-		this.userDAO = userDAO;
-	}
-	
-	@Resource(name="logDAO")
-	public void setLogDAO(LogDAO logDAO) {
-		this.logDAO = logDAO;
+		logDao.save(log);
 	}
 
 	public void destroy() {

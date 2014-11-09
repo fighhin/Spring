@@ -1,14 +1,15 @@
 package com.somnus.annotation.service;
 
-import javax.annotation.Resource;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import com.somnus.annotation.dao.PeopleDao;
+import com.somnus.annotation.dao.PersonDao;
 
 @Component
 public class PersonServiceImpl
 {
-	@Resource
-	private PeopleDao personDAO;
+	@Autowired
+	private PersonDao personDAO;
 
 	public void add()
 	{
