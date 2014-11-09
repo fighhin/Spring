@@ -11,10 +11,6 @@
            http://www.springframework.org/schema/tx 
            http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
 
-
-	<context:annotation-config />
-	<context:component-scan base-package="com.somnus.transaction" />
-
 	<bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
