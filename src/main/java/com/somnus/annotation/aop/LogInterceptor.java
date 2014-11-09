@@ -13,25 +13,25 @@ import org.springframework.stereotype.Component;
 @Component
 public class LogInterceptor {
 	//定义一个方法作为切入点
-	@Pointcut("execution(public * com.spring.aop.service..*.add(..))")
+	@Pointcut("execution(public * com.somnus.annotation.service..*.add(..))")
 	public void myMethod(){};
 	
 	@Before("myMethod()")
-//	@Before("execution(public * com.spring.aop.service..*.add(..))")
+//	@Before("execution(public * com.somnus.annotation.service..*.add(..))")
 	public void before() 
 	{
 		System.out.println("method before");
 	}
 	
 	@AfterReturning("myMethod()")
-//	@Before("execution(public * com.spring.aop.service..*.add(..))")
+//	@Before("execution(public * com.somnus.annotation.service..*.add(..))")
 	public void AfterReturning() 
 	{
 		System.out.println("method after returning");
 	}
 	
 	@AfterThrowing("myMethod()")
-//	@AfterThrowing("execution(public * com.spring.aop.service..*.add(..))")
+//	@AfterThrowing("execution(public * com.somnus.annotation.service..*.add(..))")
 	public void AfterThrowin() 
 	{
 		System.out.println("method after throwin");
@@ -39,7 +39,7 @@ public class LogInterceptor {
 	
 	
 	@Around("myMethod()")
-//	@Around("execution(public * com.spring.aop.service..*.add(..))")
+//	@Around("execution(public * com.somnus.annotation.service..*.add(..))")
 	public void aroundMethod(ProceedingJoinPoint pjp) throws Throwable 
 	{
 		System.out.println("method around start");
