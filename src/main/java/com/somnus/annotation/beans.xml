@@ -13,16 +13,6 @@
 
 	<context:annotation-config /><!-- 想要annotation必须加入这个配置 -->
 	
-	<context:component-scan base-package="com.somnus.annotation" /><!-- 如果使用@Component必须把需要的包中的类【扫描】加入进来 ，针对person-->
-
-	<bean id="userDAOImpl" class="com.somnus.annotation.dao.impl.UserDAOImpl"></bean>
-
-	<bean id="peopleDaoImpl" class="com.somnus.annotation.dao.impl.PeopleDAOImpl"></bean>
-	
-	
-
-	<bean id="userService" class="com.somnus.annotation.service.UserService"></bean>
-
-	<bean id="peopleService" class="com.somnus.annotation.service.PeopleService"></bean>
+	<context:component-scan base-package="com.somnus.annotation" />
 
 </beans>

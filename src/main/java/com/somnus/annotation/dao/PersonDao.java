@@ -1,5 +1,5 @@
 package com.somnus.annotation.dao;
 
-public interface DAO {
+public interface PersonDao {
 	public void save();
 }

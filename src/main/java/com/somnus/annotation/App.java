@@ -1,9 +1,9 @@
 package com.somnus.annotation;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import com.somnus.annotation.service.PeopleService;
-import com.somnus.annotation.service.PersonService;
-import com.somnus.annotation.service.UserService;
+import com.somnus.annotation.service.PeopleServiceImpl;
+import com.somnus.annotation.service.PersonServiceImpl;
+import com.somnus.annotation.service.UserServiceImpl;
 
 public class App {
 
@@ -13,13 +13,13 @@ public class App {
 	public static void main(String[] args) {
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("com/somnus/annotation/beans.xml");
 		
-		UserService service = (UserService)ctx.getBean("userService");
+		UserServiceImpl service = (UserServiceImpl)ctx.getBean("userServiceImpl");
 		service.add();
 		
-		PeopleService people = (PeopleService)ctx.getBean("peopleService");
+		PeopleServiceImpl people = (PeopleServiceImpl)ctx.getBean("peopleServiceImpl");
 		people.add();
 		
-		PersonService person = (PersonService)ctx.getBean("personService");
+		PersonServiceImpl person = (PersonServiceImpl)ctx.getBean("personServiceImpl");
 		person.add();
 		
 		ctx.destroy();

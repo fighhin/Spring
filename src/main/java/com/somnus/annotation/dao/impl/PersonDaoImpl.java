@@ -1,10 +1,10 @@
 package com.somnus.annotation.dao.impl;
 
 import org.springframework.stereotype.Component;
-import com.somnus.annotation.dao.DAO;
+import com.somnus.annotation.dao.PersonDao;
 
-@Component("personDaoImpl") 
-public class PersonDAOImpl implements DAO {
+@Component
+public class PersonDaoImpl implements PersonDao {
 
 	public void save() 
 	{

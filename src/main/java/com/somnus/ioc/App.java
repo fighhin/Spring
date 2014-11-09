@@ -21,7 +21,7 @@ public class App {
 		System.out.println(s01+" "+s02);
 		
 		//通过文件路径来获取
-		ApplicationContext ac2 = new FileSystemXmlApplicationContext("src\\com\\somnus\\ioc\\beans.xml");
+		ApplicationContext ac2 = new FileSystemXmlApplicationContext("src\\main\\java\\com\\somnus\\ioc");
 		Student s1 = (Student) ac2.getBean("student");
 		Student s2 =(Student) ac2.getBean("student");
 		System.out.println(s1+" "+s2);

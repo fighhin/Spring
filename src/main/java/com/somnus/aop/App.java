@@ -13,7 +13,7 @@ public class App {
 	public static void main(String[] args) {
 		ApplicationContext ac=new ClassPathXmlApplicationContext("com/somnus/aop/beans.xml");
 		//拿到的是代理对象
-		UserServiceImpl service = (UserServiceImpl)ac.getBean("userService");
+		UserServiceImpl service = (UserServiceImpl)ac.getBean("userServiceImpl");
 		System.out.println(service.getClass());
 		service.add(new User());
 		
