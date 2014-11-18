@@ -7,6 +7,7 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
 
 @Aspect
@@ -43,6 +44,12 @@ public class LogInterceptor {
 	public void aroundMethod(ProceedingJoinPoint pjp) throws Throwable 
 	{
 		System.out.println("method around start");
+		System.out.println(pjp.getTarget());
+		MethodSignature signature = (MethodSignature) pjp.getSignature();
+		System.out.println(signature.getMethod());
+		for(Object obj:pjp.getArgs()){
+			System.out.println(obj);
+		}
 		pjp.proceed();
 		System.out.println("method around end");
 	}
