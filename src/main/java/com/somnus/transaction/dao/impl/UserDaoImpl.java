@@ -16,7 +16,7 @@ public class UserDaoImpl implements UserDao {
 	public void save(User user) {
 			Session s = sessionFactory.getCurrentSession();
 			s.save(user);
-			throw new RuntimeException("exeption!");
+			/*throw new RuntimeException("exeption!");*/
 	}
 
 }
