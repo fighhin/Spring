@@ -1,5 +1,8 @@
 package com.somnus.mybatis.dao;
 
+import java.util.Map;
+
+import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 import com.github.miemiedev.mybatis.paginator.domain.PageList;
 import com.somnus.mybatis.domain.UserInfo;
 import com.somnus.support.mybatis.annotation.MyBatisRepository;
@@ -11,5 +14,5 @@ public interface UserInfoDao {
 	
 	void inserUser(UserInfo user);
 	
-	PageList<UserInfo> selectByParams(String param);
+	PageList<UserInfo> selectByParams(Map<String,Object> map, PageBounds pageBounds);
 }

@@ -16,11 +16,11 @@
 		where ID = #{id,jdbcType=INTEGER}
 	</select>
 	
-	<select id="selectByParams" resultMap="BaseResultMap" parameterType="java.lang.String" >
+	<select id="selectByParams" resultMap="BaseResultMap" parameterType="java.util.Map" >
 	  	select 
 	    	<include refid="Base_Column_List" />
 	    from T_USER
 	    where 
-	    USERNAME like CONCAT('%',#{username},'%') 
+	    USERNAME like #{username,jdbcType=VARCHAR}
   </select>
 </mapper>
