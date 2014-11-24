@@ -1,4 +1,4 @@
-package com.somnus.transaction.model;
+package com.somnus.transaction.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="t_user")
+@Table(name="T_USER")
 public class User {
 	private int id;
 	private String username;

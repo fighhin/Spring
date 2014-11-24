@@ -5,8 +5,9 @@ import javax.annotation.Resource;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Component;
+
 import com.somnus.transaction.dao.UserDao;
-import com.somnus.transaction.model.User;
+import com.somnus.transaction.domain.User;
 
 @Component
 public class UserDaoImpl implements UserDao {

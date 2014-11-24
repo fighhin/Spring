@@ -1,13 +1,15 @@
 package com.somnus.transaction.service;
 
 import javax.annotation.Resource;
+
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+
 import com.somnus.transaction.dao.LogDao;
 import com.somnus.transaction.dao.UserDao;
-import com.somnus.transaction.model.Log;
-import com.somnus.transaction.model.User;
+import com.somnus.transaction.domain.Log;
+import com.somnus.transaction.domain.User;
 
 @Component
 public class UserServiceImpl {

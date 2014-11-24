@@ -1,4 +1,4 @@
-package com.somnus.transaction.model;
+package com.somnus.transaction.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="t_log")
+@Table(name="T_LOG")
 public class Log {
 	private int id;
 	private String msg;

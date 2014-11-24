@@ -1,9 +1,10 @@
 package com.somnus.transaction;
 
 import org.junit.Test;
+
 import com.somnus.AbstractTestSupport;
 import com.somnus.ApplicationContextHolder;
-import com.somnus.transaction.model.User;
+import com.somnus.transaction.domain.User;
 import com.somnus.transaction.service.UserServiceImpl;
 
 public class SpringTest extends AbstractTestSupport {
