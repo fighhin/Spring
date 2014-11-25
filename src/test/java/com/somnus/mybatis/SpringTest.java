@@ -20,6 +20,13 @@ public class SpringTest extends AbstractTestSupport {
 		System.out.println(user.getUsername());
 		System.out.println(user.getPassword());
 		
+		UserInfo  usercache1 = service.selectByKeyFromCache(1);
+		System.out.println("******"+usercache1.getUsername());
+		System.out.println("******"+usercache1.getPassword());
+		UserInfo  usercache2 = service.selectByKeyFromCache(1);
+		System.out.println("######"+usercache2.getUsername());
+		System.out.println("######"+usercache2.getPassword());
+		
 		UserInfo userparam = new UserInfo();
 		userparam.setUsername("admin%");
 		Map<String,Object> mapparam= new HashMap<String,Object>();

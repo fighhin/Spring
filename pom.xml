@@ -12,8 +12,26 @@
 
   <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- log -->
 		<slf4j.version>1.7.2</slf4j.version>
 		<logback.version>1.0.6</logback.version>
+		<!-- spring -->
+		<spring.version>3.2.5.RELEASE</spring.version>
+		<aspectj.version>1.7.4</aspectj.version>
+		<!-- mybatis -->
+        <mybatis.version>3.1.1</mybatis.version>
+        <mybatis.spring.version>1.2.2</mybatis.spring.version>
+        <mybatis.ehcache.version>1.0.0</mybatis.ehcache.version>
+        <mybatis.paginator.version>1.2.15</mybatis.paginator.version>
+        <!-- hibernate -->
+        <hibernate.version>4.2.7.SP1</hibernate.version>
+        <!-- proxy -->
+        <cglib.version>2.2.2</cglib.version>
+        <!-- datasource -->
+        <commons.dbcp.version>1.4</commons.dbcp.version>
+        <jdbcdslog.version>1.0.6.2</jdbcdslog.version>
+        <!-- cache -->
+        <ehcache.version>2.6.5</ehcache.version>
   </properties>
 	<!-- 指定Maven仓库 -->
 	<repositories>
@@ -89,78 +107,89 @@
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
-			<version>1.7.4</version>
+			<version>${aspectj.version}</version>
 		</dependency>
 
-		<!-- 加入orm依赖包 -->
+		<!-- spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
-			<version>3.2.5.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
-			<version>3.2.5.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
-			<version>3.2.5.RELEASE</version>
+			<version>${spring.version}</version>
 			<exclusions>
-				<exclusion><!--spring-orm中已经包含了commons-logging  -->
+				<exclusion>
 					<groupId>commons-logging</groupId>
 					<artifactId>commons-logging</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>
-
-		<!-- 加入hibernate依赖包 -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>4.2.7.SP1</version>
-		</dependency>
-		<!-- 加入commons-dbcp依赖包 -->
-		<dependency>
-			<groupId>commons-dbcp</groupId>
-			<artifactId>commons-dbcp</artifactId>
-			<version>1.4</version>
-		</dependency>
-		
-		<dependency>
-		  <groupId>com.googlecode.usc</groupId>
-		  <artifactId>jdbcdslog</artifactId>
-		  <version>1.0.6.2</version>
-		</dependency>
-		
-		<dependency>
-		  <groupId>cglib</groupId>
-		  <artifactId>cglib</artifactId>
-		  <version>2.2.2</version>
-		</dependency>
-		
-		<!-- 加入SpringMVC依赖包 -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>3.2.5.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
+
+		<!-- hibernate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		
+		<!-- datasource -->
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>${commons.dbcp.version}</version>
+		</dependency>
+		<dependency>
+		  <groupId>com.googlecode.usc</groupId>
+		  <artifactId>jdbcdslog</artifactId>
+		  <version>${jdbcdslog.version}</version>
+		</dependency>
+		
+		<!-- proxy -->
+		<dependency>
+		  <groupId>cglib</groupId>
+		  <artifactId>cglib</artifactId>
+		  <version>${cglib.version}</version>
+		</dependency>
+		
+		<!-- mybatis -->
 		<dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
-            <version>1.2.2</version>
+            <version>${mybatis.spring.version}</version>
         </dependency>
 		<dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
-            <version>3.1.1</version>
+            <version>${mybatis.version}</version>
         </dependency>
+        <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-ehcache</artifactId>
+                <version>${mybatis.ehcache.version}</version>
+            </dependency>
         <dependency>
 	        <groupId>com.github.miemiedev</groupId>
 	        <artifactId>mybatis-paginator</artifactId>
-	        <version>1.2.15</version>
+	        <version>${mybatis.paginator.version}</version>
 	    </dependency>
+	    <!-- cache -->
+	    <dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache-core</artifactId>
+			<version>${ehcache.version}</version>
+		</dependency>
 	</dependencies>
 </project>

@@ -1,6 +1,9 @@
 package com.somnus.mybatis.domain;
 
-public class UserInfo {
+import java.io.Serializable;
+
+public class UserInfo  implements Serializable{
+	private static final long serialVersionUID = -8458347049148062025L;
 	private int id;
 	private String username;
 	private String password;

@@ -4,10 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
+
 import com.github.miemiedev.mybatis.paginator.domain.Order;
 import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 import com.github.miemiedev.mybatis.paginator.domain.PageList;
+import com.somnus.mybatis.cache.UserInfoCache;
 import com.somnus.mybatis.dao.UserInfoDao;
 import com.somnus.mybatis.domain.UserInfo;
 
@@ -15,9 +18,15 @@ import com.somnus.mybatis.domain.UserInfo;
 public class UserInfoServiceImpl {
 	@Resource
 	private UserInfoDao userinfodao;
+	@Resource
+	private UserInfoCache userinfocache;
 	
 	public UserInfo selectByKey(int id){
 		return userinfodao.selectByKey(id);
+	}
+	
+	public UserInfo selectByKeyFromCache(int id){
+		return userinfocache.selectByKey(id);
 	}
 	
 	public void inserUser(UserInfo user){
