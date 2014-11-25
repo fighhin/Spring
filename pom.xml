@@ -49,6 +49,12 @@
 		</repository>
 	</repositories>
 	<dependencies>
+		<!-- sftp -->
+		<dependency>  
+			<groupId>com.jcraft</groupId>  
+			<artifactId>jsch</artifactId>  
+			<version>0.1.51</version>  
+		</dependency>  
 		<!--******** logback and slf4j ******** -->  
 		<dependency>  
 			<groupId>ch.qos.logback</groupId>  
@@ -176,10 +182,10 @@
             <version>${mybatis.version}</version>
         </dependency>
         <dependency>
-                <groupId>org.mybatis</groupId>
-                <artifactId>mybatis-ehcache</artifactId>
-                <version>${mybatis.ehcache.version}</version>
-            </dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-ehcache</artifactId>
+			<version>${mybatis.ehcache.version}</version>
+		</dependency>
         <dependency>
 	        <groupId>com.github.miemiedev</groupId>
 	        <artifactId>mybatis-paginator</artifactId>
@@ -191,5 +197,11 @@
 			<artifactId>ehcache-core</artifactId>
 			<version>${ehcache.version}</version>
 		</dependency>
+		<!-- dom4j需要 -->
+		<dependency>
+            <groupId>jaxen</groupId>
+            <artifactId>jaxen</artifactId>
+            <version>1.1.1</version>
+        </dependency>
 	</dependencies>
 </project>
