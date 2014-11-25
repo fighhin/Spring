@@ -11,11 +11,25 @@
   <url>http://maven.apache.org</url>
 
   <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <slf4j.version>1.7.2</slf4j.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<slf4j.version>1.7.2</slf4j.version>
 		<logback.version>1.0.6</logback.version>
   </properties>
-
+	<!-- 指定Maven仓库 -->
+	<repositories>
+		<!-- oschina的maven仓库 -->
+		<repository>
+			<id>oschinaRepository</id>
+			<name>local private nexus</name>
+			<url>http://maven.oschina.net/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 	<dependencies>
 		<!--******** logback and slf4j ******** -->  
 		<dependency>  
@@ -77,7 +91,6 @@
 			<artifactId>aspectjweaver</artifactId>
 			<version>1.7.4</version>
 		</dependency>
-
 
 		<!-- 加入orm依赖包 -->
 		<dependency>

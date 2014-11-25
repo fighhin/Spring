@@ -5,11 +5,12 @@ import javax.annotation.Resource;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.somnus.transaction.dao.UserDao;
 import com.somnus.transaction.domain.User;
 
-@Component
+@Repository
 public class UserDaoImpl implements UserDao {
 	@Resource
 	private SessionFactory sessionFactory;

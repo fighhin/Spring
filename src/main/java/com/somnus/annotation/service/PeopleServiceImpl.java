@@ -1,10 +1,10 @@
 package com.somnus.annotation.service;
 
 import javax.annotation.Resource;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import com.somnus.annotation.dao.PeopleDao;
 
-@Component
+@Service
 public class PeopleServiceImpl
 {
 	@Resource

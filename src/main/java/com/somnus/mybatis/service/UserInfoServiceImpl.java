@@ -1,21 +1,17 @@
 package com.somnus.mybatis.service;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
-
-import org.springframework.stereotype.Component;
-
+import org.springframework.stereotype.Service;
 import com.github.miemiedev.mybatis.paginator.domain.Order;
 import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 import com.github.miemiedev.mybatis.paginator.domain.PageList;
 import com.somnus.mybatis.dao.UserInfoDao;
 import com.somnus.mybatis.domain.UserInfo;
 
-@Component
+@Service
 public class UserInfoServiceImpl {
 	@Resource
 	private UserInfoDao userinfodao;

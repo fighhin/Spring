@@ -1,11 +1,10 @@
 package com.somnus.annotation.service;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import com.somnus.annotation.dao.PersonDao;
 
-@Component
+@Service
 public class PersonServiceImpl
 {
 	@Autowired
