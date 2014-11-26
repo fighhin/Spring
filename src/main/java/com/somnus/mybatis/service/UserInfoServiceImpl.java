@@ -1,6 +1,7 @@
 package com.somnus.mybatis.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -15,7 +16,7 @@ import com.somnus.mybatis.dao.UserInfoDao;
 import com.somnus.mybatis.domain.UserInfo;
 
 @Service
-public class UserInfoServiceImpl {
+public class UserInfoServiceImpl implements UserInfoService{
 	@Resource
 	private UserInfoDao userinfodao;
 	@Resource
@@ -31,6 +32,10 @@ public class UserInfoServiceImpl {
 	
 	public void inserUser(UserInfo user){
 		inserUser(user);
+	}
+	
+	public List<UserInfo> selectExceltData(){
+		return userinfodao.selectExceltData();
 	}
 	
 	public PageList<UserInfo> selectByParams(UserInfo userinfo,Map<String,Object> map){

@@ -23,4 +23,9 @@
 	    where 
 	    USERNAME like #{username,jdbcType=VARCHAR}
   </select>
+  <select id="selectExceltData" resultMap="BaseResultMap">
+	  	select 
+	    	<include refid="Base_Column_List" />
+	    from T_USER
+  </select>
 </mapper>
