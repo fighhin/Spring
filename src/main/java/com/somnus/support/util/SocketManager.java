@@ -4,11 +4,7 @@ import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.net.Socket;
-import java.net.UnknownHostException;
-
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 import org.slf4j.Logger;
@@ -40,11 +36,9 @@ public class SocketManager {
 			output = new DataOutputStream(new BufferedOutputStream(socket.getOutputStream()));
 			input = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
 			log.info("socket链接," + socketIP+ ":" + socketPort);
-			
-		} catch (UnknownHostException e) {
+		} catch (Exception e) {
 			log.error("创建连接失败：" + e.getMessage(), e);
-		} catch (IOException e) {
-			e.printStackTrace();
+			throw e;
 		}
 		log.info("socket连接成功");
 		byte[] sendArr = xmlString.getBytes("GBK");// 将字符串编码成gbk字节码
@@ -55,22 +49,28 @@ public class SocketManager {
 		int len = 0;// 接收报文长度
 		try {
 			output.writeInt(sendArr.length + signArr.length);// 消息体长度,等于xml长度加签名长度
+			
 			log.info("发送报文xml：" + new String(sendArr,"GBK"));
 			output.write(sendArr);// 发送xml数据
+			
 			log.info("发送签名xml：" + new String(signArr,"GBK"));
 			output.write(signArr);// 发送签名
+			
 			output.flush();
 			log.info("我方报文发送完毕。");
+			
 			log.info("开始读取返回结果。");
 			len = input.readInt();
 			log.info("应答报文长度：" + len);
+			
 			receiveArr = new byte[len];// 返回报文
+			
 			input.read(receiveArr);
+			
 		} catch (Exception e) {
 			log.error("对方socket异常结束");
 			throw e;
 		} finally {
-			// 关闭socket
 			output.close();
 			input.close();
 			socket.close();
@@ -78,7 +78,6 @@ public class SocketManager {
 		// 解析xml报文
 		byte[] xmlArr = new byte[len - digitSignature.getSignLength()];
 		System.arraycopy(receiveArr, 0, xmlArr, 0, xmlArr.length);
-
 		String xmlStr = new String(xmlArr, "GBK");
 		log.info("收到报文xml：" + xmlStr);
 
