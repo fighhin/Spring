@@ -9,6 +9,7 @@ import org.junit.Test;
 import com.somnus.AbstractTestSupport;
 import com.somnus.ApplicationContextHolder;
 import com.somnus.support.util.excel.impl.CommonTemplate;
+import com.somnus.support.util.velocity.CommonVelocity;
 
 public class ExcelTest extends AbstractTestSupport {
 	@Test
@@ -22,6 +23,15 @@ public class ExcelTest extends AbstractTestSupport {
 			workbook.write(out2);
 			
 			out2.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	@Test
+	public void test2(){
+		CommonVelocity temp = (CommonVelocity)ApplicationContextHolder.getBean(CommonVelocity.class);
+		try {
+			temp.createvelocityFile();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

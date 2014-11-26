@@ -221,5 +221,12 @@
           	<artifactId>jxls-core</artifactId>
           	<version>1.0.5</version>
       	</dependency>
+      	
+      	<!-- velocity -->
+      	<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity</artifactId>
+			<version>1.7</version>
+		</dependency>
 	</dependencies>
 </project>
