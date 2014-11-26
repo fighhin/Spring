@@ -31,7 +31,6 @@
         <commons.dbcp.version>1.4</commons.dbcp.version>
         <jdbcdslog.version>1.0.6.2</jdbcdslog.version>
         <!-- cache -->
-        <ehcache.version>2.6.5</ehcache.version>
   </properties>
 	<!-- 指定Maven仓库 -->
 	<repositories>
@@ -192,6 +191,11 @@
 	        <version>${mybatis.paginator.version}</version>
 	    </dependency>
 	    
+	    <dependency>
+	    	<groupId>net.sf.ehcache</groupId>
+	    	<artifactId>ehcache-core</artifactId>
+	    	<version>2.5.1</version>
+	    </dependency>
 		<!-- dom4j需要 @see http://mayatama.iteye.com/blog/1058048-->
 		<dependency>
             <groupId>jaxen</groupId>

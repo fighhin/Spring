@@ -116,3 +116,468 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No q
 16:48:52.221 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {11, 'somnus', '123456'}
 16:48:52.240 [Thread-3] INFO  o.s.c.s.GenericApplicationContext - Closing org.springframework.context.support.GenericApplicationContext@248b6c02: startup date [Wed Nov 26 16:48:49 CST 2014]; root of context hierarchy
 16:48:52.241 [Thread-3] INFO  o.s.b.f.s.DefaultListableBeanFactory - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@73a1dd83: defining beans [logInterceptor,peopleDaoImpl,personDaoImpl,peopleServiceImpl,personServiceImpl,userInfoCache,userInfoServiceImpl,digitSignature,commonTemplate,sftpManager,socketManager,commonVelocity,logDaoImpl,userDaoImpl,userServiceImpl,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,com.somnus.ApplicationContextHolder#0,velocityEngine,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,proxyDataSource,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,sessionFactory,transactionManager,sqlSessionFactory,org.mybatis.spring.mapper.MapperScannerConfigurer#0,org.springframework.cache.annotation.AnnotationCacheOperationSource#0,org.springframework.cache.interceptor.CacheInterceptor#0,org.springframework.cache.config.internalCacheAdvisor,ehCacheManager,cacheManager,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor,userInfoDao]; root of factory hierarchy
+22:22:36.583 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-basic.xml]
+22:22:36.996 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-aspect.xml]
+22:22:37.072 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-env.xml]
+22:22:37.146 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-resource-db.xml]
+22:22:37.212 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-hibernate.xml]
+22:22:37.246 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-mybatis.xml]
+22:22:37.280 [main] INFO  o.s.b.f.s.DefaultListableBeanFactory - Overriding bean definition for bean 'proxyDataSource': replacing [Generic bean: class [org.jdbcdslog.ConnectionPoolDataSourceProxy]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [spring-resource-db.xml]] with [Generic bean: class [org.jdbcdslog.ConnectionPoolDataSourceProxy]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [spring-mybatis.xml]]
+22:22:37.281 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-cache.xml]
+22:22:37.337 [main] INFO  o.s.c.s.GenericApplicationContext - Refreshing org.springframework.context.support.GenericApplicationContext@be8b327: startup date [Wed Nov 26 22:22:37 CST 2014]; root of context hierarchy
+22:22:37.651 [main] INFO  o.s.c.s.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [env/configurations-dev.properties]
+22:22:37.784 [main] INFO  o.s.b.f.s.DefaultListableBeanFactory - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@59e65cf8: defining beans [logInterceptor,peopleDaoImpl,personDaoImpl,peopleServiceImpl,personServiceImpl,userInfoCache,userInfoServiceImpl,digitSignature,commonTemplate,sftpManager,socketManager,commonVelocity,logDaoImpl,userDaoImpl,userServiceImpl,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,com.somnus.ApplicationContextHolder#0,velocityEngine,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,proxyDataSource,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,sessionFactory,transactionManager,sqlSessionFactory,org.mybatis.spring.mapper.MapperScannerConfigurer#0,org.springframework.cache.annotation.AnnotationCacheOperationSource#0,org.springframework.cache.interceptor.CacheInterceptor#0,org.springframework.cache.config.internalCacheAdvisor,ehCacheManager,cacheManager,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor,userInfoDao]; root of factory hierarchy
+22:22:38.496 [main] DEBUG o.m.spring.SqlSessionFactoryBean - Parsed configuration file: 'class path resource [mybatis/mybatis-config.xml]'
+22:22:38.552 [main] DEBUG o.m.spring.SqlSessionFactoryBean - Parsed mapper file: 'file [E:\GitHub\Spring\target\classes\mappers\user.mapper.xml]'
+22:22:38.786 [main] INFO  o.s.c.e.EhCacheManagerFactoryBean - Initializing EhCache CacheManager
+22:22:38.812 [main] INFO  o.s.b.f.s.DefaultListableBeanFactory - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@59e65cf8: defining beans [logInterceptor,peopleDaoImpl,personDaoImpl,peopleServiceImpl,personServiceImpl,userInfoCache,userInfoServiceImpl,digitSignature,commonTemplate,sftpManager,socketManager,commonVelocity,logDaoImpl,userDaoImpl,userServiceImpl,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,com.somnus.ApplicationContextHolder#0,velocityEngine,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,proxyDataSource,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,sessionFactory,transactionManager,sqlSessionFactory,org.mybatis.spring.mapper.MapperScannerConfigurer#0,org.springframework.cache.annotation.AnnotationCacheOperationSource#0,org.springframework.cache.interceptor.CacheInterceptor#0,org.springframework.cache.config.internalCacheAdvisor,ehCacheManager,cacheManager,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor,userInfoDao]; root of factory hierarchy
+22:22:38.827 [main] ERROR o.s.test.context.TestContextManager - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@610487a7] to prepare test instance [com.somnus.excel.ExcelTest@706616b3]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:99) ~[spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:122) ~[spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109) ~[spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75) ~[spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:312) ~[spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:211) [spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:288) [spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.11.jar:na]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:284) [spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:231) [spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:88) [spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229) [junit-4.11.jar:na]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) [spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71) [spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309) [junit-4.11.jar:na]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:174) [spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50) [.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38) [.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459) [.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675) [.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382) [.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192) [.cp/:na]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userInfoCache' defined in file [E:\GitHub\Spring\target\classes\com\somnus\mybatis\cache\UserInfoCache.class]: Initialization of bean failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.cache.interceptor.CacheInterceptor#0': Cannot resolve reference to bean 'cacheManager' while setting bean property 'cacheManager'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'cacheManager' defined in class path resource [spring-cache.xml]: Cannot resolve reference to bean 'ehCacheManager' while setting bean property 'cacheManager'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'ehCacheManager' defined in class path resource [spring-cache.xml]: Invocation of init method failed; nested exception is net.sf.ehcache.CacheException: Error configuring from input stream. Initial cause was null:39: Element <cache> does not allow attribute "maxEntriesLocalHeap".
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:458) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:296) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:293) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:628) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:932) ~[spring-context-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:479) ~[spring-context-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:120) ~[spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60) ~[spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:100) ~[spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:248) ~[spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContextInternal(CacheAwareContextLoaderDelegate.java:64) ~[spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:91) ~[spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	... 25 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.cache.interceptor.CacheInterceptor#0': Cannot resolve reference to bean 'cacheManager' while setting bean property 'cacheManager'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'cacheManager' defined in class path resource [spring-cache.xml]: Cannot resolve reference to bean 'ehCacheManager' while setting bean property 'cacheManager'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'ehCacheManager' defined in class path resource [spring-cache.xml]: Invocation of init method failed; nested exception is net.sf.ehcache.CacheException: Error configuring from input stream. Initial cause was null:39: Element <cache> does not allow attribute "maxEntriesLocalHeap".
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:329) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:107) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1417) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1158) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:519) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:458) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:296) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:293) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:198) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.aop.support.AbstractBeanFactoryPointcutAdvisor.getAdvice(AbstractBeanFactoryPointcutAdvisor.java:86) ~[spring-aop-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.aop.aspectj.AspectJProxyUtils.isAspectJAdvice(AspectJProxyUtils.java:66) ~[spring-aop-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.aop.aspectj.AspectJProxyUtils.makeAdvisorChainAspectJCapableIfNecessary(AspectJProxyUtils.java:49) ~[spring-aop-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.aop.aspectj.autoproxy.AspectJAwareAdvisorAutoProxyCreator.extendAdvisors(AspectJAwareAdvisorAutoProxyCreator.java:97) ~[spring-aop-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findEligibleAdvisors(AbstractAdvisorAutoProxyCreator.java:89) ~[spring-aop-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.getAdvicesAndAdvisorsForBean(AbstractAdvisorAutoProxyCreator.java:69) ~[spring-aop-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.wrapIfNecessary(AbstractAutoProxyCreator.java:359) ~[spring-aop-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.postProcessAfterInitialization(AbstractAutoProxyCreator.java:322) ~[spring-aop-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsAfterInitialization(AbstractAutowireCapableBeanFactory.java:409) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1518) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:521) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	... 39 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'cacheManager' defined in class path resource [spring-cache.xml]: Cannot resolve reference to bean 'ehCacheManager' while setting bean property 'cacheManager'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'ehCacheManager' defined in class path resource [spring-cache.xml]: Invocation of init method failed; nested exception is net.sf.ehcache.CacheException: Error configuring from input stream. Initial cause was null:39: Element <cache> does not allow attribute "maxEntriesLocalHeap".
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:329) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:107) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1417) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1158) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:519) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:458) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:296) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:293) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:323) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	... 59 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'ehCacheManager' defined in class path resource [spring-cache.xml]: Invocation of init method failed; nested exception is net.sf.ehcache.CacheException: Error configuring from input stream. Initial cause was null:39: Element <cache> does not allow attribute "maxEntriesLocalHeap".
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1512) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:521) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:458) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:323) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	... 69 common frames omitted
+Caused by: net.sf.ehcache.CacheException: Error configuring from input stream. Initial cause was null:39: Element <cache> does not allow attribute "maxEntriesLocalHeap".
+	at net.sf.ehcache.config.ConfigurationFactory.parseConfiguration(ConfigurationFactory.java:157) ~[ehcache-core-2.0.0.jar:na]
+	at net.sf.ehcache.CacheManager.parseConfiguration(CacheManager.java:503) ~[ehcache-core-2.0.0.jar:na]
+	at net.sf.ehcache.CacheManager.init(CacheManager.java:289) ~[ehcache-core-2.0.0.jar:na]
+	at net.sf.ehcache.CacheManager.<init>(CacheManager.java:268) ~[ehcache-core-2.0.0.jar:na]
+	at net.sf.ehcache.CacheManager.create(CacheManager.java:745) ~[ehcache-core-2.0.0.jar:na]
+	at org.springframework.cache.ehcache.EhCacheManagerFactoryBean.afterPropertiesSet(EhCacheManagerFactoryBean.java:136) ~[spring-context-support-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1571) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1509) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	... 74 common frames omitted
+Caused by: org.xml.sax.SAXException: null:39: Element <cache> does not allow attribute "maxEntriesLocalHeap".
+	at net.sf.ehcache.config.BeanHandler.setAttribute(BeanHandler.java:281) ~[ehcache-core-2.0.0.jar:na]
+	at net.sf.ehcache.config.BeanHandler.startElement(BeanHandler.java:112) ~[ehcache-core-2.0.0.jar:na]
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.startElement(Unknown Source) ~[na:1.7.0_55]
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanStartElement(Unknown Source) ~[na:1.7.0_55]
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(Unknown Source) ~[na:1.7.0_55]
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(Unknown Source) ~[na:1.7.0_55]
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown Source) ~[na:1.7.0_55]
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source) ~[na:1.7.0_55]
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source) ~[na:1.7.0_55]
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(Unknown Source) ~[na:1.7.0_55]
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(Unknown Source) ~[na:1.7.0_55]
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(Unknown Source) ~[na:1.7.0_55]
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl.parse(Unknown Source) ~[na:1.7.0_55]
+	at javax.xml.parsers.SAXParser.parse(Unknown Source) ~[na:1.7.0_55]
+	at net.sf.ehcache.config.ConfigurationFactory.parseConfiguration(ConfigurationFactory.java:155) ~[ehcache-core-2.0.0.jar:na]
+	... 81 common frames omitted
+22:22:38.836 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-basic.xml]
+22:22:38.928 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-aspect.xml]
+22:22:38.971 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-env.xml]
+22:22:39.028 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-resource-db.xml]
+22:22:39.069 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-hibernate.xml]
+22:22:39.098 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-mybatis.xml]
+22:22:39.119 [main] INFO  o.s.b.f.s.DefaultListableBeanFactory - Overriding bean definition for bean 'proxyDataSource': replacing [Generic bean: class [org.jdbcdslog.ConnectionPoolDataSourceProxy]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [spring-resource-db.xml]] with [Generic bean: class [org.jdbcdslog.ConnectionPoolDataSourceProxy]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [spring-mybatis.xml]]
+22:22:39.120 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-cache.xml]
+22:22:39.149 [main] INFO  o.s.c.s.GenericApplicationContext - Refreshing org.springframework.context.support.GenericApplicationContext@6b1de95e: startup date [Wed Nov 26 22:22:39 CST 2014]; root of context hierarchy
+22:22:39.196 [main] INFO  o.s.c.s.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [env/configurations-dev.properties]
+22:22:39.224 [main] INFO  o.s.b.f.s.DefaultListableBeanFactory - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@45bc24b5: defining beans [logInterceptor,peopleDaoImpl,personDaoImpl,peopleServiceImpl,personServiceImpl,userInfoCache,userInfoServiceImpl,digitSignature,commonTemplate,sftpManager,socketManager,commonVelocity,logDaoImpl,userDaoImpl,userServiceImpl,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,com.somnus.ApplicationContextHolder#0,velocityEngine,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,proxyDataSource,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,sessionFactory,transactionManager,sqlSessionFactory,org.mybatis.spring.mapper.MapperScannerConfigurer#0,org.springframework.cache.annotation.AnnotationCacheOperationSource#0,org.springframework.cache.interceptor.CacheInterceptor#0,org.springframework.cache.config.internalCacheAdvisor,ehCacheManager,cacheManager,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor,userInfoDao]; root of factory hierarchy
+22:22:39.382 [main] DEBUG o.m.spring.SqlSessionFactoryBean - Parsed configuration file: 'class path resource [mybatis/mybatis-config.xml]'
+22:22:39.411 [main] DEBUG o.m.spring.SqlSessionFactoryBean - Parsed mapper file: 'file [E:\GitHub\Spring\target\classes\mappers\user.mapper.xml]'
+22:22:39.474 [main] INFO  o.s.c.e.EhCacheManagerFactoryBean - Initializing EhCache CacheManager
+22:22:39.483 [main] INFO  o.s.b.f.s.DefaultListableBeanFactory - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@45bc24b5: defining beans [logInterceptor,peopleDaoImpl,personDaoImpl,peopleServiceImpl,personServiceImpl,userInfoCache,userInfoServiceImpl,digitSignature,commonTemplate,sftpManager,socketManager,commonVelocity,logDaoImpl,userDaoImpl,userServiceImpl,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,com.somnus.ApplicationContextHolder#0,velocityEngine,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,proxyDataSource,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,sessionFactory,transactionManager,sqlSessionFactory,org.mybatis.spring.mapper.MapperScannerConfigurer#0,org.springframework.cache.annotation.AnnotationCacheOperationSource#0,org.springframework.cache.interceptor.CacheInterceptor#0,org.springframework.cache.config.internalCacheAdvisor,ehCacheManager,cacheManager,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor,userInfoDao]; root of factory hierarchy
+22:22:39.488 [main] ERROR o.s.test.context.TestContextManager - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@610487a7] to prepare test instance [com.somnus.excel.ExcelTest@60c3e273]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:99) ~[spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:122) ~[spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109) ~[spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75) ~[spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:312) ~[spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:211) [spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:288) [spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.11.jar:na]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:284) [spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:231) [spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:88) [spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229) [junit-4.11.jar:na]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) [spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71) [spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309) [junit-4.11.jar:na]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:174) [spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50) [.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38) [.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459) [.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675) [.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382) [.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192) [.cp/:na]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userInfoCache' defined in file [E:\GitHub\Spring\target\classes\com\somnus\mybatis\cache\UserInfoCache.class]: Initialization of bean failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.cache.interceptor.CacheInterceptor#0': Cannot resolve reference to bean 'cacheManager' while setting bean property 'cacheManager'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'cacheManager' defined in class path resource [spring-cache.xml]: Cannot resolve reference to bean 'ehCacheManager' while setting bean property 'cacheManager'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'ehCacheManager' defined in class path resource [spring-cache.xml]: Invocation of init method failed; nested exception is net.sf.ehcache.CacheException: Error configuring from input stream. Initial cause was null:39: Element <cache> does not allow attribute "maxEntriesLocalHeap".
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:458) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:296) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:293) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:628) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:932) ~[spring-context-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:479) ~[spring-context-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:120) ~[spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60) ~[spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:100) ~[spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:248) ~[spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContextInternal(CacheAwareContextLoaderDelegate.java:64) ~[spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:91) ~[spring-test-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	... 25 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.cache.interceptor.CacheInterceptor#0': Cannot resolve reference to bean 'cacheManager' while setting bean property 'cacheManager'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'cacheManager' defined in class path resource [spring-cache.xml]: Cannot resolve reference to bean 'ehCacheManager' while setting bean property 'cacheManager'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'ehCacheManager' defined in class path resource [spring-cache.xml]: Invocation of init method failed; nested exception is net.sf.ehcache.CacheException: Error configuring from input stream. Initial cause was null:39: Element <cache> does not allow attribute "maxEntriesLocalHeap".
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:329) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:107) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1417) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1158) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:519) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:458) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:296) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:293) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:198) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.aop.support.AbstractBeanFactoryPointcutAdvisor.getAdvice(AbstractBeanFactoryPointcutAdvisor.java:86) ~[spring-aop-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.aop.aspectj.AspectJProxyUtils.isAspectJAdvice(AspectJProxyUtils.java:66) ~[spring-aop-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.aop.aspectj.AspectJProxyUtils.makeAdvisorChainAspectJCapableIfNecessary(AspectJProxyUtils.java:49) ~[spring-aop-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.aop.aspectj.autoproxy.AspectJAwareAdvisorAutoProxyCreator.extendAdvisors(AspectJAwareAdvisorAutoProxyCreator.java:97) ~[spring-aop-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findEligibleAdvisors(AbstractAdvisorAutoProxyCreator.java:89) ~[spring-aop-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.getAdvicesAndAdvisorsForBean(AbstractAdvisorAutoProxyCreator.java:69) ~[spring-aop-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.wrapIfNecessary(AbstractAutoProxyCreator.java:359) ~[spring-aop-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.postProcessAfterInitialization(AbstractAutoProxyCreator.java:322) ~[spring-aop-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsAfterInitialization(AbstractAutowireCapableBeanFactory.java:409) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1518) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:521) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	... 39 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'cacheManager' defined in class path resource [spring-cache.xml]: Cannot resolve reference to bean 'ehCacheManager' while setting bean property 'cacheManager'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'ehCacheManager' defined in class path resource [spring-cache.xml]: Invocation of init method failed; nested exception is net.sf.ehcache.CacheException: Error configuring from input stream. Initial cause was null:39: Element <cache> does not allow attribute "maxEntriesLocalHeap".
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:329) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:107) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1417) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1158) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:519) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:458) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:296) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:293) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:323) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	... 59 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'ehCacheManager' defined in class path resource [spring-cache.xml]: Invocation of init method failed; nested exception is net.sf.ehcache.CacheException: Error configuring from input stream. Initial cause was null:39: Element <cache> does not allow attribute "maxEntriesLocalHeap".
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1512) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:521) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:458) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:323) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	... 69 common frames omitted
+Caused by: net.sf.ehcache.CacheException: Error configuring from input stream. Initial cause was null:39: Element <cache> does not allow attribute "maxEntriesLocalHeap".
+	at net.sf.ehcache.config.ConfigurationFactory.parseConfiguration(ConfigurationFactory.java:157) ~[ehcache-core-2.0.0.jar:na]
+	at net.sf.ehcache.CacheManager.parseConfiguration(CacheManager.java:503) ~[ehcache-core-2.0.0.jar:na]
+	at net.sf.ehcache.CacheManager.init(CacheManager.java:289) ~[ehcache-core-2.0.0.jar:na]
+	at net.sf.ehcache.CacheManager.<init>(CacheManager.java:268) ~[ehcache-core-2.0.0.jar:na]
+	at net.sf.ehcache.CacheManager.create(CacheManager.java:745) ~[ehcache-core-2.0.0.jar:na]
+	at org.springframework.cache.ehcache.EhCacheManagerFactoryBean.afterPropertiesSet(EhCacheManagerFactoryBean.java:136) ~[spring-context-support-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1571) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1509) ~[spring-beans-3.2.5.RELEASE.jar:3.2.5.RELEASE]
+	... 74 common frames omitted
+Caused by: org.xml.sax.SAXException: null:39: Element <cache> does not allow attribute "maxEntriesLocalHeap".
+	at net.sf.ehcache.config.BeanHandler.setAttribute(BeanHandler.java:281) ~[ehcache-core-2.0.0.jar:na]
+	at net.sf.ehcache.config.BeanHandler.startElement(BeanHandler.java:112) ~[ehcache-core-2.0.0.jar:na]
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.startElement(Unknown Source) ~[na:1.7.0_55]
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanStartElement(Unknown Source) ~[na:1.7.0_55]
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(Unknown Source) ~[na:1.7.0_55]
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(Unknown Source) ~[na:1.7.0_55]
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown Source) ~[na:1.7.0_55]
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source) ~[na:1.7.0_55]
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source) ~[na:1.7.0_55]
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(Unknown Source) ~[na:1.7.0_55]
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(Unknown Source) ~[na:1.7.0_55]
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(Unknown Source) ~[na:1.7.0_55]
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl.parse(Unknown Source) ~[na:1.7.0_55]
+	at javax.xml.parsers.SAXParser.parse(Unknown Source) ~[na:1.7.0_55]
+	at net.sf.ehcache.config.ConfigurationFactory.parseConfiguration(ConfigurationFactory.java:155) ~[ehcache-core-2.0.0.jar:na]
+	... 81 common frames omitted
+22:25:17.895 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-basic.xml]
+22:25:18.255 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-aspect.xml]
+22:25:18.328 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-env.xml]
+22:25:18.401 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-resource-db.xml]
+22:25:18.452 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-hibernate.xml]
+22:25:18.493 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-mybatis.xml]
+22:25:18.525 [main] INFO  o.s.b.f.s.DefaultListableBeanFactory - Overriding bean definition for bean 'proxyDataSource': replacing [Generic bean: class [org.jdbcdslog.ConnectionPoolDataSourceProxy]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [spring-resource-db.xml]] with [Generic bean: class [org.jdbcdslog.ConnectionPoolDataSourceProxy]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [spring-mybatis.xml]]
+22:25:18.527 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-cache.xml]
+22:25:18.584 [main] INFO  o.s.c.s.GenericApplicationContext - Refreshing org.springframework.context.support.GenericApplicationContext@4e392db8: startup date [Wed Nov 26 22:25:18 CST 2014]; root of context hierarchy
+22:25:18.840 [main] INFO  o.s.c.s.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [env/configurations-dev.properties]
+22:25:18.962 [main] INFO  o.s.b.f.s.DefaultListableBeanFactory - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@22e1cbe4: defining beans [logInterceptor,peopleDaoImpl,personDaoImpl,peopleServiceImpl,personServiceImpl,userInfoCache,userInfoServiceImpl,digitSignature,commonTemplate,sftpManager,socketManager,commonVelocity,logDaoImpl,userDaoImpl,userServiceImpl,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,com.somnus.ApplicationContextHolder#0,velocityEngine,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,proxyDataSource,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,sessionFactory,transactionManager,sqlSessionFactory,org.mybatis.spring.mapper.MapperScannerConfigurer#0,org.springframework.cache.annotation.AnnotationCacheOperationSource#0,org.springframework.cache.interceptor.CacheInterceptor#0,org.springframework.cache.config.internalCacheAdvisor,ehCacheManager,cacheManager,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor,userInfoDao]; root of factory hierarchy
+22:25:19.783 [main] DEBUG o.m.spring.SqlSessionFactoryBean - Parsed configuration file: 'class path resource [mybatis/mybatis-config.xml]'
+22:25:19.836 [main] DEBUG o.m.spring.SqlSessionFactoryBean - Parsed mapper file: 'file [E:\GitHub\Spring\target\classes\mappers\user.mapper.xml]'
+22:25:20.089 [main] INFO  o.s.c.e.EhCacheManagerFactoryBean - Initializing EhCache CacheManager
+22:25:20.328 [main] WARN  net.sf.ehcache.Cache - Cache: cache.somnus.userinfo has a maxElementsInMemory of 0.  In Ehcache 2.0 this has been changed to mean a store with no capacity limit.
+22:25:20.695 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+22:25:20.700 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {4.2.7.SP1}
+22:25:20.703 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+22:25:20.704 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+22:25:21.727 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+22:25:21.897 [main] INFO  o.h.e.t.i.TransactionFactoryInitiator - HHH000399: Using default transaction strategy (direct JDBC transactions)
+22:25:21.903 [main] INFO  o.h.h.i.a.ASTQueryTranslatorFactory - HHH000397: Using ASTQueryTranslatorFactory
+22:25:22.249 [main] INFO  o.s.o.h.HibernateTransactionManager - Using DataSource [org.apache.commons.dbcp.BasicDataSource@4409c8a7] of Hibernate SessionFactory for HibernateTransactionManager
+22:25:22.286 [main] INFO  com.somnus.excel.ExcelTest - 调用测试方法: test1
+22:25:22.344 [main] INFO  org.jdbcdslog.ConnectionLogger - connect to URL jdbc:mysql://localhost:3306/demo for user root@localhost
+22:25:22.357 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ooo Using Connection [jdbc:mysql://localhost:3306/demo, UserName=root@localhost, MySQL Connector Java]
+22:25:22.361 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ==>  Preparing: select ID,USERNAME,PASSWORD from T_USER 
+22:25:22.402 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ==> Parameters: 
+22:25:22.404 [main] INFO  org.jdbcdslog.StatementLogger - select 
+	    	 
+		ID,USERNAME,PASSWORD
+	 
+	    from T_USER;
+22:25:22.441 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {1, 'admin', '123456'}
+22:25:22.443 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {2, 'admin2', '123456'}
+22:25:22.443 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {3, 'admin3', '123456'}
+22:25:22.443 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {5, 'somnus', '123456'}
+22:25:22.444 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {6, 'somnus', '123456'}
+22:25:22.444 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {7, 'somnus', '123456'}
+22:25:22.448 [main] INFO  org.jdbcdslog.ConnectionLogger - connect to URL jdbc:mysql://localhost:3306/demo for user root@localhost
+22:25:22.449 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ooo Using Connection [jdbc:mysql://localhost:3306/demo, UserName=root@localhost, MySQL Connector Java]
+22:25:22.450 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ==>  Preparing: select ID,USERNAME,PASSWORD from T_USER 
+22:25:22.450 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ==> Parameters: 
+22:25:22.451 [main] INFO  org.jdbcdslog.StatementLogger - select 
+	    	 
+		ID,USERNAME,PASSWORD
+	 
+	    from T_USER;
+22:25:22.451 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {1, 'admin', '123456'}
+22:25:22.452 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {2, 'admin2', '123456'}
+22:25:22.452 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {3, 'admin3', '123456'}
+22:25:22.453 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {5, 'somnus', '123456'}
+22:25:22.453 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {6, 'somnus', '123456'}
+22:25:22.453 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {7, 'somnus', '123456'}
+22:25:22.455 [main] INFO  org.jdbcdslog.ConnectionLogger - connect to URL jdbc:mysql://localhost:3306/demo for user root@localhost
+22:25:22.456 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ooo Using Connection [jdbc:mysql://localhost:3306/demo, UserName=root@localhost, MySQL Connector Java]
+22:25:22.456 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ==>  Preparing: select ID,USERNAME,PASSWORD from T_USER 
+22:25:22.456 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ==> Parameters: 
+22:25:22.457 [main] INFO  org.jdbcdslog.StatementLogger - select 
+	    	 
+		ID,USERNAME,PASSWORD
+	 
+	    from T_USER;
+22:25:22.458 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {1, 'admin', '123456'}
+22:25:22.458 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {2, 'admin2', '123456'}
+22:25:22.458 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {3, 'admin3', '123456'}
+22:25:22.458 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {5, 'somnus', '123456'}
+22:25:22.460 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {6, 'somnus', '123456'}
+22:25:22.460 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {7, 'somnus', '123456'}
+22:25:22.462 [main] INFO  org.jdbcdslog.ConnectionLogger - connect to URL jdbc:mysql://localhost:3306/demo for user root@localhost
+22:25:22.462 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ooo Using Connection [jdbc:mysql://localhost:3306/demo, UserName=root@localhost, MySQL Connector Java]
+22:25:22.463 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ==>  Preparing: select ID,USERNAME,PASSWORD from T_USER 
+22:25:22.463 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ==> Parameters: 
+22:25:22.464 [main] INFO  org.jdbcdslog.StatementLogger - select 
+	    	 
+		ID,USERNAME,PASSWORD
+	 
+	    from T_USER;
+22:25:22.464 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {1, 'admin', '123456'}
+22:25:22.465 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {2, 'admin2', '123456'}
+22:25:22.465 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {3, 'admin3', '123456'}
+22:25:22.465 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {5, 'somnus', '123456'}
+22:25:22.466 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {6, 'somnus', '123456'}
+22:25:22.466 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {7, 'somnus', '123456'}
+22:25:23.816 [main] INFO  com.somnus.excel.ExcelTest - 调用测试方法: test2
+22:25:23.818 [main] INFO  org.jdbcdslog.ConnectionLogger - connect to URL jdbc:mysql://localhost:3306/demo for user root@localhost
+22:25:23.819 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ooo Using Connection [jdbc:mysql://localhost:3306/demo, UserName=root@localhost, MySQL Connector Java]
+22:25:23.819 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ==>  Preparing: select ID,USERNAME,PASSWORD from T_USER 
+22:25:23.819 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ==> Parameters: 
+22:25:23.820 [main] INFO  org.jdbcdslog.StatementLogger - select 
+	    	 
+		ID,USERNAME,PASSWORD
+	 
+	    from T_USER;
+22:25:23.820 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {1, 'admin', '123456'}
+22:25:23.821 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {2, 'admin2', '123456'}
+22:25:23.821 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {3, 'admin3', '123456'}
+22:25:23.821 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {5, 'somnus', '123456'}
+22:25:23.821 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {6, 'somnus', '123456'}
+22:25:23.822 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {7, 'somnus', '123456'}
+22:25:23.847 [Thread-2] INFO  o.s.c.s.GenericApplicationContext - Closing org.springframework.context.support.GenericApplicationContext@4e392db8: startup date [Wed Nov 26 22:25:18 CST 2014]; root of context hierarchy
+22:25:23.848 [Thread-2] INFO  o.s.b.f.s.DefaultListableBeanFactory - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@22e1cbe4: defining beans [logInterceptor,peopleDaoImpl,personDaoImpl,peopleServiceImpl,personServiceImpl,userInfoCache,userInfoServiceImpl,digitSignature,commonTemplate,sftpManager,socketManager,commonVelocity,logDaoImpl,userDaoImpl,userServiceImpl,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,com.somnus.ApplicationContextHolder#0,velocityEngine,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,proxyDataSource,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,sessionFactory,transactionManager,sqlSessionFactory,org.mybatis.spring.mapper.MapperScannerConfigurer#0,org.springframework.cache.annotation.AnnotationCacheOperationSource#0,org.springframework.cache.interceptor.CacheInterceptor#0,org.springframework.cache.config.internalCacheAdvisor,ehCacheManager,cacheManager,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor,userInfoDao]; root of factory hierarchy
+22:32:01.299 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-basic.xml]
+22:32:01.657 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-aspect.xml]
+22:32:01.727 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-env.xml]
+22:32:01.794 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-resource-db.xml]
+22:32:01.848 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-hibernate.xml]
+22:32:01.880 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-mybatis.xml]
+22:32:01.918 [main] INFO  o.s.b.f.s.DefaultListableBeanFactory - Overriding bean definition for bean 'proxyDataSource': replacing [Generic bean: class [org.jdbcdslog.ConnectionPoolDataSourceProxy]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [spring-resource-db.xml]] with [Generic bean: class [org.jdbcdslog.ConnectionPoolDataSourceProxy]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [spring-mybatis.xml]]
+22:32:01.920 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-cache.xml]
+22:32:01.979 [main] INFO  o.s.c.s.GenericApplicationContext - Refreshing org.springframework.context.support.GenericApplicationContext@4e392db8: startup date [Wed Nov 26 22:32:01 CST 2014]; root of context hierarchy
+22:32:02.224 [main] INFO  o.s.c.s.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [env/configurations-dev.properties]
+22:32:02.323 [main] INFO  o.s.b.f.s.DefaultListableBeanFactory - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@64e68408: defining beans [logInterceptor,peopleDaoImpl,personDaoImpl,peopleServiceImpl,personServiceImpl,userInfoCache,userInfoServiceImpl,digitSignature,commonTemplate,sftpManager,socketManager,commonVelocity,logDaoImpl,userDaoImpl,userServiceImpl,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,com.somnus.ApplicationContextHolder#0,velocityEngine,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,proxyDataSource,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,sessionFactory,transactionManager,sqlSessionFactory,org.mybatis.spring.mapper.MapperScannerConfigurer#0,org.springframework.cache.annotation.AnnotationCacheOperationSource#0,org.springframework.cache.interceptor.CacheInterceptor#0,org.springframework.cache.config.internalCacheAdvisor,ehCacheManager,cacheManager,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor,userInfoDao]; root of factory hierarchy
+22:32:03.110 [main] DEBUG o.m.spring.SqlSessionFactoryBean - Parsed configuration file: 'class path resource [mybatis/mybatis-config.xml]'
+22:32:03.163 [main] DEBUG o.m.spring.SqlSessionFactoryBean - Parsed mapper file: 'file [E:\GitHub\Spring\target\classes\mappers\user.mapper.xml]'
+22:32:03.393 [main] INFO  o.s.c.e.EhCacheManagerFactoryBean - Initializing EhCache CacheManager
+22:32:04.056 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+22:32:04.063 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {4.2.7.SP1}
+22:32:04.065 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+22:32:04.067 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+22:32:05.122 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+22:32:05.286 [main] INFO  o.h.e.t.i.TransactionFactoryInitiator - HHH000399: Using default transaction strategy (direct JDBC transactions)
+22:32:05.298 [main] INFO  o.h.h.i.a.ASTQueryTranslatorFactory - HHH000397: Using ASTQueryTranslatorFactory
+22:32:05.712 [main] INFO  o.s.o.h.HibernateTransactionManager - Using DataSource [org.apache.commons.dbcp.BasicDataSource@1a00a506] of Hibernate SessionFactory for HibernateTransactionManager
+22:32:05.751 [main] INFO  com.somnus.excel.ExcelTest - 调用测试方法: test1
+22:32:05.809 [main] INFO  org.jdbcdslog.ConnectionLogger - connect to URL jdbc:mysql://localhost:3306/demo for user root@localhost
+22:32:05.824 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ooo Using Connection [jdbc:mysql://localhost:3306/demo, UserName=root@localhost, MySQL Connector Java]
+22:32:05.829 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ==>  Preparing: select ID,USERNAME,PASSWORD from T_USER 
+22:32:05.872 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ==> Parameters: 
+22:32:05.875 [main] INFO  org.jdbcdslog.StatementLogger - select 
+	    	 
+		ID,USERNAME,PASSWORD
+	 
+	    from T_USER;
+22:32:05.911 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {1, 'admin', '123456'}
+22:32:05.913 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {2, 'admin2', '123456'}
+22:32:05.913 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {3, 'admin3', '123456'}
+22:32:05.914 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {5, 'somnus', '123456'}
+22:32:05.914 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {6, 'somnus', '123456'}
+22:32:05.915 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {7, 'somnus', '123456'}
+22:32:05.919 [main] INFO  org.jdbcdslog.ConnectionLogger - connect to URL jdbc:mysql://localhost:3306/demo for user root@localhost
+22:32:05.920 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ooo Using Connection [jdbc:mysql://localhost:3306/demo, UserName=root@localhost, MySQL Connector Java]
+22:32:05.920 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ==>  Preparing: select ID,USERNAME,PASSWORD from T_USER 
+22:32:05.920 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ==> Parameters: 
+22:32:05.921 [main] INFO  org.jdbcdslog.StatementLogger - select 
+	    	 
+		ID,USERNAME,PASSWORD
+	 
+	    from T_USER;
+22:32:05.922 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {1, 'admin', '123456'}
+22:32:05.922 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {2, 'admin2', '123456'}
+22:32:05.923 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {3, 'admin3', '123456'}
+22:32:05.923 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {5, 'somnus', '123456'}
+22:32:05.924 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {6, 'somnus', '123456'}
+22:32:05.924 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {7, 'somnus', '123456'}
+22:32:05.927 [main] INFO  org.jdbcdslog.ConnectionLogger - connect to URL jdbc:mysql://localhost:3306/demo for user root@localhost
+22:32:05.927 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ooo Using Connection [jdbc:mysql://localhost:3306/demo, UserName=root@localhost, MySQL Connector Java]
+22:32:05.927 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ==>  Preparing: select ID,USERNAME,PASSWORD from T_USER 
+22:32:05.927 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ==> Parameters: 
+22:32:05.929 [main] INFO  org.jdbcdslog.StatementLogger - select 
+	    	 
+		ID,USERNAME,PASSWORD
+	 
+	    from T_USER;
+22:32:05.929 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {1, 'admin', '123456'}
+22:32:05.929 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {2, 'admin2', '123456'}
+22:32:05.930 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {3, 'admin3', '123456'}
+22:32:05.930 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {5, 'somnus', '123456'}
+22:32:05.931 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {6, 'somnus', '123456'}
+22:32:05.931 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {7, 'somnus', '123456'}
+22:32:05.934 [main] INFO  org.jdbcdslog.ConnectionLogger - connect to URL jdbc:mysql://localhost:3306/demo for user root@localhost
+22:32:05.935 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ooo Using Connection [jdbc:mysql://localhost:3306/demo, UserName=root@localhost, MySQL Connector Java]
+22:32:05.935 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ==>  Preparing: select ID,USERNAME,PASSWORD from T_USER 
+22:32:05.935 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ==> Parameters: 
+22:32:05.936 [main] INFO  org.jdbcdslog.StatementLogger - select 
+	    	 
+		ID,USERNAME,PASSWORD
+	 
+	    from T_USER;
+22:32:05.937 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {1, 'admin', '123456'}
+22:32:05.937 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {2, 'admin2', '123456'}
+22:32:05.937 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {3, 'admin3', '123456'}
+22:32:05.937 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {5, 'somnus', '123456'}
+22:32:05.938 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {6, 'somnus', '123456'}
+22:32:05.938 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {7, 'somnus', '123456'}
+22:32:07.188 [main] INFO  com.somnus.excel.ExcelTest - 调用测试方法: test2
+22:32:07.190 [main] INFO  org.jdbcdslog.ConnectionLogger - connect to URL jdbc:mysql://localhost:3306/demo for user root@localhost
+22:32:07.191 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ooo Using Connection [jdbc:mysql://localhost:3306/demo, UserName=root@localhost, MySQL Connector Java]
+22:32:07.191 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ==>  Preparing: select ID,USERNAME,PASSWORD from T_USER 
+22:32:07.191 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ==> Parameters: 
+22:32:07.192 [main] INFO  org.jdbcdslog.StatementLogger - select 
+	    	 
+		ID,USERNAME,PASSWORD
+	 
+	    from T_USER;
+22:32:07.193 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {1, 'admin', '123456'}
+22:32:07.193 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {2, 'admin2', '123456'}
+22:32:07.193 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {3, 'admin3', '123456'}
+22:32:07.193 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {5, 'somnus', '123456'}
+22:32:07.194 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {6, 'somnus', '123456'}
+22:32:07.194 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {7, 'somnus', '123456'}
+22:32:07.220 [Thread-2] INFO  o.s.c.s.GenericApplicationContext - Closing org.springframework.context.support.GenericApplicationContext@4e392db8: startup date [Wed Nov 26 22:32:01 CST 2014]; root of context hierarchy
+22:32:07.221 [Thread-2] INFO  o.s.b.f.s.DefaultListableBeanFactory - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@64e68408: defining beans [logInterceptor,peopleDaoImpl,personDaoImpl,peopleServiceImpl,personServiceImpl,userInfoCache,userInfoServiceImpl,digitSignature,commonTemplate,sftpManager,socketManager,commonVelocity,logDaoImpl,userDaoImpl,userServiceImpl,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,com.somnus.ApplicationContextHolder#0,velocityEngine,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,proxyDataSource,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,sessionFactory,transactionManager,sqlSessionFactory,org.mybatis.spring.mapper.MapperScannerConfigurer#0,org.springframework.cache.annotation.AnnotationCacheOperationSource#0,org.springframework.cache.interceptor.CacheInterceptor#0,org.springframework.cache.config.internalCacheAdvisor,ehCacheManager,cacheManager,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor,userInfoDao]; root of factory hierarchy
