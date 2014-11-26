@@ -15,9 +15,6 @@
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository" />
 	</context:component-scan>
 	
-	<!-- 启用注解 -->
-	<context:annotation-config/>
-	
     <!-- application 上下文 -->
     <bean class="com.somnus.ApplicationContextHolder"/>
     
