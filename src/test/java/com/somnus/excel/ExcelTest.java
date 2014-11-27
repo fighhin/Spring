@@ -16,11 +16,9 @@ public class ExcelTest extends AbstractTestSupport {
 	public void test1(){
 		CommonTemplate temp = (CommonTemplate)ApplicationContextHolder.getBean(CommonTemplate.class);
 		try {
-			Workbook workbook = temp.exportReport("", "");
-			
 			OutputStream out2 = new FileOutputStream("E://b.xlsx");
 			
-			workbook.write(out2);
+			temp.export(null, null, out2);
 			
 			out2.close();
 		} catch (Exception e) {

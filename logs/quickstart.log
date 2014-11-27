@@ -581,3 +581,129 @@ Caused by: org.xml.sax.SAXException: null:39: Element <cache> does not allow att
 22:32:07.194 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {7, 'somnus', '123456'}
 22:32:07.220 [Thread-2] INFO  o.s.c.s.GenericApplicationContext - Closing org.springframework.context.support.GenericApplicationContext@4e392db8: startup date [Wed Nov 26 22:32:01 CST 2014]; root of context hierarchy
 22:32:07.221 [Thread-2] INFO  o.s.b.f.s.DefaultListableBeanFactory - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@64e68408: defining beans [logInterceptor,peopleDaoImpl,personDaoImpl,peopleServiceImpl,personServiceImpl,userInfoCache,userInfoServiceImpl,digitSignature,commonTemplate,sftpManager,socketManager,commonVelocity,logDaoImpl,userDaoImpl,userServiceImpl,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,com.somnus.ApplicationContextHolder#0,velocityEngine,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,proxyDataSource,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,sessionFactory,transactionManager,sqlSessionFactory,org.mybatis.spring.mapper.MapperScannerConfigurer#0,org.springframework.cache.annotation.AnnotationCacheOperationSource#0,org.springframework.cache.interceptor.CacheInterceptor#0,org.springframework.cache.config.internalCacheAdvisor,ehCacheManager,cacheManager,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor,userInfoDao]; root of factory hierarchy
+11:34:00.980 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-basic.xml]
+11:34:02.256 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-aspect.xml]
+11:34:02.382 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-env.xml]
+11:34:02.525 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-resource-db.xml]
+11:34:02.718 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-hibernate.xml]
+11:34:02.731 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-mybatis.xml]
+11:34:02.752 [main] INFO  o.s.b.f.s.DefaultListableBeanFactory - Overriding bean definition for bean 'proxyDataSource': replacing [Generic bean: class [org.jdbcdslog.ConnectionPoolDataSourceProxy]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [spring-resource-db.xml]] with [Generic bean: class [org.jdbcdslog.ConnectionPoolDataSourceProxy]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [spring-mybatis.xml]]
+11:34:02.753 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-cache.xml]
+11:34:02.800 [main] INFO  o.s.c.s.GenericApplicationContext - Refreshing org.springframework.context.support.GenericApplicationContext@6d441cce: startup date [Thu Nov 27 11:34:02 CST 2014]; root of context hierarchy
+11:34:03.111 [main] INFO  o.s.c.s.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [env/configurations-dev.properties]
+11:34:03.355 [main] INFO  o.s.b.f.s.DefaultListableBeanFactory - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@4fc9df6: defining beans [logInterceptor,peopleDaoImpl,personDaoImpl,peopleServiceImpl,personServiceImpl,userInfoCache,userInfoServiceImpl,digitSignature,commonTemplate,sftpManager,socketManager,commonVelocity,logDaoImpl,userDaoImpl,userServiceImpl,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,com.somnus.ApplicationContextHolder#0,velocityEngine,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,proxyDataSource,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,sessionFactory,transactionManager,sqlSessionFactory,org.mybatis.spring.mapper.MapperScannerConfigurer#0,org.springframework.cache.annotation.AnnotationCacheOperationSource#0,org.springframework.cache.interceptor.CacheInterceptor#0,org.springframework.cache.config.internalCacheAdvisor,ehCacheManager,cacheManager,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor,userInfoDao]; root of factory hierarchy
+11:34:04.448 [main] DEBUG o.m.spring.SqlSessionFactoryBean - Parsed configuration file: 'class path resource [mybatis/mybatis-config.xml]'
+11:34:04.542 [main] DEBUG o.m.spring.SqlSessionFactoryBean - Parsed mapper file: 'file [E:\github\Spring\target\classes\mappers\user.mapper.xml]'
+11:34:04.818 [main] INFO  o.s.c.e.EhCacheManagerFactoryBean - Initializing EhCache CacheManager
+11:34:07.056 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+11:34:07.061 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {4.2.7.SP1}
+11:34:07.062 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+11:34:07.064 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+11:34:09.286 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+11:34:09.490 [main] INFO  o.h.e.t.i.TransactionFactoryInitiator - HHH000399: Using default transaction strategy (direct JDBC transactions)
+11:34:09.494 [main] INFO  o.h.h.i.a.ASTQueryTranslatorFactory - HHH000397: Using ASTQueryTranslatorFactory
+11:34:10.123 [main] INFO  o.s.o.h.HibernateTransactionManager - Using DataSource [org.apache.commons.dbcp.BasicDataSource@68304b52] of Hibernate SessionFactory for HibernateTransactionManager
+11:34:10.152 [main] INFO  com.somnus.excel.ExcelTest - 调用测试方法: test1
+11:34:10.277 [main] INFO  org.jdbcdslog.ConnectionLogger - connect to URL jdbc:mysql://localhost:3306/demo for user root@localhost
+11:34:10.285 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ooo Using Connection [jdbc:mysql://localhost:3306/demo, UserName=root@localhost, MySQL Connector Java]
+11:34:10.288 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ==>  Preparing: select ID,USERNAME,PASSWORD from T_USER 
+11:34:10.342 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ==> Parameters: 
+11:34:10.696 [main] INFO  org.jdbcdslog.StatementLogger - select 
+	    	 
+		ID,USERNAME,PASSWORD
+	 
+	    from T_USER;
+11:34:10.758 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {1, 'admin', '123456'}
+11:34:10.759 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {2, 'admin2', '123456'}
+11:34:10.760 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {3, 'admin3', '123456'}
+11:34:10.760 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {4, 'admin4', '123456'}
+11:34:10.761 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {5, 'somnus', '123456'}
+11:34:10.761 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {6, 'somnus', '123456'}
+11:34:10.762 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {7, 'admin7', '123456'}
+11:34:10.762 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {8, 'admin8', '123456'}
+11:34:10.763 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {9, 'somnus', '123456'}
+11:34:10.763 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {10, 'somnus', '123456'}
+11:34:10.763 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {11, 'somnus', '123456'}
+11:34:10.774 [main] INFO  org.jdbcdslog.ConnectionLogger - connect to URL jdbc:mysql://localhost:3306/demo for user root@localhost
+11:34:10.774 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ooo Using Connection [jdbc:mysql://localhost:3306/demo, UserName=root@localhost, MySQL Connector Java]
+11:34:10.775 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ==>  Preparing: select ID,USERNAME,PASSWORD from T_USER 
+11:34:10.775 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ==> Parameters: 
+11:34:10.775 [main] INFO  org.jdbcdslog.StatementLogger - select 
+	    	 
+		ID,USERNAME,PASSWORD
+	 
+	    from T_USER;
+11:34:10.776 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {1, 'admin', '123456'}
+11:34:10.776 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {2, 'admin2', '123456'}
+11:34:10.776 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {3, 'admin3', '123456'}
+11:34:10.776 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {4, 'admin4', '123456'}
+11:34:10.776 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {5, 'somnus', '123456'}
+11:34:10.777 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {6, 'somnus', '123456'}
+11:34:10.777 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {7, 'admin7', '123456'}
+11:34:10.778 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {8, 'admin8', '123456'}
+11:34:10.778 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {9, 'somnus', '123456'}
+11:34:10.778 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {10, 'somnus', '123456'}
+11:34:10.778 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {11, 'somnus', '123456'}
+11:34:10.779 [main] INFO  org.jdbcdslog.ConnectionLogger - connect to URL jdbc:mysql://localhost:3306/demo for user root@localhost
+11:34:10.780 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ooo Using Connection [jdbc:mysql://localhost:3306/demo, UserName=root@localhost, MySQL Connector Java]
+11:34:10.780 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ==>  Preparing: select ID,USERNAME,PASSWORD from T_USER 
+11:34:10.780 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ==> Parameters: 
+11:34:10.781 [main] INFO  org.jdbcdslog.StatementLogger - select 
+	    	 
+		ID,USERNAME,PASSWORD
+	 
+	    from T_USER;
+11:34:10.781 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {1, 'admin', '123456'}
+11:34:10.781 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {2, 'admin2', '123456'}
+11:34:10.781 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {3, 'admin3', '123456'}
+11:34:10.781 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {4, 'admin4', '123456'}
+11:34:10.782 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {5, 'somnus', '123456'}
+11:34:10.782 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {6, 'somnus', '123456'}
+11:34:10.782 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {7, 'admin7', '123456'}
+11:34:10.782 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {8, 'admin8', '123456'}
+11:34:10.782 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {9, 'somnus', '123456'}
+11:34:10.782 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {10, 'somnus', '123456'}
+11:34:10.782 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {11, 'somnus', '123456'}
+11:34:10.784 [main] INFO  org.jdbcdslog.ConnectionLogger - connect to URL jdbc:mysql://localhost:3306/demo for user root@localhost
+11:34:10.784 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ooo Using Connection [jdbc:mysql://localhost:3306/demo, UserName=root@localhost, MySQL Connector Java]
+11:34:10.784 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ==>  Preparing: select ID,USERNAME,PASSWORD from T_USER 
+11:34:10.784 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ==> Parameters: 
+11:34:10.785 [main] INFO  org.jdbcdslog.StatementLogger - select 
+	    	 
+		ID,USERNAME,PASSWORD
+	 
+	    from T_USER;
+11:34:10.785 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {1, 'admin', '123456'}
+11:34:10.785 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {2, 'admin2', '123456'}
+11:34:10.786 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {3, 'admin3', '123456'}
+11:34:10.786 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {4, 'admin4', '123456'}
+11:34:10.786 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {5, 'somnus', '123456'}
+11:34:10.786 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {6, 'somnus', '123456'}
+11:34:10.786 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {7, 'admin7', '123456'}
+11:34:10.786 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {8, 'admin8', '123456'}
+11:34:10.786 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {9, 'somnus', '123456'}
+11:34:10.787 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {10, 'somnus', '123456'}
+11:34:10.787 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {11, 'somnus', '123456'}
+11:34:13.376 [main] INFO  com.somnus.excel.ExcelTest - 调用测试方法: test2
+11:34:13.377 [main] INFO  org.jdbcdslog.ConnectionLogger - connect to URL jdbc:mysql://localhost:3306/demo for user root@localhost
+11:34:13.377 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ooo Using Connection [jdbc:mysql://localhost:3306/demo, UserName=root@localhost, MySQL Connector Java]
+11:34:13.377 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ==>  Preparing: select ID,USERNAME,PASSWORD from T_USER 
+11:34:13.378 [main] DEBUG c.s.m.d.UserInfoDao.selectExceltData - ==> Parameters: 
+11:34:13.378 [main] INFO  org.jdbcdslog.StatementLogger - select 
+	    	 
+		ID,USERNAME,PASSWORD
+	 
+	    from T_USER;
+11:34:13.379 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {1, 'admin', '123456'}
+11:34:13.379 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {2, 'admin2', '123456'}
+11:34:13.379 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {3, 'admin3', '123456'}
+11:34:13.379 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {4, 'admin4', '123456'}
+11:34:13.379 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {5, 'somnus', '123456'}
+11:34:13.379 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {6, 'somnus', '123456'}
+11:34:13.379 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {7, 'admin7', '123456'}
+11:34:13.380 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {8, 'admin8', '123456'}
+11:34:13.380 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {9, 'somnus', '123456'}
+11:34:13.380 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {10, 'somnus', '123456'}
+11:34:13.380 [main] INFO  org.jdbcdslog.ResultSetLogger - java.sql.ResultSet.next {11, 'somnus', '123456'}
+11:34:13.454 [Thread-2] INFO  o.s.c.s.GenericApplicationContext - Closing org.springframework.context.support.GenericApplicationContext@6d441cce: startup date [Thu Nov 27 11:34:02 CST 2014]; root of context hierarchy
+11:34:13.464 [Thread-2] INFO  o.s.b.f.s.DefaultListableBeanFactory - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@4fc9df6: defining beans [logInterceptor,peopleDaoImpl,personDaoImpl,peopleServiceImpl,personServiceImpl,userInfoCache,userInfoServiceImpl,digitSignature,commonTemplate,sftpManager,socketManager,commonVelocity,logDaoImpl,userDaoImpl,userServiceImpl,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,com.somnus.ApplicationContextHolder#0,velocityEngine,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,proxyDataSource,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,sessionFactory,transactionManager,sqlSessionFactory,org.mybatis.spring.mapper.MapperScannerConfigurer#0,org.springframework.cache.annotation.AnnotationCacheOperationSource#0,org.springframework.cache.interceptor.CacheInterceptor#0,org.springframework.cache.config.internalCacheAdvisor,ehCacheManager,cacheManager,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor,userInfoDao]; root of factory hierarchy
