@@ -61,8 +61,7 @@ public class CommonTemplate<T extends Base> extends AbstractReportTemplate {
 				return workbook;
 			}
 		} catch (Exception e) {
-			log.error(e.getMessage(), e);
-			throw new RuntimeException(e);
+			throw new RuntimeException(e.getMessage(), e);
 		}
 	}
 	
@@ -134,11 +133,9 @@ public class CommonTemplate<T extends Base> extends AbstractReportTemplate {
 		try {
 			map = groupList(soucremap.get("banklist"), soucremap.get("list"));
 		} catch (InstantiationException e) {
-			log.error(e.getMessage(), e);
-			throw new RuntimeException(e);
+			throw new RuntimeException(e.getMessage(), e);
 		} catch (IllegalAccessException e) {
-			log.error(e.getMessage(), e);
-			throw new RuntimeException(e);
+			throw new RuntimeException(e.getMessage(), e);
 		}
 		if (arr.length < 1) {
 			throw new RuntimeException("arr is not allowed to empty");
@@ -203,17 +200,13 @@ public class CommonTemplate<T extends Base> extends AbstractReportTemplate {
 				resultlist.add(relist);
 			}
 		} catch (InstantiationException e) {
-			log.error(e.getMessage(), e);
-			throw new RuntimeException(e);
+			throw new RuntimeException(e.getMessage(), e);
 		} catch (IllegalAccessException e) {
-			log.error(e.getMessage(), e);
-			throw new RuntimeException(e);
+			throw new RuntimeException(e.getMessage(), e);
 		} catch (InvocationTargetException e) {
-			log.error(e.getMessage(), e);
-			throw new RuntimeException(e);
+			throw new RuntimeException(e.getMessage(), e);
 		} catch (NoSuchMethodException e) {
-			log.error(e.getMessage(), e);
-			throw new RuntimeException(e);
+			throw new RuntimeException(e.getMessage(), e);
 		}
 		
 		try {
@@ -223,14 +216,11 @@ public class CommonTemplate<T extends Base> extends AbstractReportTemplate {
 			in.close();
 			return workbook;
 		} catch (ParsePropertyException e) {
-			log.error(e.getMessage(), e);
-			throw new RuntimeException(e);
+			throw new RuntimeException(e.getMessage(), e);
 		} catch (InvalidFormatException e) {
-			log.error(e.getMessage(), e);
-			throw new RuntimeException(e);
+			throw new RuntimeException(e.getMessage(), e);
 		} catch (IOException e) {
-			log.error(e.getMessage(), e);
-			throw new RuntimeException(e);
+			throw new RuntimeException(e.getMessage(), e);
 		}
 	}
 	
