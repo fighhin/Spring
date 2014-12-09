@@ -1,7 +1,9 @@
 package com.somnus.support.util.excel.impl;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,10 +11,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import net.sf.jxls.exception.ParsePropertyException;
 import net.sf.jxls.transformer.XLSTransformer;
 
 import org.apache.commons.beanutils.PropertyUtils;
+import org.apache.commons.lang.StringUtils;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -24,15 +31,12 @@ import com.somnus.support.util.excel.stat.Example;
 
 @Component
 public class CommonTemplate<T extends Base> extends AbstractReportTemplate {
-
+	private final static Logger log = LoggerFactory.getLogger(CommonTemplate.class);
 	@Autowired
 	private UserInfoService userInfoService;
 	
 	private XLSTransformer tran = new XLSTransformer();
-	/**
-	 * @param strartDate 日期。yyyyMMdd
-	 * @param endDate 用不上
-	 */
+	
 	@Override
 	public Workbook exportReport(String strartDate, String endDate) {
 		try {
@@ -68,8 +72,10 @@ public class CommonTemplate<T extends Base> extends AbstractReportTemplate {
 	 * @param banklist
 	 * @param statlist
 	 * @return
+	 * @throws IllegalAccessException 
+	 * @throws InstantiationException 
 	 */
-	public Map<String,List<T>> groupList(List<Bank> banklist,List<T> statlist){
+	public Map<String,List<T>> groupList(List<Bank> banklist,List<T> statlist) throws InstantiationException, IllegalAccessException{
 		// 创建map，允许根据bankAccNo_bankCode查找bank_acc_id
 		Map<String, String> idMap = new HashMap<String, String>();
 		for (Bank bank : banklist) {
@@ -99,106 +105,139 @@ public class CommonTemplate<T extends Base> extends AbstractReportTemplate {
 			}
 		}
 		//为没有数据的账户填充0
-		try {
-			for (int i = 0; i < banklist.size(); i++) {
-				Bank bank = banklist.get(i);
-				if (!map.containsKey(bank.getId())) {
-					List<T> list = new ArrayList<T>();
-					T obj = clazz.newInstance();
-					obj.setBankActName(bank.getAccountname());
-					obj.setBankActNo((bank.getAccountno()));
-					obj.setBankCode((bank.getBankcode()));
-					obj.setBankName((bank.getBankname()));
-					obj.setTranDate("");
-					list.add(obj);
-					map.put(bank.getId(), list);
-				}
+		for (int i = 0; i < banklist.size(); i++) {
+			Bank bank = banklist.get(i);
+			if (!map.containsKey(bank.getId())) {
+				List<T> list = new ArrayList<T>();
+				T obj = clazz.newInstance();
+				obj.setBankActName(bank.getAccountname());
+				obj.setBankActNo((bank.getAccountno()));
+				obj.setBankCode((bank.getBankcode()));
+				obj.setBankName((bank.getBankname()));
+				obj.setTranDate("");
+				list.add(obj);
+				map.put(bank.getId(), list);
 			}
-		} catch (InstantiationException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
 		}
 		return map;
 	}
 	
 	/**
 	 * @description 给具体每个sheet组，补填数据数据，且计算合计
-	 * @param arr
+	 * @param arr 决定sheet有多少行
 	 * @return
 	 * @throws Exception
 	 */
-	public Workbook exportReport(String[] arr) throws Exception{
+	public Workbook exportReport(String[] arr){
 		Map<String,List> soucremap = getData();
-		Map<String, List<T>> map = groupList(soucremap.get("banklist"), soucremap.get("list"));
+		Map<String, List<T>> map;
+		try {
+			map = groupList(soucremap.get("banklist"), soucremap.get("list"));
+		} catch (InstantiationException e) {
+			log.error(e.getMessage(), e);
+			throw new RuntimeException(e);
+		} catch (IllegalAccessException e) {
+			log.error(e.getMessage(), e);
+			throw new RuntimeException(e);
+		}
 		if (arr.length < 1) {
 			throw new RuntimeException("arr is not allowed to empty");
 		}
+		log.info("遍历的数组："+StringUtils.join(arr, "#"));
 		List<List<T>> resultlist = new ArrayList<List<T>>();
 		List<String> newSheetNames = new ArrayList<String>();
-		for(String key:map.keySet()){
-			List<T> relist = new ArrayList<T>();
-			Class<T> clazz = (Class<T>) map.get(key).get(0).getClass();
-			Map<String, T> datamap = new TreeMap<String, T>();
-			//创建出总共需要的对象，全部赋相对应的值
-			for (int i = 0; i < arr.length; i++) {
-				T t = clazz.newInstance();
-				datamap.put(arr[i], t);
-				PropertyUtils.setProperty(t, "tranDate", arr[i]);
-				PropertyUtils.setProperty(t, "bankName", map.get(key).get(0).getBankName());
-				PropertyUtils.setProperty(t, "bankCode", map.get(key).get(0).getBankCode());
-				PropertyUtils.setProperty(t, "bankActNo", map.get(key).get(0).getBankActName());
-				PropertyUtils.setProperty(t, "bankActName", map.get(key).get(0).getBankActNo());
-			}
-			//替换能从list中取到的值，比如11日有数据，则替换
-			for (int i = 0; i < map.get(key).size(); i++) {
-				T object = map.get(key).get(i);
-				String value = object.getTranDate();
-				if(datamap.containsKey(value)){
-					datamap.put(value, object);
+		try {
+			for(String key:map.keySet()){
+				List<T> relist = new ArrayList<T>();
+				Class<T> clazz = (Class<T>) map.get(key).get(0).getClass();
+				Map<String, T> datamap = new TreeMap<String, T>();
+				//创建出总共需要的对象，全部赋相对应的值
+				for (int i = 0; i < arr.length; i++) {
+					T t = clazz.newInstance();
+					datamap.put(arr[i], t);
+					PropertyUtils.setProperty(t, "tranDate", arr[i]);
+					PropertyUtils.setProperty(t, "bankName", map.get(key).get(0).getBankName());
+					PropertyUtils.setProperty(t, "bankCode", map.get(key).get(0).getBankCode());
+					PropertyUtils.setProperty(t, "bankActNo", map.get(key).get(0).getBankActName());
+					PropertyUtils.setProperty(t, "bankActName", map.get(key).get(0).getBankActNo());
 				}
-			}
-			Field[] fields = clazz.getDeclaredFields();
-			T total = clazz.newInstance();
-			total.setTranDate("合计");
-			
-			// 合计用，初始化一个sum值
-			Map<String, Object> summap = new HashMap<String, Object>();
-			for (int i = 0; i < fields.length; i++) {
-				Field field = fields[i];
-				if (BigDecimal.class.equals(field.getType())) {
-					summap.put(field.getName(), BigDecimal.ZERO);
-				}
-			}
-			
-			for (int i = 0; i < arr.length; i++){
-				for (int j = 0; j < fields.length; j++) {
-					Field field = fields[j];
-					String fieldName = field.getName();
-					for (String sum : summap.keySet()) {
-						if (sum.equals(fieldName) && BigDecimal.class.equals(field.getType())) {
-							BigDecimal getValue = (BigDecimal) PropertyUtils.getProperty(datamap.get(arr[i]), fieldName);
-							BigDecimal totalValue = (BigDecimal) summap.get(sum);
-							if(getValue!=null&&getValue.intValue()>0)
-								summap.put(sum, totalValue.add(getValue));
-							PropertyUtils.setProperty(total, fieldName, summap.get(sum));
-						}
+				//替换能从list中取到的值，比如11日有数据，则替换
+				for (int i = 0; i < map.get(key).size(); i++) {
+					T object = map.get(key).get(i);
+					String value = object.getTranDate();
+					if(datamap.containsKey(value)){
+						datamap.put(value, object);
 					}
 				}
-				relist.add(datamap.get(arr[i]));
-				newSheetNames.add("ACCOUNT-"+(newSheetNames.size()+1));
+				Field[] fields = clazz.getDeclaredFields();
+				T total = clazz.newInstance();
+				total.setTranDate("合计");
+				
+				// 合计用，初始化一个sum值
+				Map<String, Object> summap = new HashMap<String, Object>();
+				for (int i = 0; i < fields.length; i++) {
+					Field field = fields[i];
+					if (BigDecimal.class.equals(field.getType())) {
+						summap.put(field.getName(), BigDecimal.ZERO);
+					}
+				}
+				
+				for (int i = 0; i < arr.length; i++){
+					for (int j = 0; j < fields.length; j++) {
+						Field field = fields[j];
+						String fieldName = field.getName();
+						for (String sum : summap.keySet()) {
+							if (sum.equals(fieldName) && BigDecimal.class.equals(field.getType())) {
+								BigDecimal getValue = (BigDecimal) PropertyUtils.getProperty(datamap.get(arr[i]), fieldName);
+								BigDecimal totalValue = (BigDecimal) summap.get(sum);
+								if(getValue!=null&&getValue.intValue()>0)
+									summap.put(sum, totalValue.add(getValue));
+								PropertyUtils.setProperty(total, fieldName, summap.get(sum));
+							}
+						}
+					}
+					relist.add(datamap.get(arr[i]));
+					newSheetNames.add("ACCOUNT-"+(newSheetNames.size()+1));
+				}
+				relist.add(total);
+				resultlist.add(relist);
 			}
-			relist.add(total);
-			resultlist.add(relist);
+		} catch (InstantiationException e) {
+			log.error(e.getMessage(), e);
+			throw new RuntimeException(e);
+		} catch (IllegalAccessException e) {
+			log.error(e.getMessage(), e);
+			throw new RuntimeException(e);
+		} catch (InvocationTargetException e) {
+			log.error(e.getMessage(), e);
+			throw new RuntimeException(e);
+		} catch (NoSuchMethodException e) {
+			log.error(e.getMessage(), e);
+			throw new RuntimeException(e);
 		}
 		
-		String template = TEMP_PATH_XLS + "temp3.xlsx";
-		InputStream in= getClass().getClassLoader().getResourceAsStream(template);
-		Workbook workbook = tran.transformMultipleSheetsList(in, resultlist, newSheetNames, "rows", null, 0);
-		in.close();
-		return workbook;
+		try {
+			String template = TEMP_PATH_XLS + "temp3.xlsx";
+			InputStream in= getClass().getClassLoader().getResourceAsStream(template);
+			Workbook workbook  = tran.transformMultipleSheetsList(in, resultlist, newSheetNames, "rows", null, 0);
+			in.close();
+			return workbook;
+		} catch (ParsePropertyException e) {
+			log.error(e.getMessage(), e);
+			throw new RuntimeException(e);
+		} catch (InvalidFormatException e) {
+			log.error(e.getMessage(), e);
+			throw new RuntimeException(e);
+		} catch (IOException e) {
+			log.error(e.getMessage(), e);
+			throw new RuntimeException(e);
+		}
 	}
 	
+	/**
+	 * 拼数据
+	 * @return
+	 */
 	public Map<String,List> getData(){
 		Map<String,List> map = new HashMap<String,List>();
 		
