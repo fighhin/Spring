@@ -154,3 +154,55 @@
 	    USERNAME like 'admin%') tmp_count;
 2014-12-16 14:10:34.071 [] INFO  [Thread-2] org.springframework.context.support.GenericApplicationContext :Closing org.springframework.context.support.GenericApplicationContext@38b55129: startup date [Tue Dec 16 14:10:31 CST 2014]; root of context hierarchy
 2014-12-16 14:10:34.072 [] INFO  [Thread-2] org.springframework.beans.factory.support.DefaultListableBeanFactory :Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@301487f9: defining beans [logInterceptor,peopleDaoImpl,personDaoImpl,peopleServiceImpl,personServiceImpl,userInfoCache,userInfoServiceImpl,digitSignature,commonTemplate,sftpManager,socketManager,commonVelocity,logDaoImpl,userDaoImpl,userServiceImpl,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,com.somnus.ApplicationContextHolder#0,velocityEngine,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,proxyDataSource,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,sessionFactory,transactionManager,sqlSessionFactory,org.mybatis.spring.mapper.MapperScannerConfigurer#0,org.springframework.cache.annotation.AnnotationCacheOperationSource#0,org.springframework.cache.interceptor.CacheInterceptor#0,org.springframework.cache.config.internalCacheAdvisor,ehCacheManager,cacheManager,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor,userInfoDao]; root of factory hierarchy
+2014-12-16 14:51:09.036 [] INFO  [main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader :Loading XML bean definitions from class path resource [spring-basic.xml]
+2014-12-16 14:51:09.349 [] INFO  [main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader :Loading XML bean definitions from class path resource [spring-aspect.xml]
+2014-12-16 14:51:09.451 [] INFO  [main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader :Loading XML bean definitions from class path resource [spring-env.xml]
+2014-12-16 14:51:09.578 [] INFO  [main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader :Loading XML bean definitions from class path resource [spring-resource-db.xml]
+2014-12-16 14:51:09.723 [] INFO  [main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader :Loading XML bean definitions from class path resource [spring-hibernate.xml]
+2014-12-16 14:51:09.758 [] INFO  [main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader :Loading XML bean definitions from class path resource [spring-mybatis.xml]
+2014-12-16 14:51:09.771 [] INFO  [main] org.springframework.beans.factory.support.DefaultListableBeanFactory :Overriding bean definition for bean 'proxyDataSource': replacing [Generic bean: class [org.jdbcdslog.ConnectionPoolDataSourceProxy]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [spring-resource-db.xml]] with [Generic bean: class [org.jdbcdslog.ConnectionPoolDataSourceProxy]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [spring-mybatis.xml]]
+2014-12-16 14:51:09.774 [] INFO  [main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader :Loading XML bean definitions from class path resource [spring-cache.xml]
+2014-12-16 14:51:09.797 [] INFO  [main] org.springframework.context.support.GenericApplicationContext :Refreshing org.springframework.context.support.GenericApplicationContext@6fe0b6eb: startup date [Tue Dec 16 14:51:09 CST 2014]; root of context hierarchy
+2014-12-16 14:51:10.009 [] INFO  [main] org.springframework.context.support.PropertySourcesPlaceholderConfigurer :Loading properties file from class path resource [env/configurations-dev.properties]
+2014-12-16 14:51:10.070 [] INFO  [main] org.springframework.beans.factory.support.DefaultListableBeanFactory :Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@2ecdca66: defining beans [logInterceptor,peopleDaoImpl,personDaoImpl,peopleServiceImpl,personServiceImpl,userInfoCache,userInfoServiceImpl,digitSignature,commonTemplate,sftpManager,socketManager,commonVelocity,logDaoImpl,userDaoImpl,userServiceImpl,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,com.somnus.ApplicationContextHolder#0,velocityEngine,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,proxyDataSource,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,sessionFactory,transactionManager,sqlSessionFactory,org.mybatis.spring.mapper.MapperScannerConfigurer#0,org.springframework.cache.annotation.AnnotationCacheOperationSource#0,org.springframework.cache.interceptor.CacheInterceptor#0,org.springframework.cache.config.internalCacheAdvisor,ehCacheManager,cacheManager,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor,userInfoDao]; root of factory hierarchy
+2014-12-16 14:51:10.717 [] INFO  [main] org.springframework.cache.ehcache.EhCacheManagerFactoryBean :Initializing EhCache CacheManager
+2014-12-16 14:51:11.142 [] INFO  [main] org.hibernate.annotations.common.Version :HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2014-12-16 14:51:11.148 [] INFO  [main] org.hibernate.Version :HHH000412: Hibernate Core {4.2.7.SP1}
+2014-12-16 14:51:11.149 [] INFO  [main] org.hibernate.cfg.Environment :HHH000206: hibernate.properties not found
+2014-12-16 14:51:11.151 [] INFO  [main] org.hibernate.cfg.Environment :HHH000021: Bytecode provider name : javassist
+2014-12-16 14:51:11.904 [] INFO  [main] org.hibernate.dialect.Dialect :HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2014-12-16 14:51:12.005 [] INFO  [main] org.hibernate.engine.transaction.internal.TransactionFactoryInitiator :HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-12-16 14:51:12.010 [] INFO  [main] org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory :HHH000397: Using ASTQueryTranslatorFactory
+2014-12-16 14:51:12.306 [] INFO  [main] org.springframework.orm.hibernate4.HibernateTransactionManager :Using DataSource [org.apache.commons.dbcp.BasicDataSource@385730c7] of Hibernate SessionFactory for HibernateTransactionManager
+2014-12-16 14:51:12.426 [] INFO  [main] org.jdbcdslog.ConnectionLogger :connect to URL jdbc:mysql://localhost:3306/demo for user root@localhost
+2014-12-16 14:51:12.458 [] INFO  [main] org.jdbcdslog.StatementLogger :select
+		 
+		ID,USERNAME,PASSWORD
+	 
+		from T_USER
+		where ID = 1;
+2014-12-16 14:51:12.533 [] INFO  [main] org.jdbcdslog.ConnectionLogger :connect to URL jdbc:mysql://localhost:3306/demo for user root@localhost
+2014-12-16 14:51:12.577 [] INFO  [main] org.jdbcdslog.StatementLogger :select
+		 
+		ID,USERNAME,PASSWORD
+	 
+		from T_USER
+		where ID = 1;
+2014-12-16 14:51:12.587 [] INFO  [main] org.jdbcdslog.ConnectionLogger :connect to URL jdbc:mysql://localhost:3306/demo for user root@localhost
+2014-12-16 14:51:12.590 [] INFO  [main] org.jdbcdslog.StatementLogger :select * from (select 
+	    	 
+		ID,USERNAME,PASSWORD
+	 
+	    from T_USER
+	    where 
+	    USERNAME like 'admin%') temp_order order by password ASC, username DESC limit 4;
+2014-12-16 14:51:12.593 [] INFO  [main] org.jdbcdslog.ConnectionLogger :connect to URL jdbc:mysql://localhost:3306/demo for user root@localhost
+2014-12-16 14:51:12.594 [] INFO  [main] org.jdbcdslog.StatementLogger :select count(1) from (select 
+	    	 
+		ID,USERNAME,PASSWORD
+	 
+	    from T_USER
+	    where 
+	    USERNAME like 'admin%') tmp_count;
+2014-12-16 14:51:12.600 [] INFO  [Thread-2] org.springframework.context.support.GenericApplicationContext :Closing org.springframework.context.support.GenericApplicationContext@6fe0b6eb: startup date [Tue Dec 16 14:51:09 CST 2014]; root of context hierarchy
+2014-12-16 14:51:12.601 [] INFO  [Thread-2] org.springframework.beans.factory.support.DefaultListableBeanFactory :Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@2ecdca66: defining beans [logInterceptor,peopleDaoImpl,personDaoImpl,peopleServiceImpl,personServiceImpl,userInfoCache,userInfoServiceImpl,digitSignature,commonTemplate,sftpManager,socketManager,commonVelocity,logDaoImpl,userDaoImpl,userServiceImpl,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,com.somnus.ApplicationContextHolder#0,velocityEngine,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,dataSource,proxyDataSource,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,sessionFactory,transactionManager,sqlSessionFactory,org.mybatis.spring.mapper.MapperScannerConfigurer#0,org.springframework.cache.annotation.AnnotationCacheOperationSource#0,org.springframework.cache.interceptor.CacheInterceptor#0,org.springframework.cache.config.internalCacheAdvisor,ehCacheManager,cacheManager,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor,userInfoDao]; root of factory hierarchy

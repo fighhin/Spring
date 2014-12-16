@@ -5,6 +5,12 @@
     <property name="log.base" value="logs" />
 	<property name="pattern"  value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{sessionId}] %-5level [%thread] %logger{80} :%msg%n" />
 	
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+            <pattern>${pattern}</pattern>
+        </encoder>
+	</appender>
+	
 	<appender name="root" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${log.base}/somnus-root.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
@@ -65,6 +71,7 @@
 
 	<!-- root级别控制 -->
 	<root level="INFO">
+		<appender-ref ref="console" />
 		<appender-ref ref="root" />
 	</root>
 </configuration>
