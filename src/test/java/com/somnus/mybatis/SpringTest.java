@@ -14,7 +14,7 @@ import com.somnus.mybatis.service.UserInfoServiceImpl;
 
 public class SpringTest extends AbstractTestSupport {
 	@Test
-	public void save(){
+	public void load(){
 		UserInfoServiceImpl service = (UserInfoServiceImpl)ApplicationContextHolder.getBean(UserInfoServiceImpl.class);
 		UserInfo  user = service.selectByKey(1);
 		System.out.println(user.getUsername());

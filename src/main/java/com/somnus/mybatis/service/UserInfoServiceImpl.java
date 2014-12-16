@@ -6,6 +6,8 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.github.miemiedev.mybatis.paginator.domain.Order;
@@ -17,6 +19,7 @@ import com.somnus.mybatis.domain.UserInfo;
 
 @Service
 public class UserInfoServiceImpl implements UserInfoService{
+	private static Logger log = LoggerFactory.getLogger(UserInfoServiceImpl.class);
 	@Resource
 	private UserInfoDao userinfodao;
 	@Resource
@@ -39,6 +42,7 @@ public class UserInfoServiceImpl implements UserInfoService{
 	}
 	
 	public PageList<UserInfo> selectByParams(UserInfo userinfo,Map<String,Object> map){
+		log.info("selectByParams方法被调用");
 		//页号
 		int page = (Integer)map.get("page"); 
 		
