@@ -10,7 +10,7 @@ import com.github.miemiedev.mybatis.paginator.domain.Paginator;
 import com.somnus.AbstractTestSupport;
 import com.somnus.ApplicationContextHolder;
 import com.somnus.mybatis.domain.UserInfo;
-import com.somnus.mybatis.service.UserInfoServiceImpl;
+import com.somnus.mybatis.service.impl.UserInfoServiceImpl;
 
 public class SpringTest extends AbstractTestSupport {
 	@Test
@@ -34,7 +34,7 @@ public class SpringTest extends AbstractTestSupport {
 		mapparam.put("limit", 4);
 		mapparam.put("sortString", "password.asc,username.desc");
 		
-		PageList<UserInfo> pagelist = service.selectByParams(userparam,mapparam);
+		PageList<UserInfo> pagelist = service.selectByParams(null,mapparam);
 		
 		Paginator p= pagelist.getPaginator();
 		System.out.println("总记录条数"+p.getTotalCount());

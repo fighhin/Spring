@@ -1,6 +1,0 @@
-2014-12-16 14:02:20.450 [] INFO  [main] com.somnus.mybatis.SpringTest :调用测试方法: save
-2014-12-16 14:06:41.599 [] INFO  [main] com.somnus.mybatis.SpringTest :调用测试方法: load
-2014-12-16 14:10:33.866 [] INFO  [main] com.somnus.mybatis.SpringTest :调用测试方法: load
-2014-12-16 14:10:34.049 [] INFO  [main] com.somnus.mybatis.service.UserInfoServiceImpl :selectByParams方法被调用
-2014-12-16 14:51:12.347 [] INFO  [main] com.somnus.mybatis.SpringTest :调用测试方法: load
-2014-12-16 14:51:12.580 [] INFO  [main] com.somnus.mybatis.service.UserInfoServiceImpl :selectByParams方法被调用
