@@ -38,7 +38,9 @@ public class UserInfoServiceImpl implements UserInfoService{
 	
 	public UserInfo selectByKey(int id){
 		//7、发送jms消息
-        jmsService.incomeSend(new TrnTransaction());
+		TrnTransaction transaction = new TrnTransaction();
+		transaction.setBankAccCode("10086");
+        jmsService.incomeSend(transaction);
 		return userinfodao.selectByKey(id);
 	}
 	
