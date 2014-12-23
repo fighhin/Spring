@@ -44,6 +44,9 @@
         <commons.httpclient.version>3.1</commons.httpclient.version>
         <commons.dbcp.version>1.4</commons.dbcp.version>
         <commons.pool.version>1.6</commons.pool.version>
+        <!-- bean validator -->
+        <validation.api.version>1.1.0.Final</validation.api.version>
+        <hibernate.validator.version>4.3.1.Final</hibernate.validator.version>
   </properties>
 	<!-- 指定Maven仓库 -->
 	<repositories>
@@ -331,7 +334,17 @@
 			<artifactId>activemq-pool</artifactId>
 			<version>${activemq.version}</version>
 		</dependency>
-		
+		<!-- bean validator -->
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>${validation.api.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>${hibernate.validator.version}</version>
+		</dependency>
 	</dependencies>
 	
 	<build>
