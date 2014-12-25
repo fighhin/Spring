@@ -6,19 +6,27 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd ">
 
 	<description>数据源及事务配置</description>
-
-	<!-- 数据源配置 -->
-	<!-- 代理datasource，使其能够显式获取preparedStatement的参数值 -->
-	<bean id="proxyDataSource" class="org.jdbcdslog.ConnectionPoolDataSourceProxy">
-		<property name="targetDSDirect" ref="dataSource"/>
+	
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan">
+			<list>
+				<value>com.somnus.transaction.domain</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
 	</bean>
 
-    <!-- 事务配置 给mybatis加事务，和spring-hibernate.xml中的二选其一
-    <bean id="transactionManager"
-          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="proxyDataSource" />
-    </bean>
-    -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
 </beans>
