@@ -25,6 +25,8 @@
         <hibernate.version>4.2.7.SP1</hibernate.version>
         <!-- proxy -->
         <cglib.version>2.2.2</cglib.version>
+        <junit.version>4.11</junit.version>
+        <jdbc.driver.version>5.1.27</jdbc.driver.version>
   </properties>
 	<!-- 指定Maven仓库 -->
 	<repositories>
@@ -86,14 +88,14 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.27</version>
+			<version>${jdbc.driver.version}</version>
 		</dependency>
 
 		<!-- 加入junit依赖包 -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.11</version>
+			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
 		
@@ -130,11 +132,6 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		<dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jms</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
 		<!-- hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
