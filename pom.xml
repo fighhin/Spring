@@ -106,17 +106,22 @@
 		</dependency>
 
 		<!-- spring -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
+		<dependency><!-- test -->
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		<dependency>
+		<dependency><!-- core aopalliance context aop expression-->
+        	<groupId>org.springframework</groupId>
+        	<artifactId>spring-context</artifactId>
+        	<version>${spring.version}</version>
+    	</dependency>
+    	<dependency><!-- orm jdbc tx -->
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+    	<dependency><!-- context-support -->
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
 			<version>${spring.version}</version>
@@ -127,7 +132,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<dependency>
+		<dependency><!-- webmvc web-->
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
