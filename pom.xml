@@ -1,16 +1,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.somnus</groupId>
-  <artifactId>Spring</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>jar</packaging>
+	<groupId>com.somnus</groupId>
+	<artifactId>Spring</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 
-  <name>Spring</name>
-  <url>http://maven.apache.org</url>
+	<name>Spring</name>
+	<url>http://maven.apache.org</url>
 
-  <properties>
+	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- log -->
 		<slf4j.version>1.7.2</slf4j.version>
@@ -21,13 +21,13 @@
 		<geronimo.version>1.1.1</geronimo.version>
 		<!-- datasource -->
 		<commons.dbcp.version>1.4</commons.dbcp.version>
-        <!-- hibernate -->
-        <hibernate.version>4.2.7.SP1</hibernate.version>
-        <!-- proxy -->
-        <cglib.version>2.2.2</cglib.version>
-        <junit.version>4.11</junit.version>
-        <jdbc.driver.version>5.1.27</jdbc.driver.version>
-  </properties>
+		<!-- hibernate -->
+		<hibernate.version>4.2.7.SP1</hibernate.version>
+		<!-- proxy -->
+		<cglib.version>2.2.2</cglib.version>
+		<junit.version>4.11</junit.version>
+		<jdbc.driver.version>5.1.27</jdbc.driver.version>
+	</properties>
 	<!-- 指定Maven仓库 -->
 	<repositories>
 		<!-- oschina的maven仓库 -->
@@ -44,46 +44,33 @@
 		</repository>
 	</repositories>
 	<dependencies>
-		<!--******** logback and slf4j ******** -->  
-		<dependency>  
-			<groupId>ch.qos.logback</groupId>  
-			<artifactId>logback-core</artifactId>  
-			<version>${logback.version}</version>  
-		</dependency>  
-		<dependency>  
-			<groupId>ch.qos.logback</groupId>  
-			<artifactId>logback-classic</artifactId>  
-			<version>${logback.version}</version>  
-		</dependency>  
-		<dependency>  
-			<groupId>ch.qos.logback</groupId>  
-			<artifactId>logback-access</artifactId>  
-			<version>${logback.version}</version>  
-		</dependency>  
-		<dependency>  
-			<groupId>org.slf4j</groupId>  
-			<artifactId>slf4j-api</artifactId>  
-			<version>${slf4j.version}</version>  
-		</dependency>  
-		<!--jul桥接 用来输出 Java Logging Framework (JUL) -->  
-		<dependency>  
-			<groupId>org.slf4j</groupId>  
-			<artifactId>jul-to-slf4j</artifactId>  
-			<version>${slf4j.version}</version>  
-		</dependency>  
-		<!-- jcl桥接，用来输出 第三方Jakarta Commons Logging (JCL) -->  
-		<dependency>  
-			<groupId>org.slf4j</groupId>  
-			<artifactId>jcl-over-slf4j</artifactId>  
-			<version>${slf4j.version}</version>  
-		</dependency>    
-	    <!-- log4j桥接，用来输出 JAR包中log4j Logging (log4j) -->  
-	    <dependency>  
-	        <groupId>org.slf4j</groupId>  
-	        <artifactId>log4j-over-slf4j</artifactId>  
-	        <version>${slf4j.version}</version>  
-	    </dependency>  
-	    <!--**************** logback and slf4j ****************  -->  
+		<!--******** logback and slf4j ******** -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-access</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+		<!--**************** logback and slf4j **************** -->
 		<!-- 加入mysql驱动依赖包 -->
 		<dependency>
 			<groupId>mysql</groupId>
@@ -98,7 +85,7 @@
 			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
@@ -111,17 +98,17 @@
 			<artifactId>spring-test</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		<dependency><!-- core aopalliance context aop expression-->
-        	<groupId>org.springframework</groupId>
-        	<artifactId>spring-context</artifactId>
-        	<version>${spring.version}</version>
-    	</dependency>
-    	<dependency><!-- orm jdbc tx -->
+		<dependency><!-- core aopalliance context aop expression -->
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency><!-- orm jdbc tx -->
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-    	<dependency><!-- context-support -->
+		<dependency><!-- context-support -->
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
 			<version>${spring.version}</version>
@@ -132,7 +119,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<dependency><!-- webmvc web-->
+		<dependency><!-- webmvc web -->
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
@@ -151,22 +138,22 @@
 		</dependency>
 		<!-- proxy -->
 		<dependency>
-		  <groupId>cglib</groupId>
-		  <artifactId>cglib</artifactId>
-		  <version>${cglib.version}</version>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>${cglib.version}</version>
 		</dependency>
 	</dependencies>
-	
+
 	<build>
-	  	<plugins>
-	  		<plugin>
-	  			<groupId>org.apache.maven.plugins</groupId>
-	  			<artifactId>maven-compiler-plugin</artifactId>
-	  			<configuration>
-	  				<target>1.7</target>
-	  				<resource>1.7</resource>
-	  			</configuration>
-	  		</plugin>
-	  	</plugins>
-  </build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<target>1.7</target>
+					<resource>1.7</resource>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
