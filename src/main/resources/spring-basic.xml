@@ -18,6 +18,7 @@
     <!-- application 上下文 -->
     <bean class="com.somnus.ApplicationContextHolder"/>
     
+    <import resource="classpath:/spring-aop.xml"/>
     <import resource="classpath:/spring-aspect.xml"/>
     <import resource="classpath:/spring-env.xml"/>
     <import resource="classpath:/spring-resource-db.xml"/>

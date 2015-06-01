@@ -6,9 +6,8 @@ import com.somnus.annotation.dao.PeopleDao;
 @Repository
 public class PeopleDaoImpl implements PeopleDao {
 
-	public void save() 
-	{
-		System.out.println("people saved!");
+	public void save(String dialogue) {
+		System.out.println(dialogue);
 	}
 
 }

@@ -21,21 +21,21 @@ public class LogInterceptor {
 //	@Before("execution(public * com.somnus.annotation.service..*.add(..))")
 	public void before() 
 	{
-		System.out.println("method before");
+		System.out.println("@Before>>>>method before");
 	}
 	
 	@AfterReturning("myMethod()")
 //	@Before("execution(public * com.somnus.annotation.service..*.add(..))")
 	public void AfterReturning() 
 	{
-		System.out.println("method after returning");
+		System.out.println("@AfterReturning>>>>method after returning");
 	}
 	
 	@AfterThrowing("myMethod()")
 //	@AfterThrowing("execution(public * com.somnus.annotation.service..*.add(..))")
 	public void AfterThrowin() 
 	{
-		System.out.println("method after throwin");
+		System.out.println("@AfterThrowing>>>>method after throwin");
 	}
 	
 	
@@ -43,15 +43,15 @@ public class LogInterceptor {
 //	@Around("execution(public * com.somnus.annotation.service..*.add(..))")
 	public void aroundMethod(ProceedingJoinPoint pjp) throws Throwable 
 	{
-		System.out.println("method around start");
-		System.out.println(pjp.getTarget());
+		System.out.println("@Around>>>>method around start");
+		System.out.println("@Around---->>>>"+pjp.getTarget());
 		MethodSignature signature = (MethodSignature) pjp.getSignature();
-		System.out.println(signature.getMethod());
+		System.out.println("@Around---->>>>"+signature.getMethod());
 		for(Object obj:pjp.getArgs()){
-			System.out.println(obj);
+			System.out.println("@Around---->>>>"+obj);
 		}
-		pjp.proceed();
-		System.out.println("method around end");
+		pjp.proceed(/*new String[]{"这里可以改变原来的参数值"}*/);
+		System.out.println("@Around>>>>method around end");
 	}
 	
 }

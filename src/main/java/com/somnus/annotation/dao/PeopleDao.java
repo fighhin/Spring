@@ -1,5 +1,5 @@
 package com.somnus.annotation.dao;
 
 public interface PeopleDao {
-	public void save();
+	public void save(String dialogue);
 }
