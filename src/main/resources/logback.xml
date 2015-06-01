@@ -12,7 +12,7 @@
 	</appender>
 	
 	<appender name="root" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${log.base}/somnus-root.log</file>
+        <file>${log.base}/spring-root.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${log.base}/%d{yyyy-MM-dd}/somnus-root-%i.%d{yyyy-MM-dd}.log.gz
             </fileNamePattern>

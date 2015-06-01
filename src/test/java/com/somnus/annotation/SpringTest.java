@@ -11,8 +11,11 @@ public class SpringTest extends AbstractTestSupport {
 	@Test
 	public void save(){
 		PersonServiceImpl person = (PersonServiceImpl)ApplicationContextHolder.getBean(PersonServiceImpl.class);
-		person.add();
+		person.add("person saved");
+		
+		System.out.println("**************************************************************");
+		
 		PeopleServiceImpl people = (PeopleServiceImpl)ApplicationContextHolder.getBean(PeopleServiceImpl.class);
-		people.add();
+		people.add("people saved");
 	}
 }
