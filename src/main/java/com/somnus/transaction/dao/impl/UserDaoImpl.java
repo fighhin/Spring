@@ -4,7 +4,6 @@ import javax.annotation.Resource;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import com.somnus.transaction.dao.UserDao;
@@ -16,9 +15,8 @@ public class UserDaoImpl implements UserDao {
 	private SessionFactory sessionFactory;
 
 	public void save(User user) {
-			Session s = sessionFactory.getCurrentSession();
-			s.save(user);
-			/*throw new RuntimeException("exeption!");*/
+	    Session s = sessionFactory.getCurrentSession();
+	    s.save(user);
 	}
 
 }

@@ -15,6 +15,6 @@ public class SpringTest extends AbstractTestSupport {
 		User user = new User();
 		user.setUsername("somnus");
 		user.setPassword("123456");
-		service.add(user);
+		service.add2(user);
 	}
 }

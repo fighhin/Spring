@@ -15,7 +15,6 @@ public class LogDaoImpl implements LogDao {
 	public void save(Log log) {
 		Session s = sessionFactory.getCurrentSession();
 		s.save(log);
-//		throw new RuntimeException("error!");
 	}
 
 }
