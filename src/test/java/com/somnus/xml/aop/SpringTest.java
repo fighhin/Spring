@@ -20,15 +20,25 @@ public class SpringTest extends AbstractTestSupport {
 	    /**从 Context 中根据 id 获取 Bean 对象（其实就是一个代理）*/
 	    Greeting greeting = (Greeting) ApplicationContextHolder.getBean("greetingProxy"); 
 	    greeting.sayHello("Jack"); 
-	    
-	    System.out.println("*************************************************************");
-	    
-	    /**注意：转型为目标类，而并非它的 Greeting 接口*/
-	    GreetingImpl greetingImpl = (GreetingImpl) ApplicationContextHolder.getBean("greetingProxy2"); 
+	}
+	
+	@Test
+    public void save2(){
+        /**从 Context 中根据 id 获取 Bean 对象（其实就是一个代理）*/
+        /**注意：转型为目标类，而并非它的 Greeting 接口*/
+        GreetingImpl greetingImpl = (GreetingImpl) ApplicationContextHolder.getBean("greetingProxy2"); 
         greetingImpl.sayHello("Jack");
         /**将目标类强制向上转型为 Apology 接口（这是引入增强给我们带来的特性，也就是“接口动态实现”功能）*/
         Apology apology = (Apology) greetingImpl;
         apology.saySorry("Jack");
         System.out.println(apology);
-	}
+    }
+	
+	@Test
+    public void save3(){
+        /**从 Context 中根据 id 获取 Bean 对象（其实就是一个代理）*/
+	    Greeting greeting = (Greeting) ApplicationContextHolder.getBean("greetingProxy3");
+        greeting.sayHello("Jack");
+        greeting.goodMorning("Jack");
+    }
 }

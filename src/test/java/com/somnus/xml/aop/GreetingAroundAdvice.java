@@ -24,10 +24,10 @@ public class GreetingAroundAdvice implements MethodInterceptor {
     }
  
     private void before() {
-        System.out.println(">>>>Before");
+        System.out.println("---->>>>Before");
     }
  
     private void after() {
-        System.out.println(">>>>After");
+        System.out.println("---->>>>After");
     }
 }

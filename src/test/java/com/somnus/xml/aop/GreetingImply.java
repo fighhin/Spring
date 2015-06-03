@@ -3,7 +3,8 @@ package com.somnus.xml.aop;
 import org.springframework.stereotype.Component;
 
 /** 
- * @Title: GreetingImpl.java 
+ * 特意创建一个不是以impl结尾的bean
+ * @Title: GreetingImply.java 
  * @Package com.somnus.aop 
  * @Description: TODO
  * @author Somnus
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Component;
  * @version V1.0 
  */
 @Component
-public class GreetingImpl implements Greeting {
+public class GreetingImply implements Greeting {
     
     @Override
     public void sayHello(String name) {

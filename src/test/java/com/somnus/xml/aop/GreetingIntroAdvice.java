@@ -15,6 +15,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class GreetingIntroAdvice extends DelegatingIntroductionInterceptor implements Apology {
  
+    private static final long serialVersionUID = 1L;
+
     @Override
     public Object invoke(MethodInvocation invocation) throws Throwable {
         return super.invoke(invocation);

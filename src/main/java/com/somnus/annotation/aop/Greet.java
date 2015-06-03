@@ -1,4 +1,4 @@
-package com.somnus.xml.aop;
+package com.somnus.annotation.aop;
 
 /** 
  * @Title: Greeting.java 
@@ -8,7 +8,7 @@ package com.somnus.xml.aop;
  * @date 2015年6月1日 下午12:38:30 
  * @version V1.0 
  */
-public interface Greeting {
+public interface Greet {
     void sayHello(String name);
 
     /**

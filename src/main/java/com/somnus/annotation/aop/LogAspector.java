@@ -7,42 +7,48 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
-import org.aspectj.lang.reflect.MethodSignature;
-import org.springframework.stereotype.Component;
 
+import org.aspectj.lang.reflect.MethodSignature;
+
+import org.springframework.stereotype.Component;
+/**
+ * 
+ * @Title: LogAspector.java 
+ * @Package com.somnus.annotation.aop 
+ * @Description: TODO
+ * @author yh.liu
+ * @date 2015年6月3日 下午1:04:23 
+ * @version V1.0
+ */
 @Aspect
 @Component
-public class LogInterceptor {
+public class LogAspector {
 	//定义一个方法作为切入点
 	@Pointcut("execution(public * com.somnus.annotation.service..*.add(..))")
 	public void myMethod(){};
 	
 	@Before("myMethod()")
 //	@Before("execution(public * com.somnus.annotation.service..*.add(..))")
-	public void before() 
-	{
+	public void before() {
 		System.out.println("@Before>>>>method before");
 	}
 	
 	@AfterReturning("myMethod()")
 //	@Before("execution(public * com.somnus.annotation.service..*.add(..))")
-	public void AfterReturning() 
-	{
+	public void AfterReturning(){
 		System.out.println("@AfterReturning>>>>method after returning");
 	}
 	
 	@AfterThrowing("myMethod()")
 //	@AfterThrowing("execution(public * com.somnus.annotation.service..*.add(..))")
-	public void AfterThrowin() 
-	{
+	public void AfterThrowin() {
 		System.out.println("@AfterThrowing>>>>method after throwin");
 	}
 	
 	
 	@Around("myMethod()")
 //	@Around("execution(public * com.somnus.annotation.service..*.add(..))")
-	public void aroundMethod(ProceedingJoinPoint pjp) throws Throwable 
-	{
+	public void aroundMethod(ProceedingJoinPoint pjp) throws Throwable {
 		System.out.println("@Around>>>>method around start");
 		System.out.println("@Around---->>>>"+pjp.getTarget());
 		MethodSignature signature = (MethodSignature) pjp.getSignature();
