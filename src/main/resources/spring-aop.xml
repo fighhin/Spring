@@ -5,14 +5,21 @@
     
     <!-- 配置一个代理 -->
     <bean id="greetingProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
-        <property name="interfaces" value="com.somnus.xml.aop.Greeting"/> <!-- 需要代理的接口 -->
-        <property name="target" ref="greetingImpl"/>  <!-- 目标接口实现类 -->
-        <property name="interceptorNames">            <!-- 拦截器名称（也就是增强类名称，Spring Bean 的 id） -->
+        <property name="interfaces" value="com.somnus.xml.aop.Greeting"/> 	<!-- 需要代理的接口 -->
+        <property name="target" ref="greetingImpl"/>  						<!-- 目标接口实现类 -->
+        <property name="interceptorNames">        <!-- 拦截器名称（也就是增强类名称，Spring Bean 的 id） -->
             <list>
-                <value>greetingAroundAdvice</value>
+                <value>greetingBeforeAdvice</value>
+                <value>greetingAfterAdvice</value>
             </list>
         </property>
     </bean>
+    <!-- 使用ProxyFactoryBean或者其它IOC相关类来创建AOP代理的最重要好处就是通知切入点也可以由IOC来管理 -->
+    <!-- 被代理类没有任何接口，使用CGLIB代理，否则JDK代理 -->
+    <!-- 通过设置proxyTargetClass为true，可【强制使】用CGLIB -->
+    <!-- 如果目标类实现了一个(或者多个)接口，那么创建代理的类型将依赖ProxyFactoryBean的配置 -->
+    <!-- 如果ProxyFactoryBean的proxyInterfaces属性被设置为一个或者多个全限定接口名，基于JDK的代理将被创建 -->
+    <!-- 如果ProxyFactoryBean的proxyInterfaces属性没有被设置，但是目标类实现了一个(或者更多)接口，那么ProxyFactoryBean将自动检测到这个目标类已经实现了至少一个接口，创建一个基于JDK的代理 -->
     
     <bean id="greetingProxy2" class="org.springframework.aop.framework.ProxyFactoryBean">
         <property name="interfaces" value="com.somnus.xml.aop.Apology"/><!-- 需要动态实现的接口 -->
@@ -21,7 +28,7 @@
         <property name="proxyTargetClass" value="true"/>                <!-- 代理目标类（默认为 false，代理接口） -->
     </bean>
    
-   <!-- 配置一个切面 -->  
+   	<!-- 配置一个切面 -->  
     <bean id="greetingAdvisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">  
         <property name="advice" ref="greetingAroundAdvice"/>                      <!-- 增强 -->  
         <property name="pattern" value="com.somnus.xml.aop.GreetingImpl.good.*"/> <!-- 切点（正则表达式） -->  
@@ -29,10 +36,10 @@
    
     <!-- 配置一个代理 -->
     <bean id="greetingProxy3" class="org.springframework.aop.framework.ProxyFactoryBean"> 
-        <property name="interfaces" value="com.somnus.xml.aop.Greeting"/> <!-- 需要代理的接口 --> 
-        <property name="target" ref="greetingImpl"/>                <!-- 目标接口实现类 -->  
-        <property name="interceptorNames" value="greetingAdvisor"/> <!-- 切面 -->  
-        <property name="proxyTargetClass" value="false"/>            <!-- 代理目标类（默认为 false，代理接口）  -->  
+        <property name="interfaces" value="com.somnus.xml.aop.Greeting"/> 	<!-- 需要代理的接口 --> 
+        <property name="target" ref="greetingImpl"/>                		<!-- 目标接口实现类 -->  
+        <property name="interceptorNames" value="greetingAdvisor"/> 		<!-- 切面 -->  
+        <property name="proxyTargetClass" value="false"/>            		<!-- 代理目标类（默认为 false，代理接口）-->  
     </bean>
     
     <!-- 自动代理（扫描 Bean名称） -->
