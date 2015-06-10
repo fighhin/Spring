@@ -17,16 +17,20 @@
 		<logback.version>1.0.6</logback.version>
 		<!-- spring -->
 		<spring.version>3.2.5.RELEASE</spring.version>
+		<!-- aspect -->
 		<aspectj.version>1.7.4</aspectj.version>
-		<geronimo.version>1.1.1</geronimo.version>
 		<!-- datasource -->
 		<commons.dbcp.version>1.4</commons.dbcp.version>
 		<!-- hibernate -->
 		<hibernate.version>4.2.7.SP1</hibernate.version>
 		<!-- proxy -->
 		<cglib.version>2.2.2</cglib.version>
+		<!-- junit -->
 		<junit.version>4.11</junit.version>
-		<jdbc.driver.version>5.1.27</jdbc.driver.version>
+		<!-- JDBC Driver -->
+        <jdbc.driver.groupId>mysql</jdbc.driver.groupId>
+        <jdbc.driver.artifactId>mysql-connector-java</jdbc.driver.artifactId>
+        <jdbc.driver.version>5.1.27</jdbc.driver.version>
 	</properties>
 	<!-- 指定Maven仓库 -->
 	<repositories>
@@ -71,12 +75,13 @@
 			<version>${logback.version}</version>
 		</dependency>
 		<!--**************** logback and slf4j **************** -->
-		<!-- 加入mysql驱动依赖包 -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>${jdbc.driver.version}</version>
-		</dependency>
+		<!-- jdbc driver -->
+        <dependency>
+            <groupId>${jdbc.driver.groupId}</groupId>
+            <artifactId>${jdbc.driver.artifactId}</artifactId>
+            <version>${jdbc.driver.version}</version>
+            <scope>runtime</scope>
+        </dependency>
 
 		<!-- 加入junit依赖包 -->
 		<dependency>
@@ -85,7 +90,13 @@
 			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
-
+        
+        <!-- aspect -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>${aspectj.version}</version>
+        </dependency>
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
@@ -156,4 +167,5 @@
 			</plugin>
 		</plugins>
 	</build>
+	
 </project>

@@ -7,7 +7,6 @@ import com.somnus.ApplicationContextHolder;
 import com.somnus.annotation.aop.Apology;
 import com.somnus.annotation.aop.Greet;
 import com.somnus.annotation.aop.GreetImpl;
-import com.somnus.aop.Greeting;
 
 public class AspectTest extends AbstractTestSupport {
 	@Test
