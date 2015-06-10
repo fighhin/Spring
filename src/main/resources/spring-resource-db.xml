@@ -7,8 +7,14 @@
 
 	<description>数据源及事务配置</description>
 	
+	<!-- 数据源配置 -->
+    <!-- 代理datasource，使其能够显式获取preparedStatement的参数值 -->
+    <bean id="proxyDataSource" class="org.jdbcdslog.ConnectionPoolDataSourceProxy">
+        <property name="targetDSDirect" ref="dataSource"/>
+    </bean>
+	
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-		<property name="dataSource" ref="dataSource" />
+		<property name="dataSource" ref="proxyDataSource" />
 		<property name="packagesToScan">
 			<list>
 				<value>com.somnus.transaction.domain</value>

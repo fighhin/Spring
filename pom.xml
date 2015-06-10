@@ -21,6 +21,7 @@
 		<aspectj.version>1.7.4</aspectj.version>
 		<!-- datasource -->
 		<commons.dbcp.version>1.4</commons.dbcp.version>
+		<jdbcdslog.version>1.0.6.2</jdbcdslog.version>
 		<!-- hibernate -->
 		<hibernate.version>4.2.7.SP1</hibernate.version>
 		<!-- proxy -->
@@ -147,6 +148,11 @@
 			<artifactId>commons-dbcp</artifactId>
 			<version>${commons.dbcp.version}</version>
 		</dependency>
+		<dependency>
+            <groupId>com.googlecode.usc</groupId>
+            <artifactId>jdbcdslog</artifactId>
+            <version>${jdbcdslog.version}</version>
+        </dependency>
 		<!-- proxy -->
 		<dependency>
 			<groupId>cglib</groupId>
