@@ -10,7 +10,7 @@
         <property name="interceptorNames">        <!-- 拦截器名称（也就是增强类名称，Spring Bean 的 id） -->
             <list>
                 <value>greetingBeforeAdvice</value>
-                <value>greetingAfterAdvice</value>
+                <value>greetingAfterReturningAdvice</value>
             </list>
         </property>
     </bean>

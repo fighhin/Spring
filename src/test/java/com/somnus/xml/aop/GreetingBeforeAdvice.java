@@ -1,6 +1,7 @@
 package com.somnus.xml.aop;
 
 import java.lang.reflect.Method;
+import java.util.Arrays;
 
 import org.springframework.aop.MethodBeforeAdvice;
 import org.springframework.stereotype.Component;
@@ -21,7 +22,8 @@ public class GreetingBeforeAdvice implements MethodBeforeAdvice{
      */
     @Override
     public void before(Method arg0, Object[] arg1, Object arg2) throws Throwable {
-        System.out.println(">>>>>>Before");
+        String methodName = arg0.getName();
+        System.out.println("The method 【" + methodName + "】 begins with " + Arrays.asList(arg1));
     }
 
 }

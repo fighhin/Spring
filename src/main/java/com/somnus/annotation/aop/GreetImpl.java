@@ -19,8 +19,9 @@ public class GreetImpl implements Greet {
     }
     @Tag
     @Override
-    public void goodMorning(String name) {  
+    public String goodMorning(String name) {  
         System.out.println("Good Morning! " + name);  
+        return name.concat(" Good Morning! ");
     }
     @Tag
     @Override

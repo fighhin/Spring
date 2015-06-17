@@ -6,7 +6,7 @@ import org.springframework.aop.AfterReturningAdvice;
 import org.springframework.stereotype.Component;
 
 /** 
- * @Title: GreetingAfterAdvice.java 
+ * @Title: GreetingAfterReturningAdvice.java 
  * @Package com.somnus.aop 
  * @Description: TODO
  * @author Somnus
@@ -14,14 +14,15 @@ import org.springframework.stereotype.Component;
  * @version V1.0 
  */
 @Component
-public class GreetingAfterAdvice implements AfterReturningAdvice {
+public class GreetingAfterReturningAdvice implements AfterReturningAdvice {
 
     /* (non-Javadoc)
      * @see org.springframework.aop.AfterReturningAdvice#afterReturning(java.lang.Object, java.lang.reflect.Method, java.lang.Object[], java.lang.Object)
      */
     @Override
     public void afterReturning(Object returnValue, Method method, Object[] args, Object target) throws Throwable {
-        System.out.println(">>>>>>After");
+        String methodName = method.getName();
+        System.out.println("The method 【" + methodName + "】 return with " + returnValue);
     }
 
 }

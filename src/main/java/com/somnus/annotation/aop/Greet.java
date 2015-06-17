@@ -14,7 +14,7 @@ public interface Greet {
     /**
      * @param name
      */
-    void goodMorning(String name);
+    String goodMorning(String name);
 
     /**
      * @param name
