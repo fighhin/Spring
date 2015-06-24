@@ -102,6 +102,12 @@ public class GreetAspector {
         return result;
     }
     
+    /**
+     * 用 AOP 的行话来讲，对方法的增强叫做 Weaving（织入），
+     * 而对类的增强叫做 Introduction（引入）。
+     * 而 Introduction Advice（引入增强）就是对类的功能增强，
+     * 它也是 Spring AOP 提供的最后一种增强
+     */
     @DeclareParents(value = "com.somnus.annotation.aop.GreetImpl", defaultImpl = ApologyImpl.class)  
     private Apology apology;
 }
