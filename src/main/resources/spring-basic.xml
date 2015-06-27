@@ -25,6 +25,16 @@
     <!-- application 上下文 -->
     <bean class="com.somnus.ApplicationContextHolder"/>
     
+    <!-- 静态工厂 -->
+    <bean id="user" class="com.somnus.factory.BeanFactory" factory-method="getInstance">
+    	<constructor-arg>
+            <ref bean="somnus" />
+        </constructor-arg>
+    </bean>
+    <!-- 实例工厂 -->
+    <bean id="factory" class="com.somnus.factory.BeanFactory2"/>
+    <bean id="info" factory-bean="factory" factory-method="getInstance"/>
+    
     <import resource="classpath:/spring-aop.xml"/>
     <import resource="classpath:/spring-aspect.xml"/>
     <import resource="classpath:/spring-env.xml"/>
