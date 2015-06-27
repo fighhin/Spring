@@ -7,7 +7,14 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd ">
 	
-     <!-- 设置使用注解的类所在的jar包 -->
+	<!-- ************************************************************************************************* -->
+    <!-- <context:annotation-config/> 隐式地向 Spring容器注册AutowiredAnnotationBeanPostProcessor、                                                      -->
+    <!-- RequiredAnnotationBeanPostProcessor、CommonAnnotationBeanPostProcessor                             -->
+    <!-- 以及PersistenceAnnotationBeanPostProcessor这4个BeanPostProcessor                                     -->  
+    <!-- ************************************************************************************************* -->
+	
+    <!-- 该配置项其实也包含了自动注入上述processor的功能，因此当使用<context:component-scan/>后， -->
+    <!-- 即可将<context:annotation-config/>省去                                                                                                             -->
 	<context:component-scan base-package="com.somnus" use-default-filters="false">
 		<!-- 扫描符合@Component @Service @Repository的类 -->
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Component" />
