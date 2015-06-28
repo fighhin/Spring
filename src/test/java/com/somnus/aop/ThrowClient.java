@@ -6,7 +6,7 @@ import org.springframework.aop.framework.ProxyFactory;
  * @Title: ThrowClient.java 
  * @Package com.somnus.aop 
  * @Description: TODO
- * @author yh.liu
+ * @author Somnus
  * @date 2015年6月1日 下午12:37:49 
  * @version V1.0 
  */

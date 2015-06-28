@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
  * @Title: LogAspector.java 
  * @Package com.somnus.annotation.aop 
  * @Description: TODO
- * @author yh.liu
+ * @author Somnus
  * @date 2015年6月3日 下午1:04:23 
  * @version V1.0
  */
