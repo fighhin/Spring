@@ -1,6 +1,7 @@
 package com.somnus.annotation.aop;
 
 import org.springframework.stereotype.Component;
+import org.springframework.validation.annotation.Validated;
 
 /** 
  * @Title: GreetingImpl.java 
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Component;
  * @date 2015年6月1日 下午12:39:06 
  * @version V1.0 
  */
+@Validated
 @Component
 public class GreetImpl implements Greet {
     
