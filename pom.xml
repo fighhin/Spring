@@ -32,14 +32,17 @@
         <jdbc.driver.groupId>mysql</jdbc.driver.groupId>
         <jdbc.driver.artifactId>mysql-connector-java</jdbc.driver.artifactId>
         <jdbc.driver.version>5.1.27</jdbc.driver.version>
+        <geronimo.version>1.1.1</geronimo.version>
+        <!-- MQ -->
+        <activemq.version>5.7.0</activemq.version>
 	</properties>
 	<!-- 指定Maven仓库 -->
 	<repositories>
 		<!-- oschina的maven仓库 -->
 		<repository>
-			<id>oschinaRepository</id>
-			<name>local private nexus</name>
-			<url>http://maven.oschina.net/content/groups/public/</url>
+			<id>public</id>
+			<name>Public Repositories</name>
+			<url>http://localhost:8081/nexus/content/groups/public/</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
@@ -136,6 +139,11 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jms</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
 		<!-- hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -159,6 +167,44 @@
 			<artifactId>cglib</artifactId>
 			<version>${cglib.version}</version>
 		</dependency>
+		
+		<!-- jms -->
+		<dependency>
+			<groupId>org.apache.geronimo.specs</groupId>
+			<artifactId>geronimo-jms_1.1_spec</artifactId>
+			<version>${geronimo.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.geronimo.specs</groupId>
+			<artifactId>geronimo-jta_1.1_spec</artifactId>
+			<version>${geronimo.version}</version>
+		</dependency>
+		<!-- activeMQ -->
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-core</artifactId>
+			<version>${activemq.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.activemq.protobuf</groupId>
+					<artifactId>activemq-protobuf</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework.osgi</groupId>
+					<artifactId>spring-osgi-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.osgi</groupId>
+					<artifactId>org.osgi.core</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-pool</artifactId>
+			<version>${activemq.version}</version>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
