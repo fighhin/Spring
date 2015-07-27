@@ -5,7 +5,7 @@
 						http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <description>收报配置</description>
-
+    
     <!-- Message converter -->
     <bean id="simpleMessageConverter" class="org.springframework.jms.support.converter.SimpleMessageConverter" />
 
@@ -22,8 +22,8 @@
         <property name="cacheLevel" value="4"/>
     </bean>
 
-    <bean id="parentMessageListener" class="com.somnus.support.jms.AbstractJmsReceiveTemplate" 
-    	scope="prototype" abstract="true">
+    <bean id="parentMessageListener" class="com.somnus.activemq.support.jms.AbstractJmsReceiveTemplate" scope="prototype"
+          abstract="true">
         <!-- onMessage委托给execute -->
         <property name="defaultListenerMethod" value="onReceive" />
         <property name="messageConverter" ref="simpleMessageConverter" />

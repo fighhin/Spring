@@ -1,12 +1,13 @@
-package com.somnus.support.jms;
+package com.somnus.activemq.support.jms;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
 import org.springframework.jms.listener.adapter.MessageListenerAdapter;
 
-import com.somnus.support.common.Constants;
-import com.somnus.support.util.SessionUtil;
+import com.somnus.activemq.support.common.Constants;
+import com.somnus.activemq.support.util.SessionUtil;
+
 
 /**
  * 

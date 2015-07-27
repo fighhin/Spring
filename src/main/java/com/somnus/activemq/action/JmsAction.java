@@ -1,9 +1,9 @@
-package com.somnus.action;
+package com.somnus.activemq.action;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.somnus.support.jms.AbstractJmsReceiveTemplate;
+import com.somnus.activemq.support.jms.AbstractJmsReceiveTemplate;
 
 /** 
  * @Title: JmsAction.java 

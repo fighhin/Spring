@@ -1,4 +1,4 @@
-package com.somnus.support.common;
+package com.somnus.activemq.support.common;
 
 /**
  * 

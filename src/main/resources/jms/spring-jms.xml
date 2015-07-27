@@ -4,7 +4,6 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 						http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<!-- 配置activemq connectionFactory -->
 	<!-- 真正可以产生Connection的ConnectionFactory，由对应的 JMS服务厂商提供-->  
     <bean id="jmsConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
         <property name="brokerURL" value="${jms.brokerUrl}" />
@@ -19,11 +18,9 @@
         <property name="sessionCacheSize" value="${jms.caching.factory.sessionCacheSize}" />
     </bean>
 
-    <!-- Spring JMS Template -->
+    <!-- Spring提供的JMS工具类，它可以进行消息发送、接收等 -->
     <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
-        <property name="connectionFactory">
-            <ref local="connectionFactory" />
-        </property>
+        <property name="connectionFactory" ref="connectionFactory"/>
         <property name="pubSubDomain" value="false" />
     </bean>
 

@@ -4,15 +4,18 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans   
 						http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean id="jmsQueue" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg index="0" value="${jms.queue.somnus.sample}" />
+    </bean>
     
-    <bean id="jmsAction" class="com.somnus.action.JmsAction" parent="parentMessageListener"/>
+    <bean id="jmsAction" class="com.somnus.activemq.action.JmsAction" parent="parentMessageListener"/>
 
     <bean id="jmsMessageContainer" parent="parentListenerContainer">
-        <property name="destination" ref="incomeQueue"/>
+        <property name="destination" ref="jmsQueue"/>
         <property name="messageListener" ref="jmsAction"/>
     </bean>
     <bean id="jmsMessageContainerBack" parent="parentListenerContainer">
-        <property name="destination" ref="incomeQueue"/>
+        <property name="destination" ref="jmsQueue"/>
         <property name="messageListener" ref="jmsAction"/>
     </bean>
 
