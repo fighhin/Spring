@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
  * @Title: ProducerServiceImpl.java 
  * @Package com.somnus.activemq 
  * @Description: TODO
- * @author yh.liu
+ * @author Somnus
  * @date 2015年7月27日 上午10:45:38 
  * @version V1.0 
  */

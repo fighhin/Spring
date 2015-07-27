@@ -6,7 +6,7 @@ import javax.jms.Destination;
  * @Title: ProducerService.java 
  * @Package com.somnus.activemq 
  * @Description: TODO
- * @author yh.liu
+ * @author Somnus
  * @date 2015年7月27日 上午10:44:45 
  * @version V1.0 
  */
