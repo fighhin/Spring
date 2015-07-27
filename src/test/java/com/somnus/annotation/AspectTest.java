@@ -17,7 +17,7 @@ public class AspectTest extends AbstractTestSupport {
     
     @Test
     public void test2(){
-        Greet greet = (Greet) ApplicationContextHolder.getBean(GreetImpl.class);  
+        Greet greet = (Greet) ApplicationContextHolder.getBean(GreetImpl.class);
         greet.sayHello("Jack");  
    
         Apology apology = (Apology) greet; // 强制转型为 Apology 接口  
