@@ -18,10 +18,6 @@ public class UserServiceImpl {
 	@Resource
 	private LogDao logDao;
 	
-	public void init() {
-		System.out.println("init");
-	}
-	
 	public User getUser(int id) {
 		return null;
 	}
@@ -54,7 +50,4 @@ public class UserServiceImpl {
         throw new RuntimeException();
     }*/
 
-	public void destroy() {
-		System.out.println("destroy");
-	}
 }
