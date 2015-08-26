@@ -1,7 +1,5 @@
 package com.somnus.factory;
 
-import com.somnus.factory.BeanFactory.User;
-
 /** 
  * @Title: BeanFactory2.java 
  * @Package com.somnus.factory 
