@@ -5,12 +5,6 @@
     <property name="log.base" value="logs" />
 	<property name="pattern"  value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{sessionId}] %-5level [%thread] %logger{80} :%msg%n" />
 	
-	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
-		<encoder>
-            <pattern>${pattern}</pattern>
-        </encoder>
-	</appender>
-	
 	<appender name="root" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${log.base}/spring-root.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
@@ -25,14 +19,6 @@
         </encoder>
     </appender>
     
-	<!-- show parameters for hibernate sql 专为 Hibernate 定制 -->  
-    <!-- <logger name="org.hibernate.type.descriptor.sql.BasicBinder"  level="TRACE" />  
-    <logger name="org.hibernate.type.descriptor.sql.BasicExtractor"  level="DEBUG" />  
-    <logger name="org.hibernate.SQL" level="DEBUG" />
-    <logger name="org.hibernate.type" level="TRACE" />
-    <logger name="org.hibernate.engine.QueryParameters" level="DEBUG" />  
-    <logger name="org.hibernate.engine.query.HQLQueryPlan" level="DEBUG" />  
-	<logger name="org.springframework" level="info" /> -->
 	<!-- 日志过滤 -->
 	<logger name="org.jdbcdslog.ConnectionLogger" level="info" />
     <!-- 上线初期建议lever=info，正常运行后建以lever=error,测试时lever=error-->
@@ -40,11 +26,9 @@
     <logger name="org.jdbcdslog.SlowQueryLogger" level="info" />
     <logger name="org.jdbcdslog.ResultSetLogger" level="error" />
     <logger name="org.springframework" level="info" />
-    <logger name="org.apache" level="info" />
 
 	<!-- root级别控制 -->
 	<root level="INFO">
-		<appender-ref ref="console" />
 		<appender-ref ref="root" />
 	</root>
 </configuration>
