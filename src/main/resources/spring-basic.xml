@@ -8,9 +8,11 @@
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd ">
 	
 	<!-- ************************************************************************************************* -->
-    <!-- <context:annotation-config/> 隐式地向 Spring容器注册AutowiredAnnotationBeanPostProcessor、                                                      -->
-    <!-- RequiredAnnotationBeanPostProcessor、CommonAnnotationBeanPostProcessor                             -->
-    <!-- 以及PersistenceAnnotationBeanPostProcessor这4个BeanPostProcessor                                     -->  
+    <!-- <context:annotation-config/> 隐式地向 Spring容器注册                                                                                                                                                                                  -->
+    <!-- AutowiredAnnotationBeanPostProcessor、                                                                                                                                                                                                            -->
+    <!-- RequiredAnnotationBeanPostProcessor、                                                                                                                                                                                                                -->
+    <!-- CommonAnnotationBeanPostProcessor                                                                 -->
+    <!-- PersistenceAnnotationBeanPostProcessor这4个BeanPostProcessor                                        -->  
     <!-- ************************************************************************************************* -->
 	
     <!-- 该配置项其实也包含了自动注入上述processor的功能，因此当使用<context:component-scan/>后， -->
