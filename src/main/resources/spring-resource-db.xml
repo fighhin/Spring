@@ -30,9 +30,16 @@
 		</property>
 	</bean>
 
+    <!-- 配置事务管理器 -->
 	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
+	
+	<!-- 注解方式配置事物 -->
+	<!-- 【基于CGLIB类代理】，只能将@Transactional放置在具体类上或具体类的方法上 -->
+    <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
+    
+    <!-- 【基于JDK动态代理】 ，可以将@Transactional放置在接口和具体类上或具体类的方法上
     <tx:annotation-driven transaction-manager="transactionManager"/>
-
+     -->
 </beans>
