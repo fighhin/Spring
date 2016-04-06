@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.somnus.strategy.impl;
 
 import org.springframework.stereotype.Service;

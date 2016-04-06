@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.somnus.strategy;
 
 public interface IPolyBaseLaudHouseService {

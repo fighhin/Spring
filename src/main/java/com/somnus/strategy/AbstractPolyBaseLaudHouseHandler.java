@@ -1,15 +1,9 @@
-/**
- * 
- */
 package com.somnus.strategy;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.springframework.stereotype.Service;
-
-@Service
 public abstract class AbstractPolyBaseLaudHouseHandler {
 	
 	protected final Set<String> types;
@@ -22,4 +16,6 @@ public abstract class AbstractPolyBaseLaudHouseHandler {
 	public boolean isSupport(String type){
 		return types.contains(type);
 	}
+	
+	public abstract void createLaudHouse();
 }
