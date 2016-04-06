@@ -10,11 +10,15 @@ public class Client {
 
 interface IService{
 	String who();
+	String where();
 }
 @Service
 class ServiceImpl implements IService{
 	public String who(){
 		return "Somnus";
+	}
+	public String where(){
+		return "ShangHai";
 	}
 }
 class A{
@@ -37,5 +41,8 @@ class B extends A{
 	}
 	public void lol(){
 		super.say();
+		IService service = getService();
+		System.out.println("Here is " + service.where());
+				
 	}
 }
