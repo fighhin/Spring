@@ -11,4 +11,5 @@ public class SpringTest extends AbstractTestSupport {
 		Animal animal = (Animal)ApplicationContextHolder.getBean(Animal.class);
 		System.out.println(animal.speak());
 	}
+	
 }
