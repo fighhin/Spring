@@ -216,11 +216,6 @@
 			<version>2.7.3</version>
 		</dependency>
 		
-		<dependency>
-			<groupId>com.somnus.rest.core</groupId>
-			<artifactId>rest-core</artifactId>
-			<version>3.2.0</version>
-		</dependency>
 	</dependencies>
 
 	<build>
