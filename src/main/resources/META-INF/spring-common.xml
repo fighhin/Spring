@@ -7,8 +7,12 @@
     <bean id="jmsQueue" class="org.apache.activemq.command.ActiveMQQueue">
         <constructor-arg index="0" value="${jms.queue.somnus.sample}" />
     </bean>
+    <bean id="jms2Queue" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg index="0" value="${jms.queue.somnus.sample2}" />
+    </bean>
     
     <bean id="jmsAction" class="com.somnus.activemq.action.JmsAction" parent="parentMessageListener"/>
+    <bean id="jms2Action" class="com.somnus.activemq.action.Jms2Action" parent="parentMessageListener"/>
 
     <bean id="jmsMessageContainer" parent="parentListenerContainer">
         <property name="destination" ref="jmsQueue"/>
@@ -16,6 +20,15 @@
     </bean>
     <bean id="jmsMessageContainerBack" parent="parentListenerContainer">
         <property name="destination" ref="jmsQueue"/>
+        <property name="messageListener" ref="jmsAction"/>
+    </bean>
+    
+    <bean id="jms2MessageContainer" parent="parentListenerContainer">
+        <property name="destination" ref="jms2Queue"/>
+        <property name="messageListener" ref="jmsAction"/>
+    </bean>
+    <bean id="jms2MessageContainerBack" parent="parentListenerContainer">
+        <property name="destination" ref="jms2Queue"/>
         <property name="messageListener" ref="jmsAction"/>
     </bean>
 

@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Component;
 
+import com.somnus.activemq.message.Message;
+
 /** 
  * @Title: ProducerServiceImpl.java 
  * @Package com.somnus.activemq 
@@ -24,9 +26,19 @@ public class JmsServiceImpl implements JmsService{
     @Resource
     private Destination jmsQueue;
     
+    @Resource
+    private Destination jms2Queue;
+    
     public void sendMessage(String message) {
         System.out.println("---------------生产者发送消息-----------------");
-        System.out.println("---------------生产者发了一个消息：" + message);
+        System.out.println("---------------生产者发了一个字符串消息：" + message);
         jmsTemplate.convertAndSend(jmsQueue, message);   
     }
+
+	@Override
+	public void sendMessage(Message message) {
+		System.out.println("---------------生产者发送消息-----------------");
+        System.out.println("---------------生产者发了一个对象消息：" + message);
+        jmsTemplate.convertAndSend(jms2Queue, message);  
+	}
 }
