@@ -1,10 +1,8 @@
-/**
- * 
- */
-package com.somnus.event;
+package com.somnus.event.demo;
 
-import org.springframework.context.ApplicationEvent;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationListener;
+import org.springframework.context.event.ContextClosedEvent;
 import org.springframework.stereotype.Component;
 
 /**
@@ -19,14 +17,14 @@ import org.springframework.stereotype.Component;
  * 2016年3月22日       Somnus       1.0            
  */
 @Component
-public class AnimalEventListener implements ApplicationListener<ApplicationEvent>{
+public class ContextClosedListener implements ApplicationListener<ContextClosedEvent>{
 
 	@Override
-	public void onApplicationEvent(ApplicationEvent event) {
-		if (event instanceof AnimalSpeakEvent) {
-			 AnimalSpeakEvent a = (AnimalSpeakEvent) event;
-			 System.out.println("事件监听器" + this.getClass().getSimpleName()+
-					 ":有一个动物在讲话！它的名字是:"+ a.getAnimalName());
+	public void onApplicationEvent(ContextClosedEvent event) {
+		ApplicationContext context = event.getApplicationContext();
+		if(context.getParent() == null){
+			System.out.println("Spring容器关闭================================================");
+			System.out.println("ContextClosedListener is invoked");
 		}
 		
 	}

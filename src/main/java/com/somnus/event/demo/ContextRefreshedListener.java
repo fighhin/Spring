@@ -1,8 +1,9 @@
-package com.somnus.event;
+package com.somnus.event.demo;
 
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationListener;
-import org.springframework.context.event.ContextClosedEvent;
+import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
 /**
@@ -17,15 +18,21 @@ import org.springframework.stereotype.Component;
  * 2016年3月22日       Somnus       1.0            
  */
 @Component
-public class ContextClosedListener implements ApplicationListener<ContextClosedEvent>{
+public class ContextRefreshedListener implements InitializingBean, ApplicationListener<ContextRefreshedEvent>{
 
 	@Override
-	public void onApplicationEvent(ContextClosedEvent event) {
+	public void onApplicationEvent(ContextRefreshedEvent event) {
 		ApplicationContext context = event.getApplicationContext();
 		if(context.getParent() == null){
-			System.out.println("Spring容器关闭================================================");
-			System.out.println("ContextClosedListener is invoked");
+			System.out.println("Spring容器初始化完毕================================================");
+			System.out.println("ContextRefreshedListener is invoked");
 		}
+		
+	}
+
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		System.out.println("afterPropertiesSet is invoked================================================");
 		
 	}
 

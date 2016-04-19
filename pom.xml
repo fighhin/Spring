@@ -217,11 +217,22 @@
 		</dependency>
 		
 		<dependency>
-    <groupId>com.taobao.metamorphosis</groupId>
-    <artifactId>metamorphosis-client</artifactId>
-    <version>1.4.6.2</version>
-</dependency>
+			<groupId>com.taobao.metamorphosis</groupId>
+			<artifactId>metamorphosis-client</artifactId>
+			<version>1.4.6.2</version>
+		</dependency>
 		
+		<dependency>
+            <groupId>commons-configuration</groupId>
+            <artifactId>commons-configuration</artifactId>
+            <version>1.10</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.1</version>
+        </dependency>
 	</dependencies>
 
 	<build>
