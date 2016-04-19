@@ -78,7 +78,7 @@ public abstract class AsyncEventListener<T extends BaseEvent> implements Applica
 				}else {
 					doIt(event, task);
 				}
-			}else if(retryCount < 0){
+			} else {
 				LOGGER.warn("失败的任务[{}]已进行了[{}]次重试,不允许继续重试", retryAbleTask.getName(), retryAbleTask.getCurrent());
 				String message = retryAbleTask.getName() + "重试" + retryAbleTask.getCurrent() + "次后仍然失败(" + e.getMessage() + ")";
 				LOGGER.warn(message);
