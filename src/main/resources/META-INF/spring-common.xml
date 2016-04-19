@@ -18,16 +18,8 @@
         <property name="destination" ref="jmsQueue"/>
         <property name="messageListener" ref="jmsAction"/>
     </bean>
-    <bean id="jmsMessageContainerBack" parent="parentListenerContainer">
-        <property name="destination" ref="jmsQueue"/>
-        <property name="messageListener" ref="jmsAction"/>
-    </bean>
     
     <bean id="jms2MessageContainer" parent="parentListenerContainer">
-        <property name="destination" ref="jms2Queue"/>
-        <property name="messageListener" ref="jmsAction"/>
-    </bean>
-    <bean id="jms2MessageContainerBack" parent="parentListenerContainer">
         <property name="destination" ref="jms2Queue"/>
         <property name="messageListener" ref="jmsAction"/>
     </bean>
