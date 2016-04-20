@@ -5,10 +5,10 @@
     <property name="log.base" value="logs" />
 	<property name="pattern"  value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{sessionId}] %-5level [%thread] %logger{80} :%msg%n" />
 	
-	<appender name="root" class="ch.qos.logback.core.rolling.RollingFileAppender">
+	<appender name="ROOT_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${log.base}/spring-root.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${log.base}/%d{yyyy-MM-dd}/somnus-root-%i.%d{yyyy-MM-dd}.log.gz
+            <fileNamePattern>${log.base}/%d{yyyy-MM-dd}/spring-root-%i.%d{yyyy-MM-dd}.log.gz
             </fileNamePattern>
             <TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <MaxFileSize>30MB</MaxFileSize>
@@ -19,16 +19,18 @@
         </encoder>
     </appender>
     
-	<!-- 日志过滤 -->
-	<logger name="org.jdbcdslog.ConnectionLogger" level="info" />
-    <!-- 上线初期建议lever=info，正常运行后建以lever=error,测试时lever=error-->
+    <logger name="com.somnus" level="info" />
+
+	<!-- 上线初期建议lever=info，正常运行后建以lever=error,测试时lever=error-->
+    <logger name="org.jdbcdslog.ConnectionLogger" level="info" />
     <logger name="org.jdbcdslog.StatementLogger" level="info" />
     <logger name="org.jdbcdslog.SlowQueryLogger" level="info" />
-    <logger name="org.jdbcdslog.ResultSetLogger" level="error" />
+    <logger name="org.jdbcdslog.ResultSetLogger" level="info" />
     <logger name="org.springframework" level="info" />
-
+	<logger name="org.apache.activemq.transport.AbstractInactivityMonitor" level="info" />
+	
 	<!-- root级别控制 -->
-	<root level="INFO">
-		<appender-ref ref="root" />
+	<root level="info">
+		<appender-ref ref="ROOT_FILE" />
 	</root>
 </configuration>
