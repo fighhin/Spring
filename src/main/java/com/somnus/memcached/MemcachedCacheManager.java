@@ -39,7 +39,7 @@ public class MemcachedCacheManager extends AbstractTransactionSupportingCacheMan
                 expire = 60 * 60 * 24;
                 expireMap.put(name, expire);
             }
-            log.info("默认使用Memcached缓存");
+            log.info("初始化Memcached缓存[{}]",name);
             cache = new MemcachedCache(name, expire.intValue(), memcachedClient);
             cacheMap.put(name, cache);
         }
