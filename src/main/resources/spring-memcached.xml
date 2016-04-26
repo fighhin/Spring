@@ -27,7 +27,7 @@
     	<property name="memcachedClient" ref="memcachedClient" />
     	<property name="expireMap">
             <map>
-                <entry key="memcached" value="3600" /> 
+                <entry key="cache.somnus.account" value="3600" />
             </map>
         </property>
 	</bean>
