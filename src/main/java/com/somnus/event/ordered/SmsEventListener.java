@@ -25,15 +25,7 @@ public class SmsEventListener implements SmartApplicationListener {
   
     @Override  
     public void onApplicationEvent(ApplicationEvent event) {
-    	if(event instanceof SmsEvent){  
-            //只处理EmailEvent，发送email通知  
-    		SmsEvent smsEvent = (SmsEvent) event;  
-    		System.out.println("孙六在王五之后收到新的内容：" + smsEvent.getContent()); 
-        }  
-        else {  
-            //容器内置事件不作任何处理  
-            System.out.println("容器本身的事件:"+event);  
-        }
+    	System.out.println("孙六在王五之后收到新的内容：" + event.getSource()); 
     }  
   
     /**
