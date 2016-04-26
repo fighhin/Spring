@@ -8,7 +8,6 @@ import java.util.concurrent.ConcurrentMap;
 
 import net.spy.memcached.MemcachedClient;
 
-import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.Cache;
@@ -37,9 +36,10 @@ public class MemcachedCacheManager extends AbstractTransactionSupportingCacheMan
         if (cache == null) {
             Integer expire = expireMap.get(name);
             if (expire == null) {
-                expire = 0;
+                expire = 60 * 60 * 24;
                 expireMap.put(name, expire);
             }
+            log.info("默认使用Memcached缓存");
             cache = new MemcachedCache(name, expire.intValue(), memcachedClient);
             cacheMap.put(name, cache);
         }
@@ -50,42 +50,7 @@ public class MemcachedCacheManager extends AbstractTransactionSupportingCacheMan
         this.memcachedClient = memcachedClient;
     }  
   
-    public void setConfigMap(Map<String, Integer> configMap) {
-        this.expireMap = configMap;
+    public void setExpireMap(Map<String, Integer> expireMap) {
+        this.expireMap = expireMap;
     }
-    
-	
-	public void put(String key, Object value, int expire) {
-		if(log.isDebugEnabled()){
-			log.debug("添加缓存:{} , 过期时间:{}", key, expire);
-		}
-		String[] nk = split(key);
-		getCache(nk[0]).put(key, nk[1]);
-	}
-
-	public Object get(String key) {
-		String[] nk = split(key);
-		return getCache(nk[0]).get(nk[1]);
-	}
-
-	public void remove(String...keys) {
-		if(keys != null && keys.length > 0){
-			for (int i = 0; i < keys.length; i++) {
-				if(log.isDebugEnabled()){
-					log.debug("清理缓存:{}", keys[i]);
-				}
-				String[] nk = split(keys[i]);
-				getCache(nk[0]).evict(nk[1]);
-			}
-		}
-	}
-	
-	private String[] split(String key){
-		if(!StringUtils.contains(key, "_")){
-			
-		}
-		String[] nk = key.split("_");
-		return nk;
-	}
-
 }

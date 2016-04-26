@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    xmlns:context="http://www.springframework.org/schema/context"
-    xmlns:cache="http://www.springframework.org/schema/cache"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd   
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-        http://www.springframework.org/schema/cache http://www.springframework.org/schema/context/spring-cache.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xsi:schemaLocation="
+     	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+     	http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
 
 
 	<bean id="memcachedClient" name="memcachedClient" class="net.spy.memcached.spring.MemcachedClientFactoryBean">
@@ -24,13 +23,13 @@
 		<property name="useNagleAlgorithm" value="false" />
 	</bean>
 	
-	<bean id="cacheManager" class="com.somnus.memcached.MemcachedCacheManager">  
+	<bean id="cacheManager" class="com.somnus.memcached.MemcachedCacheManager">
     	<property name="memcachedClient" ref="memcachedClient" />
-    	<property name="expireMap">    
-            <map>    
+    	<property name="expireMap">
+            <map>
                 <entry key="memcached" value="3600" /> 
-            </map>    
-        </property>    
+            </map>
+        </property>
 	</bean>
 	<cache:annotation-driven cache-manager="cacheManager"/> 
 	

@@ -44,4 +44,5 @@
     <import resource="classpath*:/jms/spring-*.xml" />
     <import resource="classpath*:META-INF/spring-common.xml"/>
     <import resource="classpath:/spring-redis.xml"/>
+    <import resource="classpath:/spring-memcached.xml"/>
 </beans>

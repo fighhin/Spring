@@ -81,6 +81,9 @@ public class MemcachedCache implements Cache {
       
         public Object get(String key) {
         	key = StringUtils.isEmpty(key) ? null : this.getKey(key);
+        	if(log.isDebugEnabled()){
+				log.debug("获取缓存数据{}", key);
+			}
     		return memcachedClient.get(key);
     	}
     	
