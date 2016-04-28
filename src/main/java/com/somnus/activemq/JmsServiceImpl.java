@@ -28,20 +28,20 @@ public class JmsServiceImpl implements JmsService{
     private JmsTemplate jmsTemplate;
     
     @Resource
-    private Destination jmsQueue;
+    private Destination sampleStringQueue;
     
     @Resource
-    private Destination jms2Queue;
+    private Destination sampleObjectQueue;
     
     public void sendMessage(String message) {
     	log.info("---------------生产者发了一个字符串消息：" + message);
         System.out.println();
-        jmsTemplate.convertAndSend(jmsQueue, message);   
+        jmsTemplate.convertAndSend(sampleStringQueue, message);   
     }
 
 	@Override
 	public void sendMessage(Message message) {
 		log.info("---------------生产者发了一个对象消息：" + message);
-        jmsTemplate.convertAndSend(jms2Queue, message);  
+        jmsTemplate.convertAndSend(sampleObjectQueue, message);  
 	}
 }
