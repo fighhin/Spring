@@ -10,7 +10,7 @@ import com.taobao.metamorphosis.exception.MetaClientException;
 
 public class StringMessageBodyConverter implements MessageBodyConverter<String> {
 
-	private final static Logger LOGGER = LoggerFactory.getLogger(StringMessageBodyConverter.class);
+	private transient Logger log = LoggerFactory.getLogger(this.getClass());
 	
 	@Override
 	public byte[] toByteArray(String body) throws MetaClientException {
@@ -19,9 +19,7 @@ public class StringMessageBodyConverter implements MessageBodyConverter<String> 
 		try {
 			return body.getBytes("utf-8");
 		} catch (Exception e) {
-			if(LOGGER.isWarnEnabled()){
-				LOGGER.warn("metaq消息格式格式化错误", e);
-			}
+			log.error("metaq消息格式格式化错误", e);
 		}
 		return null;
 	}
@@ -31,9 +29,7 @@ public class StringMessageBodyConverter implements MessageBodyConverter<String> 
 		try {
 			return new String(bs,"utf-8");
 		} catch (UnsupportedEncodingException e) {
-			if(LOGGER.isWarnEnabled()){
-				LOGGER.warn("metaq消息格式转换错误", e);
-			}
+			log.error("metaq消息格式转换错误", e);
 		}
 		return null;
 	}
