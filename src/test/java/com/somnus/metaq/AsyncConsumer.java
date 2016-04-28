@@ -16,12 +16,12 @@ public class AsyncConsumer {
         final MetaClientConfig metaClientConfig = new MetaClientConfig();
         final ZKConfig zkConfig = new ZKConfig();
         //设置zookeeper地址
-        zkConfig.zkConnect = "192.168.1.101:2181";
+        zkConfig.zkConnect = "192.168.1.101:12181";
         metaClientConfig.setZkConfig(zkConfig);
         // New session factory,强烈建议使用单例
         MessageSessionFactory sessionFactory = new MetaMessageSessionFactory(metaClientConfig);
         // subscribed topic
-        final String topic = "test";
+        final String topic = "stage_payserver_refund_response";
         // consumer group
         final String group = "meta-example";
         // create consumer,强烈建议使用单例

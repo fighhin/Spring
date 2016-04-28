@@ -11,7 +11,7 @@ package com.somnus.factory;
 public class BeanFactory {
 	
 	public static User getInstance(Somnus somnus){
-		somnus.say();
+		System.out.println(somnus.say());
 		return new User();
 	}
 	

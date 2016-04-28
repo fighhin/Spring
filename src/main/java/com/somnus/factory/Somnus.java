@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class Somnus{
-	public void say(){
-		System.out.println("day day up,study hard hard");
+	public String say(){
+		return "静态工厂中的方法被执行！！!";
 	}
 }
