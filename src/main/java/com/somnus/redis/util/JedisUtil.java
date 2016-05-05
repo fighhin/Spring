@@ -765,6 +765,13 @@ public class JedisUtil {
             return s;
         }
  
+        /**
+         * 从hash中删除指定的存储
+         * 
+         * @param String
+         *            key
+         * @return 状态码，1成功，0失败
+         * */
         public static long hdel(String key) {
             Jedis jedis = getJedis();
             long s = jedis.del(key);
@@ -869,20 +876,6 @@ public class JedisUtil {
         }
  
         /**
-         * 获取hash中value的集合
-         * 
-         * @param String
-         *            key
-         * @return List<String>
-         * */
-        public static List<String> hvals(String key) {
-            Jedis jedis = getJedis();
-            List<String> list = jedis.hvals(key);
-            close(jedis);
-            return list;
-        }
- 
-        /**
          * 在指定的存储位置加上指定的数字，存储位置的值必须可转为数字类型
          * 
          * @param String
@@ -893,7 +886,7 @@ public class JedisUtil {
          *            long value 要增加的值,可以是负数
          * @return 增加指定数字后，存储位置的值
          * */
-        public static long hincrby(String key, String fieid, long value) {
+        public static long hincrBy(String key, String fieid, long value) {
             Jedis jedis = getJedis();
             long s = jedis.hincrBy(key, fieid, value);
             close(jedis);
@@ -914,6 +907,20 @@ public class JedisUtil {
             return set;
         }
  
+        /**
+         * 获取hash中value的集合
+         * 
+         * @param String
+         *            key
+         * @return List<String>
+         * */
+        public static List<String> hvals(String key) {
+            Jedis jedis = getJedis();
+            List<String> list = jedis.hvals(key);
+            close(jedis);
+            return list;
+        }
+        
         /**
          * 获取hash中存储的个数，类似Map中size方法
          * 
@@ -1179,7 +1186,7 @@ public class JedisUtil {
          * @param long endOffset 结束位置(包含)
          * @return String 截取的值
          * */
-        public static String getrange(String key, long startOffset, long endOffset) {
+        public static String getRange(String key, long startOffset, long endOffset) {
             Jedis jedis = getJedis();
             String value = jedis.getrange(key, startOffset, endOffset);
             close(jedis);

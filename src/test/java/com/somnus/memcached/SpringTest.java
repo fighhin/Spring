@@ -1,9 +1,11 @@
-package com.somnus.cache;
+package com.somnus.memcached;
 
 import org.junit.Test;
 
 import com.somnus.AbstractTestSupport;
 import com.somnus.ApplicationContextHolder;
+import com.somnus.cache.Account;
+import com.somnus.cache.AccountCache;
 import com.somnus.memcached.MemCachedUtil;
 
 public class SpringTest extends AbstractTestSupport {
