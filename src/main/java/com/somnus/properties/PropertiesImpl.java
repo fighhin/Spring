@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.somnus.properties;
 
 import java.util.Enumeration;
@@ -11,21 +8,10 @@ import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-/**
- * @description: 
- * Copyright 2011-2016 B5M.COM. All rights reserved
- * @author:  Somnus
- * @version: 1.0
- * @createDate: 2016年3月21日 上午10:43:56 
- * Modification  History:
- * Date         Author        Version        Discription
- * -----------------------------------------------------------------------------------
- * 2016年3月21日       Somnus                               1.0            
- */
 @Service
 public class PropertiesImpl {
 	
-	@Value("${somnus.socket.socketIP}")
+	@Value("${redis.host}")
 	private String ip;
 	
 	@Value("#{requestinfo['version']}")

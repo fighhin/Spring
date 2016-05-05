@@ -12,6 +12,8 @@ public interface RedisDao {
 	
 	public void saveUser(final User user);
 	
-	public User getUser(final long id);
+	public User getUser(final long uid);
+	
+	public void deleteUser(final String uid);
 
 }

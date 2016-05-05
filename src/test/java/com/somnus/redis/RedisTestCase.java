@@ -7,6 +7,7 @@ import com.somnus.ApplicationContextHolder;
 import com.somnus.redis.dao.RedisDao;
 import com.somnus.redis.dao.RedisDaoImpl;
 import com.somnus.redis.model.User;
+import com.somnus.redis.util.JedisUtil;
 
 /**  
  * @Description: TODO
@@ -30,5 +31,11 @@ public class RedisTestCase extends AbstractTestSupport{
 		RedisDao redis = (RedisDao) ApplicationContextHolder.getBean(RedisDaoImpl.class);
 		User user = redis.getUser(1);
 		System.out.println(user);
+	}
+	
+	@Test
+	public void testUtil(){
+		JedisUtil.Strings.set("username", "admin");
+		System.out.println(JedisUtil.Strings.get("username"));
 	}
 }

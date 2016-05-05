@@ -37,21 +37,34 @@ public class RedisDaoImpl implements RedisDao{
     }
 
     @Override
-    public User getUser(final long id) {
+    public User getUser(final long uid) {
         return redisTemplate.execute(new RedisCallback<User>() {
             @Override
             public User doInRedis(RedisConnection connection) throws DataAccessException {
-                byte[] key = redisTemplate.getStringSerializer().serialize("user.uid." + id);
+                byte[] key = redisTemplate.getStringSerializer().serialize("user.uid." + uid);
                 if (connection.exists(key)) {
                     byte[] value = connection.get(key);
                     String name = redisTemplate.getStringSerializer().deserialize(value);
                     User user = new User();
                     user.setName(name);
-                    user.setId(id);
+                    user.setId(uid);
                     return user;
                 }
                 return null;
             }
         });
     }
+    
+    @Override  
+    public void deleteUser(final String uid) {
+        redisTemplate.execute(new RedisCallback<Object>() {
+            public Object doInRedis(RedisConnection connection) {
+                connection.del(redisTemplate.getStringSerializer().serialize(
+                        "user.uid." + uid));
+                return null;
+            }
+        });
+    }
+    
+    
 }
