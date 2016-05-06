@@ -1,70 +1,82 @@
 package com.somnus.redis.dao;
 
 import java.io.Serializable;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
+import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.stereotype.Repository;
 
-import com.somnus.redis.model.User;
-
-/**  
- * @Description: TODO
- * @author Somnus
- * @date 2015年11月28日 下午8:11:10 
- * @version 1.0 
- */
 @Repository
-public class RedisDaoImpl implements RedisDao{
+public class RedisDaoImpl implements RedisDao {
 	
 	@Autowired
     protected RedisTemplate<Serializable, Serializable> redisTemplate;
+	
+	private final RedisSerializer<Object> valueSerializer = new JdkSerializationRedisSerializer();
+	
+	@Override
+	public <V> void save(final String key,final V value) {
+		if(value instanceof Map){
+			redisTemplate.opsForHash().putAll(key, (Map<?,?>) value );
+		}else{
+			redisTemplate.execute(new RedisCallback<Object>() {
+	            @Override
+	            public Object doInRedis(RedisConnection connection) throws DataAccessException {
+	                connection.set(redisTemplate.getStringSerializer().serialize(key),
+	                			   valueSerializer.serialize(value));
+	                return null;
+	            }
+	        });
+		}
+    }
+	
+	public <V> void save(final String key,final V value,final int expire){
+		if(value instanceof Map){
+			redisTemplate.opsForHash().putAll(key, (Map<?,?>) value );
+			redisTemplate.expire(key, expire, TimeUnit.SECONDS);
+		}else{
+			redisTemplate.execute(new RedisCallback<Object>() {
+	            @Override
+	            public Object doInRedis(RedisConnection connection) throws DataAccessException {
+	                connection.setEx(redisTemplate.getStringSerializer().serialize(key), 
+	                				 expire, valueSerializer.serialize(value));
+	                return null;
+	            }
+	        });
+		}
+	}
 
 	@Override
-    public void saveUser(final User user) {
-        redisTemplate.execute(new RedisCallback<Object>() {
-
-            @Override
-            public Object doInRedis(RedisConnection connection) throws DataAccessException {
-                connection.set(redisTemplate.getStringSerializer().serialize("user.uid." + user.getId()),
-                               redisTemplate.getStringSerializer().serialize(user.getName()));
-                return null;
-            }
-        });
-    }
-
-    @Override
-    public User getUser(final long uid) {
-        return redisTemplate.execute(new RedisCallback<User>() {
-            @Override
-            public User doInRedis(RedisConnection connection) throws DataAccessException {
-                byte[] key = redisTemplate.getStringSerializer().serialize("user.uid." + uid);
-                if (connection.exists(key)) {
-                    byte[] value = connection.get(key);
-                    String name = redisTemplate.getStringSerializer().deserialize(value);
-                    User user = new User();
-                    user.setName(name);
-                    user.setId(uid);
-                    return user;
+    @SuppressWarnings("unchecked")
+    public <V> V get(final String key, Class<V> clazz){
+    	if(Map.class.isAssignableFrom(clazz)){
+    		V v = (V) redisTemplate.opsForHash().entries(key);
+    		return v;
+    	}else{
+    		return redisTemplate.execute(new RedisCallback<V>() {
+                @Override
+                public V doInRedis(RedisConnection connection) throws DataAccessException {
+                	byte[] rawKey = redisTemplate.getStringSerializer().serialize(key);
+                    if (connection.exists(rawKey)) {
+                        byte[] value = connection.get(rawKey);
+                        V v = (V) valueSerializer.deserialize(value);
+                        return v;
+                    }
+                    return null;
                 }
-                return null;
-            }
-        });
+            });
+    	}
     }
     
     @Override  
-    public void deleteUser(final String uid) {
-        redisTemplate.execute(new RedisCallback<Object>() {
-            public Object doInRedis(RedisConnection connection) {
-                connection.del(redisTemplate.getStringSerializer().serialize(
-                        "user.uid." + uid));
-                return null;
-            }
-        });
+    public void delete(final String key) {
+        redisTemplate.delete(key);
     }
-    
-    
 }

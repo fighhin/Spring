@@ -12,8 +12,10 @@ import redis.clients.jedis.BinaryClient.LIST_POSITION;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.SortingParams;
-import redis.clients.util.SafeEncoder;
 
+/**
+ * SafeEncoder.encode
+ */
 public class JedisUtil {
 	
 	/** 缓存生存时间 */
@@ -87,7 +89,10 @@ public class JedisUtil {
          * @return 状态码
          * */
         public static String rename(String oldkey, String newkey) {
-            return rename(SafeEncoder.encode(oldkey), SafeEncoder.encode(newkey));
+        	Jedis jedis = getJedis();
+            String status = jedis.rename(oldkey, newkey);
+            close(jedis);
+            return status;
         }
  
         /**
@@ -102,22 +107,6 @@ public class JedisUtil {
         public static long renamenx(String oldkey, String newkey) {
             Jedis jedis = getJedis();
             long status = jedis.renamenx(oldkey, newkey);
-            close(jedis);
-            return status;
-        }
- 
-        /**
-         * 更改key
-         * 
-         * @param String
-         *            oldkey
-         * @param String
-         *            newkey
-         * @return 状态码
-         * */
-        public static String rename(byte[] oldkey, byte[] newkey) {
-            Jedis jedis = getJedis();
-            String status = jedis.rename(oldkey, newkey);
             close(jedis);
             return status;
         }
@@ -189,20 +178,6 @@ public class JedisUtil {
          * @return 删除的记录数
          * */
         public static long del(String... keys) {
-            Jedis jedis = getJedis();
-            long count = jedis.del(keys);
-            close(jedis);
-            return count;
-        }
- 
-        /**
-         * 删除keys对应的记录,可以是多个key
-         * 
-         * @param String
-         *            ... keys
-         * @return 删除的记录数
-         * */
-        public static long del(byte[]... keys) {
             Jedis jedis = getJedis();
             long count = jedis.del(keys);
             close(jedis);
@@ -294,13 +269,6 @@ public class JedisUtil {
          * @return 操作码,0或1
          * */
         public static long sadd(String key, String member) {
-            Jedis jedis = getJedis();
-            long s = jedis.sadd(key, member);
-            close(jedis);
-            return s;
-        }
- 
-        public static long sadd(byte[] key, byte[] member) {
             Jedis jedis = getJedis();
             long s = jedis.sadd(key, member);
             close(jedis);
@@ -407,13 +375,6 @@ public class JedisUtil {
         public static Set<String> smembers(String key) {
             Jedis jedis = getJedis();
             Set<String> set = jedis.smembers(key);
-            close(jedis);
-            return set;
-        }
- 
-        public static Set<byte[]> smembers(byte[] key) {
-            Jedis jedis = getJedis();
-            Set<byte[]> set = jedis.smembers(key);
             close(jedis);
             return set;
         }
@@ -811,13 +772,6 @@ public class JedisUtil {
             return s;
         }
  
-        public static byte[] hget(byte[] key, byte[] fieid) {
-            Jedis jedis = getJedis();
-            byte[] s = jedis.hget(key, fieid);
-            close(jedis);
-            return s;
-        }
- 
         /**
          * 以Map的形式返回hash中的存储和值
          * 
@@ -846,13 +800,6 @@ public class JedisUtil {
         public static long hset(String key, String fieid, String value) {
             Jedis jedis = getJedis();
             long s = jedis.hset(key, fieid, value);
-            close(jedis);
-            return s;
-        }
- 
-        public static long hset(String key, String fieid, byte[] value) {
-            Jedis jedis = getJedis();
-            long s = jedis.hset(key.getBytes(), fieid.getBytes(), value);
             close(jedis);
             return s;
         }
@@ -951,13 +898,6 @@ public class JedisUtil {
             return list;
         }
  
-        public static List<byte[]> hmget(byte[] key, byte[]... fieids) {
-            Jedis jedis = getJedis();
-            List<byte[]> list = jedis.hmget(key, fieids);
-            close(jedis);
-            return list;
-        }
- 
         /**
          * 添加对应关系，如果对应关系已存在，则覆盖
          * 
@@ -968,22 +908,6 @@ public class JedisUtil {
          * @return 状态，成功返回OK
          * */
         public static String hmset(String key, Map<String, String> map) {
-            Jedis jedis = getJedis();
-            String s = jedis.hmset(key, map);
-            close(jedis);
-            return s;
-        }
- 
-        /**
-         * 添加对应关系，如果对应关系已存在，则覆盖
-         * 
-         * @param Strin
-         *            key
-         * @param Map
-         *            <String,String> 对应关系
-         * @return 状态，成功返回OK
-         * */
-        public static String hmset(byte[] key, Map<byte[], byte[]> map) {
             Jedis jedis = getJedis();
             String s = jedis.hmset(key, map);
             close(jedis);
@@ -1009,19 +933,6 @@ public class JedisUtil {
         }
  
         /**
-         * 根据key获取记录
-         * 
-         * @param byte[] key
-         * @return 值
-         * */
-        public static byte[] get(byte[] key) {
-            Jedis jedis = getJedis();
-            byte[] value = jedis.get(key);
-            close(jedis);
-            return value;
-        }
- 
-        /**
          * 添加有过期时间的记录
          * 
          * @param String
@@ -1031,24 +942,7 @@ public class JedisUtil {
          *            value
          * @return String 操作状态
          * */
-        public static String setEx(String key, int seconds, String value) {
-            Jedis jedis = getJedis();
-            String str = jedis.setex(key, seconds, value);
-            close(jedis);
-            return str;
-        }
- 
-        /**
-         * 添加有过期时间的记录
-         * 
-         * @param String
-         *            key
-         * @param int seconds 过期时间，以秒为单位
-         * @param String
-         *            value
-         * @return String 操作状态
-         * */
-        public static String setEx(byte[] key, int seconds, byte[] value) {
+        public static String setex(String key, int seconds, String value) {
             Jedis jedis = getJedis();
             String str = jedis.setex(key, seconds, value);
             close(jedis);
@@ -1081,31 +975,7 @@ public class JedisUtil {
          * @return 状态码
          * */
         public static String set(String key, String value) {
-            return set(SafeEncoder.encode(key), SafeEncoder.encode(value));
-        }
- 
-        /**
-         * 添加记录,如果记录已存在将覆盖原有的value
-         * 
-         * @param String
-         *            key
-         * @param String
-         *            value
-         * @return 状态码
-         * */
-        public static String set(String key, byte[] value) {
-            return set(SafeEncoder.encode(key), value);
-        }
- 
-        /**
-         * 添加记录,如果记录已存在将覆盖原有的value
-         * 
-         * @param byte[] key
-         * @param byte[] value
-         * @return 状态码
-         * */
-        public static String set(byte[] key, byte[] value) {
-            Jedis jedis = getJedis();
+        	Jedis jedis = getJedis();
             String status = jedis.set(key, value);
             close(jedis);
             return status;
@@ -1123,7 +993,7 @@ public class JedisUtil {
          *            value
          * @return long value的长度
          * */
-        public static long setRange(String key, long offset, String value) {
+        public static long setrange(String key, long offset, String value) {
             Jedis jedis = getJedis();
             long len = jedis.setrange(key, offset, value);
             close(jedis);
@@ -1186,7 +1056,7 @@ public class JedisUtil {
          * @param long endOffset 结束位置(包含)
          * @return String 截取的值
          * */
-        public static String getRange(String key, long startOffset, long endOffset) {
+        public static String getrange(String key, long startOffset, long endOffset) {
             Jedis jedis = getJedis();
             String value = jedis.getrange(key, startOffset, endOffset);
             close(jedis);
@@ -1237,6 +1107,20 @@ public class JedisUtil {
             close(jedis);
             return str;
         }
+        
+        /**
+         * 批量存储记录
+         * 
+         * @param String
+         *            keysvalues 例:keysvalues="key1","value1","key2","value2";
+         * @return String 状态码
+         * */
+        public static long msetnx(String... keysvalues) {
+            Jedis jedis = getJedis();
+            long len = jedis.msetnx(keysvalues);
+            close(jedis);
+            return len;
+        }
  
         /**
          * 获取key对应的值的长度
@@ -1263,35 +1147,10 @@ public class JedisUtil {
          * @return 长度
          * */
         public static long llen(String key) {
-            return llen(SafeEncoder.encode(key));
-        }
- 
-        /**
-         * List长度
-         * 
-         * @param byte[] key
-         * @return 长度
-         * */
-        public static long llen(byte[] key) {
-            Jedis jedis = getJedis();
+        	Jedis jedis = getJedis();
             long count = jedis.llen(key);
             close(jedis);
             return count;
-        }
- 
-        /**
-         * 覆盖操作,将覆盖List中指定位置的值
-         * 
-         * @param byte[] key
-         * @param int index 位置
-         * @param byte[] value 值
-         * @return 状态码
-         * */
-        public static String lset(byte[] key, int index, byte[] value) {
-            Jedis jedis = getJedis();
-            String status = jedis.lset(key, index, value);
-            close(jedis);
-            return status;
         }
  
         /**
@@ -1304,7 +1163,10 @@ public class JedisUtil {
          * @return 状态码
          * */
         public static String lset(String key, int index, String value) {
-            return lset(SafeEncoder.encode(key), index, SafeEncoder.encode(value));
+        	Jedis jedis = getJedis();
+            String status = jedis.lset(key, index, value);
+            close(jedis);
+            return status;
         }
  
         /**
@@ -1320,22 +1182,7 @@ public class JedisUtil {
          * @return 记录总数
          * */
         public static long linsert(String key, LIST_POSITION where, String pivot, String value) {
-            return linsert(SafeEncoder.encode(key), where, SafeEncoder.encode(pivot), SafeEncoder.encode(value));
-        }
- 
-        /**
-         * 在指定位置插入记录
-         * 
-         * @param String
-         *            key
-         * @param LIST_POSITION
-         *            前面插入或后面插入
-         * @param byte[] pivot 相对位置的内容
-         * @param byte[] value 插入的内容
-         * @return 记录总数
-         * */
-        public static long linsert(byte[] key, LIST_POSITION where, byte[] pivot, byte[] value) {
-            Jedis jedis = getJedis();
+        	Jedis jedis = getJedis();
             long count = jedis.linsert(key, where, pivot, value);
             close(jedis);
             return count;
@@ -1350,19 +1197,8 @@ public class JedisUtil {
          * @return 值
          * **/
         public static String lindex(String key, int index) {
-            return SafeEncoder.encode(lindex(SafeEncoder.encode(key), index));
-        }
- 
-        /**
-         * 获取List中指定位置的值
-         * 
-         * @param byte[] key
-         * @param int index 位置
-         * @return 值
-         * **/
-        public static byte[] lindex(byte[] key, int index) {
-            Jedis jedis = getJedis();
-            byte[] value = jedis.lindex(key, index);
+        	Jedis jedis = getJedis();
+        	String value = jedis.lindex(key, index);
             close(jedis);
             return value;
         }
@@ -1375,18 +1211,8 @@ public class JedisUtil {
          * @return 移出的记录
          * */
         public static String lpop(String key) {
-            return SafeEncoder.encode(lpop(SafeEncoder.encode(key)));
-        }
- 
-        /**
-         * 将List中的第一条记录移出List
-         * 
-         * @param byte[] key
-         * @return 移出的记录
-         * */
-        public static byte[] lpop(byte[] key) {
             Jedis jedis = getJedis();
-            byte[] value = jedis.lpop(key);
+            String value = jedis.lpop(key);
             close(jedis);
             return value;
         }
@@ -1394,7 +1220,7 @@ public class JedisUtil {
         /**
          * 将List中最后第一条记录移出List
          * 
-         * @param byte[] key
+         * @param String key
          * @return 移出的记录
          * */
         public static String rpop(String key) {
@@ -1414,7 +1240,10 @@ public class JedisUtil {
          * @return 记录总数
          * */
         public static long lpush(String key, String value) {
-            return lpush(SafeEncoder.encode(key), SafeEncoder.encode(value));
+        	Jedis jedis = getJedis();
+            long count = jedis.lpush(key, value);
+            close(jedis);
+            return count;
         }
  
         /**
@@ -1429,36 +1258,6 @@ public class JedisUtil {
         public static long rpush(String key, String value) {
             Jedis jedis = getJedis();
             long count = jedis.rpush(key, value);
-            close(jedis);
-            return count;
-        }
- 
-        /**
-         * 向List头部追加记录
-         * 
-         * @param String
-         *            key
-         * @param String
-         *            value
-         * @return 记录总数
-         * */
-        public static long rpush(byte[] key, byte[] value) {
-            Jedis jedis = getJedis();
-            long count = jedis.rpush(key, value);
-            close(jedis);
-            return count;
-        }
- 
-        /**
-         * 向List中追加记录
-         * 
-         * @param byte[] key
-         * @param byte[] value
-         * @return 记录总数
-         * */
-        public static long lpush(byte[] key, byte[] value) {
-            Jedis jedis = getJedis();
-            long count = jedis.lpush(key, value);
             close(jedis);
             return count;
         }
@@ -1480,36 +1279,6 @@ public class JedisUtil {
         }
  
         /**
-         * 获取指定范围的记录，可以做为分页使用
-         * 
-         * @param byte[] key
-         * @param int start
-         * @param int end 如果为负数，则尾部开始计算
-         * @return List
-         * */
-        public static List<byte[]> lrange(byte[] key, int start, int end) {
-            Jedis jedis = getJedis();
-            List<byte[]> list = jedis.lrange(key, start, end);
-            close(jedis);
-            return list;
-        }
- 
-        /**
-         * 删除List中c条记录，被删除的记录值为value
-         * 
-         * @param byte[] key
-         * @param int c 要删除的数量，如果为负数则从List的尾部检查并删除符合的记录
-         * @param byte[] value 要匹配的值
-         * @return 删除后的List中的记录数
-         * */
-        public static long lrem(byte[] key, int c, byte[] value) {
-            Jedis jedis = getJedis();
-            long count = jedis.lrem(key, c, value);
-            close(jedis);
-            return count;
-        }
- 
-        /**
          * 删除List中c条记录，被删除的记录值为value
          * 
          * @param String
@@ -1520,22 +1289,10 @@ public class JedisUtil {
          * @return 删除后的List中的记录数
          * */
         public static long lrem(String key, int c, String value) {
-            return lrem(SafeEncoder.encode(key), c, SafeEncoder.encode(value));
-        }
- 
-        /**
-         * 算是删除吧，只保留start与end之间的记录
-         * 
-         * @param byte[] key
-         * @param int start 记录的开始位置(0表示第一条记录)
-         * @param int end 记录的结束位置（如果为-1则表示最后一个，-2，-3以此类推）
-         * @return 执行状态码
-         * */
-        public static String ltrim(byte[] key, int start, int end) {
-            Jedis jedis = getJedis();
-            String str = jedis.ltrim(key, start, end);
+        	Jedis jedis = getJedis();
+            long count = jedis.lrem(key, c, value);
             close(jedis);
-            return str;
+            return count;
         }
  
         /**
@@ -1548,7 +1305,10 @@ public class JedisUtil {
          * @return 执行状态码
          * */
         public static String ltrim(String key, int start, int end) {
-            return ltrim(SafeEncoder.encode(key), start, end);
+        	Jedis jedis = getJedis();
+            String str = jedis.ltrim(key, start, end);
+            close(jedis);
+            return str;
         }
     }
  

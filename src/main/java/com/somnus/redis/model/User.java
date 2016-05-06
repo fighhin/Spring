@@ -1,35 +1,58 @@
 package com.somnus.redis.model;
 
+import java.io.Serializable;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 /**  
  * @Description: TODO
  * @author Somnus
  * @date 2015年11月28日 下午8:10:45 
  * @version 1.0 
  */
-public class User {
+public class User implements Serializable{
 	
-	private long id;
+	private static final long serialVersionUID = 1L;
+
+	private String username;
 	
-	private String name;
+	private String password;
 
-	public long getId() {
-		return id;
+	/**
+	 * @return the username
+	 */
+	public String getUsername() {
+		return username;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+
+	/**
+	 * @param username the username to set
+	 */
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public String getName() {
-		return name;
+
+	/**
+	 * @return the password
+	 */
+	public String getPassword() {
+		return password;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+
+	/**
+	 * @param password the password to set
+	 */
+	public void setPassword(String password) {
+		this.password = password;
 	}
-	
+
+
 	@Override
 	public String toString() {
-		return "id:" + id+" | "+"name:"  + name;
+		return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
 	}
 }
