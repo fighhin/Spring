@@ -7,7 +7,7 @@ import org.junit.Test;
 import com.somnus.AbstractTestSupport;
 import com.somnus.ApplicationContextHolder;
 import com.somnus.redis.dao.RedisDao;
-import com.somnus.redis.dao.UserDao;
+import com.somnus.redis.dao.impl.JsonRedisDaoImpl;
 import com.somnus.redis.dao.impl.RedisDaoImpl;
 import com.somnus.redis.model.User;
 
@@ -40,13 +40,13 @@ public class SpringTest extends AbstractTestSupport{
 	
 	@Test
 	public void testObject2(){
-		UserDao redis = (UserDao) ApplicationContextHolder.getBean("redisUserDaoImpl");
+		JsonRedisDaoImpl redis = (JsonRedisDaoImpl) ApplicationContextHolder.getBean(JsonRedisDaoImpl.class);
 		User user = new User();
         user.setUsername("Somnus");
         user.setPassword("passw0rd");
-		redis.save("user:2", user);
+		redis.save("user:2",User.class, user);
 		
-		User quser = redis.get("user:2");
+		User quser = redis.get("user:2",User.class);
 		System.out.println(quser);
 	}
 }
