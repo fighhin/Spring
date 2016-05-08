@@ -1,4 +1,4 @@
-package com.somnus.redis.dao;
+package com.somnus.redis.dao.impl;
 
 import java.io.Serializable;
 import java.util.Map;
@@ -12,6 +12,8 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.stereotype.Repository;
+
+import com.somnus.redis.dao.RedisDao;
 
 @Repository
 public class RedisDaoImpl implements RedisDao {

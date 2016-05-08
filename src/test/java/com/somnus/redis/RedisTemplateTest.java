@@ -10,7 +10,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import com.somnus.AbstractTestSupport;
 import com.somnus.ApplicationContextHolder;
 import com.somnus.redis.dao.RedisDao;
-import com.somnus.redis.dao.RedisDaoImpl;
+import com.somnus.redis.dao.impl.RedisDaoImpl;
 import com.somnus.redis.model.User;
 
 public class RedisTemplateTest extends AbstractTestSupport{
