@@ -400,7 +400,7 @@ public class JedisUtil {
         }
  
         /**
-         * 从集合中删除成员
+         * 从集合中随机弹出（删除）成员
          * 
          * @param String
          *            key

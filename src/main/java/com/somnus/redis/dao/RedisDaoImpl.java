@@ -17,7 +17,7 @@ import org.springframework.stereotype.Repository;
 public class RedisDaoImpl implements RedisDao {
 	
 	@Autowired
-	protected RedisTemplate<Serializable, Serializable> redisTemplate;
+	protected RedisTemplate<String, Serializable> redisTemplate;
 	
 	private final RedisSerializer<Object> valueSerializer = new JdkSerializationRedisSerializer();
 	
