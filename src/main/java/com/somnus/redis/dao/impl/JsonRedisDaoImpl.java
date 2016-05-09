@@ -13,13 +13,17 @@ import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.stereotype.Repository;
 
+import com.somnus.redis.dao.RedisDao;
+
 @Repository
-public class JsonRedisDaoImpl{
+public class JsonRedisDaoImpl implements RedisDao {
 	@Autowired
 	protected RedisTemplate<String, Serializable> redisTemplate;
 	
-	public <V> void save(final String key, Class<V> clazz, final V value) {
-		final RedisSerializer<V> valueSerializer = new Jackson2JsonRedisSerializer<V>(clazz);
+	@SuppressWarnings("unchecked")
+	@Override
+	public <V> void save(final String key, final V value) {
+		final RedisSerializer<V> valueSerializer = new Jackson2JsonRedisSerializer<V>((Class<V>) value.getClass());
 		if(value instanceof Map){
 			redisTemplate.opsForHash().putAll(key, (Map<?,?>) value );
 		}else{
@@ -34,8 +38,10 @@ public class JsonRedisDaoImpl{
 		}
 	}
 	
-	public <V> void save(final String key, Class<V> clazz, final V value,final int expire){
-		final RedisSerializer<V> valueSerializer = new Jackson2JsonRedisSerializer<V>(clazz);
+	@SuppressWarnings("unchecked")
+	@Override
+	public <V> void save(final String key, final V value,final int expire){
+		final RedisSerializer<V> valueSerializer = new Jackson2JsonRedisSerializer<V>((Class<V>) value.getClass());
 		if(value instanceof Map){
 			redisTemplate.opsForHash().putAll(key, (Map<?,?>) value );
 			redisTemplate.expire(key, expire, TimeUnit.SECONDS);
@@ -52,6 +58,7 @@ public class JsonRedisDaoImpl{
 	}
 
 	@SuppressWarnings("unchecked")
+	@Override
 	public <V> V get(final String key, Class<V> clazz){
 		final RedisSerializer<V> valueSerializer = new Jackson2JsonRedisSerializer<V>(clazz);
 		if(Map.class.isAssignableFrom(clazz)){
@@ -73,6 +80,7 @@ public class JsonRedisDaoImpl{
 		}
 	}
     
+	@Override
 	public void delete(final String key) {
 		redisTemplate.delete(key);
 	}

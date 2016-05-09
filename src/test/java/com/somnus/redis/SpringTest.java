@@ -40,11 +40,11 @@ public class SpringTest extends AbstractTestSupport{
 	
 	@Test
 	public void testObject2(){
-		JsonRedisDaoImpl redis = (JsonRedisDaoImpl) ApplicationContextHolder.getBean(JsonRedisDaoImpl.class);
+		RedisDao redis = (RedisDao) ApplicationContextHolder.getBean(JsonRedisDaoImpl.class);
 		User user = new User();
         user.setUsername("Somnus");
         user.setPassword("passw0rd");
-		redis.save("user:2",User.class, user);
+		redis.save("user:2", user);
 		
 		User quser = redis.get("user:2",User.class);
 		System.out.println(quser);
