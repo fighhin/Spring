@@ -48,4 +48,6 @@
     <import resource="classpath:/spring-redis.xml"/>
     <import resource="classpath:/spring-memcached.xml"/>
     <import resource="classpath:/spring-task.xml"/>
+    <import resource="classpath:/spring-beanvalidation.xml"/>
+    
 </beans>
