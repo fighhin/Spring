@@ -10,7 +10,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 public class User {
 	
 	@NotNull 
-    @Pattern(regexp = "[a-zA-Z0-9_]{5,10}")    
+    @Pattern(regexp = "[a-zA-Z0-9_]{5,10}", message = "{user.username.illegal}")    
     private String username;  
 	
     @Size(min = 6, max=10)    
@@ -49,7 +49,7 @@ public class User {
 		this.username = username;
 		this.password = password;
 	}
-    
+	
 	public User() {
 		super();
 	}

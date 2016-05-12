@@ -1,16 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       	http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+	<bean id="validatemessageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">  
+        <property name="basename" value="classpath:message/validate"/>  
+        <property name="fileEncodings" value="utf-8"/>  
+        <property name="cacheSeconds" value="120"/>  
+	</bean>
+	
     <bean name="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+    	<!-- 不设置则默认去找org.hibernate.validator.HibernateValidator-->
     	<property name="providerClass" value="org.hibernate.validator.HibernateValidator" />
+    	<!-- 不设置则默认为classpath下的 ValidationMessages.properties -->
+    	<property name="validationMessageSource" ref="validatemessageSource"/>
+    	<!-- 不设置则默认为false，true和false的区别在于：如果为true则不管验证项有多少个为失败的，
+    	     都只返回解析到的第一个，其余再返回，如果为false则返回所有验证失败项 -->
+    	<property name="validationPropertyMap">
+            <map>
+                <entry key="hibernate.validator.fail_fast" value="true"/>
+            </map>
+        </property>
     </bean>
     
     <bean class="org.springframework.validation.beanvalidation.BeanValidationPostProcessor"/>
     
-    <bean class="org.springframework.validation.beanvalidation.MethodValidationPostProcessor"/>
+    <bean class="org.springframework.validation.beanvalidation.MethodValidationPostProcessor">
+    	<property name="validator" ref="validator"/>
+    </bean>
 
 </beans>
