@@ -8,6 +8,6 @@ package com.somnus.aop;
  * @date 2015年6月1日 下午12:38:30 
  * @version V1.0 
  */
-public interface Greeting {
-    void sayHello(String name);
+public interface GreetingInterface {
+    String sayHello(String name);
 }

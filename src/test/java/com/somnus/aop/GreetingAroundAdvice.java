@@ -15,14 +15,21 @@ public class GreetingAroundAdvice implements MethodInterceptor {
  
     @Override
     public Object invoke(MethodInvocation invocation) throws Throwable {
-        before();
-        Object result = invocation.proceed();
-        after();
+        Object result = null;
+		try {
+			before();
+			result = invocation.proceed();
+			after();
+		} catch (ArithmeticException e) {
+			e.printStackTrace();
+			result = "我瞎造的数据";
+		}
         return result;
     }
  
     private void before() {
         System.out.println(">>>>Before");
+        System.out.println(1/0);
     }
  
     private void after() {

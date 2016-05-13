@@ -8,10 +8,11 @@ package com.somnus.aop;
  * @date 2015年6月1日 下午12:39:06 
  * @version V1.0 
  */
-public class GreetingImpl implements Greeting {
+public class GreetingImpl implements GreetingInterface {
     
     @Override
-    public void sayHello(String name) {
+    public String sayHello(String name) {
         System.out.println("Hello! " + name);
+        return name;
     }
 }

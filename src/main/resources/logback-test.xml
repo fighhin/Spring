@@ -35,7 +35,7 @@
     <logger name="org.jdbcdslog.ResultSetLogger" level="trace" additivity="false">
     	<appender-ref ref="ROOT_CONSOLE"/>
     </logger>
-    <logger name="org.springframework" level="error"/>
+    <logger name="org.springframework" level="info"/>
     <logger name="org.apache.activemq.transport.AbstractInactivityMonitor" level="trace" additivity="false">
         <appender-ref ref="ROOT_CONSOLE"/>
     </logger>

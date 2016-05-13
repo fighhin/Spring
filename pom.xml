@@ -22,8 +22,6 @@
 		<!-- datasource -->
 		<commons.dbcp.version>1.4</commons.dbcp.version>
 		<jdbcdslog.version>1.0.6.2</jdbcdslog.version>
-		<!-- hibernate -->
-		<hibernate.version>4.2.7.SP1</hibernate.version>
 		<!-- proxy -->
 		<cglib.version>2.2.2</cglib.version>
 		<!-- junit -->
@@ -143,12 +141,6 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jms</artifactId>
 			<version>${spring.version}</version>
-		</dependency>
-		<!-- hibernate -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>${hibernate.version}</version>
 		</dependency>
 		<!-- datasource -->
 		<dependency>

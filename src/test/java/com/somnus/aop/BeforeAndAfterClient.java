@@ -10,7 +10,7 @@ import org.springframework.aop.framework.ProxyFactory;
  * @date 2015年6月1日 下午12:37:49 
  * @version V1.0 
  */
-public class Client {
+public class BeforeAndAfterClient {
 
     /**
      * @param args
@@ -21,7 +21,7 @@ public class Client {
         proxyFactory.addAdvice(new GreetingBeforeAdvice()); // 添加前置增强
         proxyFactory.addAdvice(new GreetingAfterAdvice());  // 添加后置增强 
  
-        Greeting greeting = (Greeting) proxyFactory.getProxy(); // 从代理工厂中获取代理
+        GreetingInterface greeting = (GreetingInterface) proxyFactory.getProxy(); // 从代理工厂中获取代理
         greeting.sayHello("Jack");                              // 调用代理的方法
 
     }

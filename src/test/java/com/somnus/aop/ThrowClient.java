@@ -20,7 +20,7 @@ public class ThrowClient {
         proxyFactory.setTarget(new ThrowGreetingImpl());    // 射入目标类对象
         proxyFactory.addAdvice(new GreetingThrowAdvice());  // 添加抛出增强
  
-        Greeting greeting = (Greeting) proxyFactory.getProxy(); // 从代理工厂中获取代理
+        GreetingInterface greeting = (GreetingInterface) proxyFactory.getProxy(); // 从代理工厂中获取代理
         greeting.sayHello("Jack");                              // 调用代理的方法
 
     }

@@ -12,28 +12,15 @@
     <bean id="proxyDataSource" class="org.jdbcdslog.ConnectionPoolDataSourceProxy">
         <property name="targetDSDirect" ref="dataSource"/>
     </bean>
-	
-	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-		<property name="dataSource" ref="proxyDataSource" />
-		<property name="packagesToScan">
-			<list>
-				<value>com.somnus.transaction.domain</value>
-			</list>
-		</property>
-		<property name="hibernateProperties">
-			<props>
-				<prop key="hibernate.dialect">
-					org.hibernate.dialect.MySQLDialect
-				</prop>
-				<prop key="hibernate.show_sql">true</prop>
-			</props>
-		</property>
-	</bean>
 
     <!-- 配置事务管理器 -->
-	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="proxyDataSource" />
+    </bean>
+    
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="proxyDataSource"/>
+    </bean>
 	
 	<!-- 注解方式配置事物 -->
 	<!-- 【基于CGLIB类代理】，只能将@Transactional放置在具体类上或具体类的方法上 -->
