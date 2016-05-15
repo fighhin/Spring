@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  * @version V1.0 
  */
 @Component
-public class GreetingImply implements Greeting {
+public class GreetingImply implements GreetingInterface {
     
     @Override
     public void sayHello(String name) {

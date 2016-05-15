@@ -8,7 +8,7 @@ package com.somnus.xml.aop;
  * @date 2015年6月1日 下午12:38:30 
  * @version V1.0 
  */
-public interface Greeting {
+public interface GreetingInterface {
     void sayHello(String name);
 
     /**

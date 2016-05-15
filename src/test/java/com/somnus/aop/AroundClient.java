@@ -16,7 +16,8 @@ public class AroundClient {
         ProxyFactory proxyFactory = new ProxyFactory();     	// 创建代理工厂
         proxyFactory.setTarget(new GreetingImpl());         	// 射入目标类对象
         proxyFactory.addAdvice(new GreetingAroundAdvice()); 	// 添加环绕增强
- 
+        proxyFactory.setOptimize(true);
+        
         GreetingInterface greeting = (GreetingInterface) proxyFactory.getProxy(); // 从代理工厂中获取代理
         System.out.println(greeting.sayHello("Jack")); 			// 调用代理的方法                            
     }

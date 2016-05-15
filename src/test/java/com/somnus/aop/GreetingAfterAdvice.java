@@ -1,6 +1,7 @@
 package com.somnus.aop;
 
 import java.lang.reflect.Method;
+import java.util.Arrays;
 
 import org.springframework.aop.AfterReturningAdvice;
 
@@ -19,7 +20,12 @@ public class GreetingAfterAdvice implements AfterReturningAdvice {
      */
     @Override
     public void afterReturning(Object returnValue, Method method, Object[] args, Object target) throws Throwable {
-        System.out.println(">>>>>>After");
+        System.out.println(">>>>>>>>>>>>>>>>After Start>>>>>>>>>>>>>>>>>>>>");
+        System.out.println("returnValue:" + returnValue);
+        System.out.println("Method Name: " + method.getName());
+        System.out.println("args:" + Arrays.toString(args));
+        System.out.println("Target : " + target.getClass().getName());
+        System.out.println("<<<<<<<<<<<<<<<<<After End<<<<<<<<<<<<<<<<<<<<<<");
     }
 
 }

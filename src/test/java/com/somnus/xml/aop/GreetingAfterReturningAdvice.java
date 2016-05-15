@@ -1,6 +1,7 @@
 package com.somnus.xml.aop;
 
 import java.lang.reflect.Method;
+import java.util.Arrays;
 
 import org.springframework.aop.AfterReturningAdvice;
 import org.springframework.stereotype.Component;
@@ -19,10 +20,14 @@ public class GreetingAfterReturningAdvice implements AfterReturningAdvice {
     /* (non-Javadoc)
      * @see org.springframework.aop.AfterReturningAdvice#afterReturning(java.lang.Object, java.lang.reflect.Method, java.lang.Object[], java.lang.Object)
      */
-    @Override
+	@Override
     public void afterReturning(Object returnValue, Method method, Object[] args, Object target) throws Throwable {
-        String methodName = method.getName();
-        System.out.println("The method 【" + methodName + "】 return with " + returnValue);
+        System.out.println("===========================After Start===========================");
+        System.out.println("returnValue:" + returnValue);
+        System.out.println("Method Name: " + method.getName());
+        System.out.println("args:" + Arrays.toString(args));
+        System.out.println("Target : " + target.getClass().getName());
+        System.out.println("===========================After  End===========================");
     }
 
 }

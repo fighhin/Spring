@@ -21,9 +21,12 @@ public class GreetingBeforeAdvice implements MethodBeforeAdvice{
      * @see org.springframework.aop.MethodBeforeAdvice#before(java.lang.reflect.Method, java.lang.Object[], java.lang.Object)
      */
     @Override
-    public void before(Method arg0, Object[] arg1, Object arg2) throws Throwable {
-        String methodName = arg0.getName();
-        System.out.println("The method 【" + methodName + "】 begins with " + Arrays.asList(arg1));
+    public void before(Method method, Object[] args, Object target) throws Throwable {
+        System.out.println("===========================Before Start===========================");
+        System.out.println("Method Name: " + method.getName());
+        System.out.println("args:" + Arrays.toString(args));
+        System.out.println("Target : " + target.getClass().getName());
+        System.out.println("===========================Before  End===========================");
     }
 
 }

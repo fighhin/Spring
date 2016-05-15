@@ -18,7 +18,7 @@ public class SpringTest extends AbstractTestSupport {
 	@Test
 	public void save(){
 	    /**从 Context 中根据 id 获取 Bean 对象（其实就是一个代理）*/
-	    Greeting greeting = (Greeting) ApplicationContextHolder.getBean("greetingProxy"); 
+	    GreetingInterface greeting = (GreetingInterface) ApplicationContextHolder.getBean("greetingProxy"); 
 	    greeting.sayHello("Jack"); 
 	}
 	
@@ -37,7 +37,7 @@ public class SpringTest extends AbstractTestSupport {
 	@Test
     public void save3(){
         /**从 Context 中根据 id 获取 Bean 对象（其实就是一个代理）*/
-	    Greeting greeting = (Greeting) ApplicationContextHolder.getBean("greetingProxy3");
+	    GreetingInterface greeting = (GreetingInterface) ApplicationContextHolder.getBean("greetingProxy3");
         greeting.sayHello("Jack");
         greeting.goodMorning("Jack");
     }

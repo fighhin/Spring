@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  * @version V1.0 
  */
 @Component
-public class GreetingImpl implements Greeting {
+public class GreetingImpl implements GreetingInterface {
     
     @Override
     public void sayHello(String name) {

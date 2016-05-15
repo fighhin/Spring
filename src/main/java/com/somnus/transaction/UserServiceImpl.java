@@ -11,57 +11,47 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserServiceImpl {
 	@Resource
 	private JdbcTemplate jdbcTemplate;
-	private String userSql = String.format("INSERT INTO T_USER VALUES ('%s','%s','%s')", 
-            "10000", "admin", "passw0rd");
-	private String logSql = String.format("INSERT INTO T_LOG VALUES ('%s','%s')", 
-            "10000", "first log");
+	private String userSql = String.format("INSERT INTO T_USER VALUES ('%s','%s','%s')", "10000", "admin", "passw0rd");
+	private String logSql  = String.format("INSERT INTO T_LOG VALUES ('%s','%s')", "10000", "first log");
 	
-	/******************************REQUIRED**************************************/
-    /**方法A有事务，方法B中的事务加到方法A中*/
-    @Transactional(propagation=Propagation.REQUIRED)
-    public void a12() {
+	/* 
+     * DEBUG [main] DataSourceTransactionManager :Acquired Connection [jdbc:mysql] for JDBC transaction
+     * DEBUG [main] JdbcTemplate :Executing SQL update [INSERT INTO T_USER VALUES ('10000','admin','passw0rd')]
+     * DEBUG [main] JdbcTemplate :SQL update affected 1 rows
+     * DEBUG [main] JdbcTemplate :Executing SQL update [INSERT INTO T_LOG VALUES ('10000','first log')]
+     * DEBUG [main] JdbcTemplate :SQL update affected 1 rows
+     * DEBUG [main] DataSourceTransactionManager :Initiating transaction rollback
+     * DEBUG [main] DataSourceTransactionManager :Rolling back JDBC transaction on Connection [jdbc:mysql]
+     * DEBUG [main] DataSourceTransactionManager :Releasing JDBC Connection [jdbc:mysql] after transaction
+     * DEBUG [main] DataSourceUtils :Returning JDBC Connection to DataSource
+     */
+	public void A() {
     	jdbcTemplate.update(logSql);
-		throw new RuntimeException("我是故意抛出的一个运行期异常");
+    	System.out.println(1/0);
     }
     @Transactional(propagation=Propagation.REQUIRED)
-    public void b12() {
+    public void B() {
     	jdbcTemplate.update(userSql);
-    	a12();
+    	A();
     }
-    /**************************REQUIRES_NEW******************************************/
-    /**方法A有事务，就将当前事务挂起*/
-    @Transactional(propagation=Propagation.REQUIRES_NEW)
-    public void a22() {
+    /**会全部插入，不会回滚*/
+    /*@Transactional(propagation=Propagation.REQUIRED)
+    public void B() {
+    	jdbcTemplate.update(userSql);
+    	try {
+    		A();
+		} catch (RuntimeException e) {
+			e.printStackTrace();
+		}
+    }*/
+    /********************************************************************/
+    @Transactional
+    public void A_() {
     	jdbcTemplate.update(logSql);
-		throw new RuntimeException("我是故意抛出的一个运行期异常");
     }
     @Transactional(propagation=Propagation.REQUIRED)
-    public void b22() {
+    public void B_() {
     	jdbcTemplate.update(userSql);
-    	a22();
-    }
-    /**************************NESTED******************************************/
-    /**方法A有事务，就在当前事务中嵌套其他事务*/
-    @Transactional(propagation=Propagation.NESTED)
-    public void a32() {
-    	jdbcTemplate.update(logSql);
-		throw new RuntimeException("我是故意抛出的一个运行期异常");
-    }
-    @Transactional(propagation=Propagation.REQUIRED)
-    public void b32() {
-    	jdbcTemplate.update(userSql);
-    	a32();
-    }
-    /**************************SUPPORTS******************************************/
-    /**方法A有事务，就使用当前事务*/
-    @Transactional(propagation=Propagation.SUPPORTS)
-    public void a42() {
-    	jdbcTemplate.update(logSql);
-		throw new RuntimeException("我是故意抛出的一个运行期异常");
-    }
-    @Transactional(propagation=Propagation.REQUIRED)
-    public void b42() {
-    	jdbcTemplate.update(userSql);
-    	a42();
+    	A_();
     }
 }
