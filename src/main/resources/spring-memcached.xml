@@ -16,7 +16,7 @@
 		</property>
 		<property name="opTimeout" value="2000" />
 		<property name="timeoutExceptionThreshold" value="1998" />
-		<property name="hashAlg" value="KETAMA_HASH" />
+		<!-- <property name="hashAlg" value="KETAMA_HASH" /> -->
 		<property name="locatorType" value="CONSISTENT" />
 		<property name="failureMode" value="Redistribute" />
 		<property name="useNagleAlgorithm" value="false" />
