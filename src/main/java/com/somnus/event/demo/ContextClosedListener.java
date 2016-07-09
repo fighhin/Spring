@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 
 /**
  * @description: 
- * Copyright 2011-2016 B5M.COM. All rights reserved
  * @author:  Somnus
  * @version: 1.0
  * @createDate: 2016年3月22日 下午5:54:48 

@@ -2,7 +2,6 @@ package com.somnus.concurrent;
 
 /**
  * @description: 可重试任务
- * Copyright 2011-2016 B5M.COM. All rights reserved
  * @author:  Somnus
  * @version: 1.0
  * @createDate: 2016年4月19日 下午3:16:25 
