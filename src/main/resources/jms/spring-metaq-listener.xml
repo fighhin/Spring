@@ -4,7 +4,7 @@
 	xmlns:cache="http://www.springframework.org/schema/cache"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-    <bean id="parentMetaqMessageListener" class="com.somnus.metaq.support.jms.AbstractJmsReceiveTemplate" 
+    <bean id="parentMetaqMessageListener" class="com.somnus.metaq.support.jms.AbstractJmsReceiveListener" 
     	scope="prototype" abstract="true">
         <!--  threads to process these messages. -->
         <property name="processThreads" value="10"/>

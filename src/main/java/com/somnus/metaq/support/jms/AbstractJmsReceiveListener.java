@@ -9,7 +9,7 @@ import com.somnus.activemq.support.util.SessionUtil;
 import com.taobao.metamorphosis.client.extension.spring.DefaultMessageListener;
 import com.taobao.metamorphosis.client.extension.spring.MetaqMessage;
 
-public abstract class AbstractJmsReceiveTemplate<T> extends DefaultMessageListener<T> {
+public abstract class AbstractJmsReceiveListener<T> extends DefaultMessageListener<T> {
 
     protected transient Logger logger = LoggerFactory.getLogger(this.getClass());
 
