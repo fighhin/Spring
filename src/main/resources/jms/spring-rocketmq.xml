@@ -8,7 +8,7 @@
     <!--  template to send messages. -->
     <bean id ="rocketMQTemplate" class="com.somnus.rocketmq.support.template.RocketMQTemplate">    
         <property name="producerGroup" value="ProducerGroupName"/>
-        <property name="namesrvAddr" value="172.16.235.77:9876;172.16.235.78:9876" />
+        <property name="namesrvAddr" value="${jms.rocketmq.namesrvAddr}" />
         <property name="instanceName" value="Producer" />
         <property name="messageBodyConverter" ref="messageBodyConverter2"/>
     </bean>

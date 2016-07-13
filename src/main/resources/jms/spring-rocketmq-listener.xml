@@ -12,7 +12,7 @@
     
     <!-- MQ消息监听器 -->
     <bean id="rocketMQListenerContainer" class="com.somnus.rocketmq.support.jms.MessageListenerContainer">
-        <property name="namesrvAddr" value="172.16.235.77:9876;172.16.235.78:9876" />
+        <property name="namesrvAddr" value="${jms.rocketmq.namesrvAddr}" />
 		<property name="messageBodyConverter" ref="messageBodyConverter2"/>
 		<property name="subscribers">
 			<map>
