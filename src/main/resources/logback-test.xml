@@ -39,10 +39,10 @@
     <logger name="org.springframework.jdbc" level="debug" additivity="false">
     	<appender-ref ref="ROOT_CONSOLE"/>
     </logger>
-    <!-- <logger name="org.springframework" level="info"/> -->
-    <logger name="org.apache.activemq.transport.AbstractInactivityMonitor" level="trace" additivity="false">
+    <logger name="org.apache.activemq.transport.AbstractInactivityMonitor" level="info" />
+    <!-- <logger name="org.apache.activemq.transport.AbstractInactivityMonitor" level="trace" additivity="false">
         <appender-ref ref="ROOT_CONSOLE"/>
-    </logger>
+    </logger> -->
 	
     <root level="info">
         <appender-ref ref="ROOT_CONSOLE"/>
