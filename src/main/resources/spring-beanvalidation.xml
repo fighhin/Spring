@@ -4,17 +4,11 @@
 	xsi:schemaLocation="
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="validatemessageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">  
-        <property name="basename" value="classpath:message/validate"/>  
-        <property name="fileEncodings" value="utf-8"/>  
-        <property name="cacheSeconds" value="120"/>  
-	</bean>
-	
     <bean name="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
     	<!-- 不设置则默认去找org.hibernate.validator.HibernateValidator-->
     	<property name="providerClass" value="org.hibernate.validator.HibernateValidator" />
     	<!-- 不设置则默认为classpath下的 ValidationMessages.properties -->
-    	<property name="validationMessageSource" ref="validatemessageSource"/>
+    	<property name="validationMessageSource" ref="messageSource"/>
     	<!-- 不设置则默认为false，true和false的区别在于：如果为true则不管验证项有多少个为失败的，
     	     都只返回解析到的第一个，其余再返回，如果为false则返回所有验证失败项 -->
     	<property name="validationPropertyMap">
