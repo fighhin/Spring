@@ -91,8 +91,6 @@ public class GreetAspector {
             //前置通知
             System.out.println("ARROUND-->The method 【" + methodName + "】 begins with 【" + Arrays.asList(pjp.getArgs()) +"】");
             result = pjp.proceed();
-            //后置最终通知【方法执行之后执行一段代码，无论该方法是否出现异常】
-            System.out.println("ARROUND-->The method 【" + methodName + "】 ends with 【" + signature.getReturnType() +"】");
         } catch (Throwable e) {
             //后置异常通知【在方法出现异常时会执行的代码】
             System.out.println("ARROUND-->The method 【" + methodName + "】 occurs expection : 【" + e +"】");
