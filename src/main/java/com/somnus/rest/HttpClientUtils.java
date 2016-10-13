@@ -52,32 +52,26 @@ public class HttpClientUtils {
     }
     
     public static String doPost(String url, String request, MediaType mediaType) {
-    	String body = "";
-        try {
-        	HttpHeaders headers = new HttpHeaders();
-        	headers.setContentType(mediaType);
-        	
-        	HttpEntity<String> formEntity = new HttpEntity<String>(request, headers);
-        	
-			ResponseEntity<String> responseEntity = restTemplate.postForEntity(url, formEntity, String.class);
-			
-			HttpStatus httpStatus = responseEntity.getStatusCode();
-			
-			body = responseEntity.getBody();
-			switch (httpStatus) {
-			case OK:
-				LOGGER.info("[status:200]" + url);
-				break;
-			default:
-				LOGGER.error("[status:" + httpStatus + "]" );
-				/** 异常响应 **/
-				throw new HttpClientErrorException(httpStatus,
-						String.format("\n\tStatus:%s\n\tError Message:%s", httpStatus,body));
-			}
-		} catch (ResourceAccessException e) {
-			LOGGER.error("POST请求出错：{}", url, e);
-		} 
-        return body;
+    	HttpHeaders headers = new HttpHeaders();
+    	headers.setContentType(mediaType);
+    	
+    	HttpEntity<String> formEntity = new HttpEntity<String>(request, headers);
+    	
+		ResponseEntity<String> responseEntity = restTemplate.postForEntity(url, formEntity, String.class);
+		
+		HttpStatus httpStatus = responseEntity.getStatusCode();
+		
+		String body = responseEntity.getBody();
+		switch (httpStatus) {
+		case OK:
+			LOGGER.info("[status:200]" + url);
+			return body;
+		default:
+			LOGGER.error("[status:" + httpStatus + "]" );
+			/** 异常响应 **/
+			throw new HttpClientErrorException(httpStatus,
+					String.format("\n\tStatus:%s\n\tError Message:%s", httpStatus,body));
+		}
     }
     
     public static void main(String[] args) {
@@ -85,12 +79,24 @@ public class HttpClientUtils {
     	multiValueMap.add("name", "somnus");
     	multiValueMap.add("hobby", "sing");
     	multiValueMap.add("hobby", "swimg");
-		System.out.println(doFormPost("http://localhost:8080/SpringMVC/array/test", multiValueMap));
+		try {
+			System.out.println(doFormPost("http://localhost:8080/SpringMVC/array/test", multiValueMap));
+		} catch (ResourceAccessException e) {
+			LOGGER.error(e.getMessage(),e);
+		}
 		
 		
 		Map<String, Object> map = new HashMap<String,Object>();
 		map.put("username", "somnus");
 		map.put("password", "sing");
-		System.out.println(doJsonPost("http://localhost:8080/SpringMVC/databind/requestbodybind", map));
+		try {
+			System.out.println(doJsonPost("http://localhost:8080/SpringMVC/databind/requestbodybind", map));
+		} catch (ResourceAccessException e) {
+			LOGGER.error(e.getMessage(),e);
+		}
 	}
+    
+    public void test1(){
+    	
+    }
 }
