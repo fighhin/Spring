@@ -27,27 +27,14 @@
 		<!-- junit -->
 		<junit.version>4.11</junit.version>
 		<!-- JDBC Driver -->
-        <jdbc.driver.groupId>mysql</jdbc.driver.groupId>
-        <jdbc.driver.artifactId>mysql-connector-java</jdbc.driver.artifactId>
-        <jdbc.driver.version>5.1.27</jdbc.driver.version>
-        <geronimo.version>1.1.1</geronimo.version>
-        <!-- MQ -->
-        <activemq.version>5.7.0</activemq.version>
+		<jdbc.driver.groupId>mysql</jdbc.driver.groupId>
+		<jdbc.driver.artifactId>mysql-connector-java</jdbc.driver.artifactId>
+		<jdbc.driver.version>5.1.27</jdbc.driver.version>
+		<geronimo.version>1.1.1</geronimo.version>
+		<!-- MQ -->
+		<activemq.version>5.7.0</activemq.version>
 	</properties>
-	<!-- 指定Maven仓库 -->
-	<repositories>
-		<repository>
-			<id>public</id>
-			<name>Public Repositories</name>
-			<url>http://maven.wozsz.com/content/groups/public/</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
+
 	<dependencies>
 		<!--******** logback and slf4j ******** -->
 		<dependency>
@@ -77,12 +64,12 @@
 		</dependency>
 		<!--**************** logback and slf4j **************** -->
 		<!-- jdbc driver -->
-        <dependency>
-            <groupId>${jdbc.driver.groupId}</groupId>
-            <artifactId>${jdbc.driver.artifactId}</artifactId>
-            <version>${jdbc.driver.version}</version>
-            <scope>runtime</scope>
-        </dependency>
+		<dependency>
+			<groupId>${jdbc.driver.groupId}</groupId>
+			<artifactId>${jdbc.driver.artifactId}</artifactId>
+			<version>${jdbc.driver.version}</version>
+			<scope>runtime</scope>
+		</dependency>
 
 		<!-- 加入junit依赖包 -->
 		<dependency>
@@ -91,13 +78,13 @@
 			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
-        
-        <!-- aspect -->
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjrt</artifactId>
-            <version>${aspectj.version}</version>
-        </dependency>
+
+		<!-- aspect -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>${aspectj.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
@@ -148,17 +135,17 @@
 			<version>${commons.dbcp.version}</version>
 		</dependency>
 		<dependency>
-            <groupId>com.googlecode.usc</groupId>
-            <artifactId>jdbcdslog</artifactId>
-            <version>${jdbcdslog.version}</version>
-        </dependency>
+			<groupId>com.googlecode.usc</groupId>
+			<artifactId>jdbcdslog</artifactId>
+			<version>${jdbcdslog.version}</version>
+		</dependency>
 		<!-- proxy -->
 		<dependency>
 			<groupId>cglib</groupId>
 			<artifactId>cglib</artifactId>
 			<version>${cglib.version}</version>
 		</dependency>
-		
+
 		<!-- jms -->
 		<dependency>
 			<groupId>org.apache.geronimo.specs</groupId>
@@ -212,55 +199,55 @@
 			<artifactId>spymemcached</artifactId>
 			<version>2.12.0</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.taobao.metamorphosis</groupId>
 			<artifactId>metamorphosis-client</artifactId>
 			<version>1.4.6.2</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.alibaba.rocketmq</groupId>
 			<artifactId>rocketmq-client</artifactId>
 			<version>3.2.6</version>
 		</dependency>
-		
+
 		<dependency>
-            <groupId>commons-configuration</groupId>
-            <artifactId>commons-configuration</artifactId>
-            <version>1.10</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.1</version>
-        </dependency>
-        <dependency>
+			<groupId>commons-configuration</groupId>
+			<artifactId>commons-configuration</artifactId>
+			<version>1.10</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.1</version>
+		</dependency>
+		<dependency>
 			<groupId>commons-collections</groupId>
 			<artifactId>commons-collections</artifactId>
 			<version>3.2.1</version>
 		</dependency>
-		
+
 		<!-- jackson -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 			<version>2.2.3</version>
 		</dependency>
-		
+
 		<!-- bean validator -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
 			<version>4.3.2.Final</version>
 		</dependency>
-		
+
 		<!-- HttpClient -->
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>4.5.1</version>
-        </dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -276,5 +263,21 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
+	<!-- 指定Maven仓库 -->
+	<!-- 指定Maven仓库 -->
+	<repositories>
+		<repository>
+			<id>aliyun</id>
+			<name>aliyun maven</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
 </project>
