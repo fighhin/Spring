@@ -1,11 +1,15 @@
 package com.somnus.validation.model;
 
+import java.util.Date;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+
+import com.somnus.validation.constraints.Future;
 
 public class User {
 	
@@ -15,6 +19,9 @@ public class User {
 	
     @Size(min = 6, max=10)    
     private String password;
+    
+    @Future(message="tranDate must be today or later")
+    private Date tranDate;
 
 	/**
 	 * @return the username
@@ -43,13 +50,22 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	public Date getTranDate() {
+		return tranDate;
+	}
 
-	public User(String username, String password) {
+	public void setTranDate(Date tranDate) {
+		this.tranDate = tranDate;
+	}
+	
+	public User(String username, String password, Date tranDate) {
 		super();
 		this.username = username;
 		this.password = password;
+		this.tranDate = tranDate;
 	}
-	
+
 	public User() {
 		super();
 	}

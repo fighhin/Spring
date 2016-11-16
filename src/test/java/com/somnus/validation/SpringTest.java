@@ -1,5 +1,6 @@
 package com.somnus.validation;
 
+import java.util.Date;
 import java.util.Set;
 
 import org.hibernate.validator.method.MethodConstraintViolation;
@@ -18,7 +19,7 @@ public class SpringTest extends AbstractTestSupport {
 	public void testPreCondtionFail(){
 		try {
 			ValidationServiceImpl service = ApplicationContextHolder.getBean(ValidationServiceImpl.class);
-			System.out.println(service.guess(new User("ad#min", "123456")));//不对的用户名，即前置条件不满足
+			System.out.println(service.guess(new User("ad#min", "123456",new Date())));//不对的用户名，即前置条件不满足
 		} catch (RuntimeException e) {
 			System.out.println(e.getClass());
 			Throwable throwable = e.getCause();
@@ -37,13 +38,13 @@ public class SpringTest extends AbstractTestSupport {
 	@Test
 	public void testConditionSuccess(){
 		ValidationServiceImpl service = ApplicationContextHolder.getBean(ValidationServiceImpl.class);
-		System.out.println(service.guess(new User("admin", "123456")));//正常流程    
+		System.out.println(service.guess(new User("admin", "123456",new Date())));//正常流程    
 	}
 	
 	@Test
 	public void testPostCondtionFail(){
 		ValidationServiceImpl service = ApplicationContextHolder.getBean(ValidationServiceImpl.class);
-		System.out.println(service.guess(new User("somnus", "123456")));//不满足后置条件的返回值  
+		System.out.println(service.guess(new User("somnus", "123456",new Date())));//不满足后置条件的返回值  
 	}
 	
 }
