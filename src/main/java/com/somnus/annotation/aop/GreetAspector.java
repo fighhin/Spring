@@ -55,7 +55,7 @@ public class GreetAspector {
      * @param result
      */
     @AfterReturning(value="@annotation(com.somnus.annotation.aop.Tag)",returning="result")
-    public void AfterReturning(JoinPoint joinPoint,Object result) {
+    public void afterReturning(JoinPoint joinPoint,Object result) {
         String methodName = joinPoint.getSignature().getName();
         System.out.println("The method 【" + methodName + "】 return with " + result);
     }

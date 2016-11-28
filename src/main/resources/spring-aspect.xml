@@ -12,4 +12,39 @@
 	则spring将自动使用CGLib动态代理。@see http://blog.chinaunix.net/uid-11898547-id-3417894.html -->
 	<aop:aspectj-autoproxy proxy-target-class="true"/>
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- 以下当做没看到，是我个人用来讲解的aspect的demo -->
+	<!-- <bean id="greetAspector" class="com.somnus.annotation.aop.GreetAspector"></bean> -->
+	
+	<!-- 配置哪些方法参与事务 -->
+	<!-- <aop:config>
+		<aop:aspect id="logAspect" ref="greetAspector">
+			<aop:pointcut id="allMethod" expression="execution(* service.*.*(..))"/>
+			<aop:before method="beforeMethod" pointcut="allMethod" />
+			<aop:after method="afterMethod" pointcut="allMethod" />
+			<aop:after method="afterMethod" pointcut="allMethod" />
+			<aop:after-returning method="afterReturning" pointcut="allMethod" />
+			<aop:after-throwing method="afterThrowing" pointcut="allMethod" />
+			<aop:around method="aroundMethod" pointcut="allMethod" />
+		</aop:aspect>
+	</aop:config> -->
+	
 </beans>
