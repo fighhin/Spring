@@ -1,7 +1,5 @@
 package com.somnus.activemq;
 
-import com.somnus.activemq.message.Message;
-
 /** 
  * @Title: ProducerService.java 
  * @Package com.somnus.activemq 
@@ -12,7 +10,5 @@ import com.somnus.activemq.message.Message;
  */
 public interface JmsService {
 	
-    public void sendMessage(String message);
-    
-    public void sendMessage(Message message);
+	public void send(String topicName,final String message);
 }

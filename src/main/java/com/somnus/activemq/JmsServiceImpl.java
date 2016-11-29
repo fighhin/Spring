@@ -1,15 +1,15 @@
 package com.somnus.activemq;
 
-import javax.annotation.Resource;
-import javax.jms.Destination;
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.Session;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Component;
-
-import com.somnus.activemq.message.Message;
 
 /** 
  * @Title: ProducerServiceImpl.java 
@@ -27,21 +27,20 @@ public class JmsServiceImpl implements JmsService{
     @Autowired
     private JmsTemplate jmsTemplate;
     
-    @Resource
-    private Destination sampleStringQueue;
     
-    @Resource
-    private Destination sampleObjectQueue;
-    
-    public void sendMessage(String message) {
-    	log.info("---------------生产者发了一个字符串消息：" + message);
-        System.out.println();
-        jmsTemplate.convertAndSend(sampleStringQueue, message);   
-    }
-
-	@Override
-	public void sendMessage(Message message) {
-		log.info("---------------生产者发了一个对象消息：" + message);
-        jmsTemplate.convertAndSend(sampleObjectQueue, message);  
+    /**
+	 * 发送一条消息到指定的队列（目标）
+	 * @param queueName 队列名称
+	 * @param message 消息内容
+	 */
+	public void send(String topicName,final String message){
+		log.info("---------------生产者发了一个字符串消息：" + message);
+		jmsTemplate.send(topicName, new MessageCreator() {
+			@Override
+			public Message createMessage(Session session) throws JMSException {
+				return session.createTextMessage(message);
+			}
+		});
 	}
+
 }

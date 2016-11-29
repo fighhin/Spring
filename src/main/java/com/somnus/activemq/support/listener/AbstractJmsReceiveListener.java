@@ -1,29 +1,22 @@
-package com.somnus.activemq.support.jms;
+package com.somnus.activemq.support.listener;
+
+import javax.jms.Message;
+import javax.jms.MessageListener;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
-import org.springframework.jms.listener.adapter.MessageListenerAdapter;
 
 import com.somnus.activemq.support.common.Constants;
 import com.somnus.activemq.support.util.SessionUtil;
 
-
-/**
- * 
- * @Title: AbstractJmsReceiveTemplate.java 
- * @Package com.somnus.support.jms 
- * @Description: TODO
- * @author Somnus
- * @date 2015年7月26日 下午5:32:21 
- * @version V1.0
- */
-public abstract class AbstractJmsReceiveTemplate extends MessageListenerAdapter {
+public abstract class AbstractJmsReceiveListener implements MessageListener{
 
     protected transient Logger logger = LoggerFactory.getLogger(this.getClass());
-
-    public void onReceive(Object message) {
-        try {
+    
+    @Override
+	public void onMessage(Message message) {
+    	try {
             MDC.put(Constants.SESSION_ID, SessionUtil.getSessionId());
             execute(message);
         } catch (Throwable e) {
@@ -31,7 +24,7 @@ public abstract class AbstractJmsReceiveTemplate extends MessageListenerAdapter 
         } finally {
             MDC.remove(Constants.SESSION_ID);
         }
-    }
+	}
 
     protected abstract void execute(Object message) throws Exception;
 }
