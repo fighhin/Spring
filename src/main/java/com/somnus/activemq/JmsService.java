@@ -1,5 +1,7 @@
 package com.somnus.activemq;
 
+import java.io.Serializable;
+
 /** 
  * @Title: ProducerService.java 
  * @Package com.somnus.activemq 
@@ -10,5 +12,11 @@ package com.somnus.activemq;
  */
 public interface JmsService {
 	
-	public void send(String topicName,final String message);
+	public void sendStringQueueMessage(final String message);
+	
+	public void sendStringTopicMessage(final String message);
+	
+	public void sendObjectQueueMessage(Serializable message);
+	
+	public void sendObjectTopicMessage(Serializable message);
 }

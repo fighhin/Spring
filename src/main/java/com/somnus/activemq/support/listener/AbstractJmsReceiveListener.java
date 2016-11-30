@@ -26,5 +26,5 @@ public abstract class AbstractJmsReceiveListener implements MessageListener{
         }
 	}
 
-    protected abstract void execute(Object message) throws Exception;
+    protected abstract void execute(Message message) throws Exception;
 }

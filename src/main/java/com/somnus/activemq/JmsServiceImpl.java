@@ -1,5 +1,9 @@
 package com.somnus.activemq;
 
+import java.io.Serializable;
+
+import javax.annotation.Resource;
+import javax.jms.Destination;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.Session;
@@ -11,14 +15,6 @@ import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Component;
 
-/** 
- * @Title: ProducerServiceImpl.java 
- * @Package com.somnus.activemq 
- * @Description: TODO
- * @author Somnus
- * @date 2015年7月27日 上午10:45:38 
- * @version V1.0 
- */
 @Component
 public class JmsServiceImpl implements JmsService{
 	
@@ -27,20 +23,57 @@ public class JmsServiceImpl implements JmsService{
     @Autowired
     private JmsTemplate jmsTemplate;
     
+    @Resource
+    private Destination sampleQueue;
+    
+    @Resource
+    private Destination sampleTopic;
     
     /**
-	 * 发送一条消息到指定的队列（目标）
-	 * @param queueName 队列名称
+	 * 发送一条字符串消息到指定的队列（目标）
 	 * @param message 消息内容
 	 */
-	public void send(String topicName,final String message){
+	public void sendStringQueueMessage(final String message){
 		log.info("---------------生产者发了一个字符串消息：" + message);
-		jmsTemplate.send(topicName, new MessageCreator() {
+		jmsTemplate.send(sampleQueue, new MessageCreator() {
 			@Override
 			public Message createMessage(Session session) throws JMSException {
 				return session.createTextMessage(message);
 			}
 		});
+	}
+	
+	/**
+	 * 发送一条字符串消息到指定的主题（目标）
+	 * @param message 消息内容
+	 */
+	public void sendStringTopicMessage(final String message){
+		log.info("---------------生产者发了一个字符串消息：" + message);
+		jmsTemplate.send(sampleTopic, new MessageCreator() {
+			@Override
+			public Message createMessage(Session session) throws JMSException {
+				return session.createTextMessage(message);
+			}
+		});
+	}
+	
+	
+	/**
+	 * 发送一条序列化的 Java对象消息到指定的队列（目标）
+	 * @param message 消息内容
+	 */
+	public void sendObjectQueueMessage(Serializable message){
+		log.info("---------------生产者发了一个对象消息：" + message);
+		jmsTemplate.convertAndSend(sampleQueue, message);
+	}
+	
+	/**
+	 * 发送一条序列化的 Java对象消息到指定的主题（目标）
+	 * @param message 消息内容
+	 */
+	public void sendObjectTopicMessage(Serializable message){
+		log.info("---------------生产者发了一个对象消息：" + message);
+		jmsTemplate.convertAndSend(sampleTopic, message);
 	}
 
 }
