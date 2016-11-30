@@ -24,10 +24,16 @@ public class JmsServiceImpl implements JmsService{
     private JmsTemplate jmsTemplate;
     
     @Resource
-    private Destination sampleQueue;
+    private Destination sampleStringQueue;
     
     @Resource
-    private Destination sampleTopic;
+    private Destination sampleStringTopic;
+    
+    @Resource
+    private Destination sampleObjectQueue;
+    
+    @Resource
+    private Destination sampleObjectTopic;
     
     /**
 	 * 发送一条字符串消息到指定的队列（目标）
@@ -35,7 +41,7 @@ public class JmsServiceImpl implements JmsService{
 	 */
 	public void sendStringQueueMessage(final String message){
 		log.info("---------------生产者发了一个字符串消息：" + message);
-		jmsTemplate.send(sampleQueue, new MessageCreator() {
+		jmsTemplate.send(sampleStringQueue, new MessageCreator() {
 			@Override
 			public Message createMessage(Session session) throws JMSException {
 				return session.createTextMessage(message);
@@ -49,7 +55,7 @@ public class JmsServiceImpl implements JmsService{
 	 */
 	public void sendStringTopicMessage(final String message){
 		log.info("---------------生产者发了一个字符串消息：" + message);
-		jmsTemplate.send(sampleTopic, new MessageCreator() {
+		jmsTemplate.send(sampleStringTopic, new MessageCreator() {
 			@Override
 			public Message createMessage(Session session) throws JMSException {
 				return session.createTextMessage(message);
@@ -64,7 +70,7 @@ public class JmsServiceImpl implements JmsService{
 	 */
 	public void sendObjectQueueMessage(Serializable message){
 		log.info("---------------生产者发了一个对象消息：" + message);
-		jmsTemplate.convertAndSend(sampleQueue, message);
+		jmsTemplate.convertAndSend(sampleObjectQueue, message);
 	}
 	
 	/**
@@ -73,7 +79,7 @@ public class JmsServiceImpl implements JmsService{
 	 */
 	public void sendObjectTopicMessage(Serializable message){
 		log.info("---------------生产者发了一个对象消息：" + message);
-		jmsTemplate.convertAndSend(sampleTopic, message);
+		jmsTemplate.convertAndSend(sampleObjectTopic, message);
 	}
 
 }

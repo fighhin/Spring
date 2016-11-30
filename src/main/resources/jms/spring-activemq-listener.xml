@@ -13,33 +13,44 @@
 	<!-- 定义Queue监听器(用来接收字符串) -->
 	<jms:listener-container destination-type="queue" container-type="default" 
 		connection-factory="connectionFactory" acknowledge="auto" message-converter="simpleMessageConverter">
-		<jms:listener destination="sampleQueue" ref="sampleStringAction"/>
+		<jms:listener destination="sampleStringQueue" ref="sampleStringAction"/>
 	</jms:listener-container>
 	
 	<!-- 定义Topic监听器 (用来接收字符串)-->
 	<jms:listener-container destination-type="topic" container-type="default" 
 		connection-factory="connectionFactory" acknowledge="auto" message-converter="simpleMessageConverter">
-		<jms:listener destination="sampleTopic" ref="sampleStringAction"/>
+		<jms:listener destination="sampleStringTopic" ref="sampleStringAction"/>
 	</jms:listener-container>
 	
 	<!-- 定义Queue监听器(用来接收序列化的 Java对象) -->
 	<jms:listener-container destination-type="queue" container-type="default" 
 		connection-factory="connectionFactory" acknowledge="auto" message-converter="simpleMessageConverter">
-		<jms:listener destination="sampleQueue" ref="sampleObjectAction"/>
+		<jms:listener destination="sampleObjectQueue" ref="sampleObjectAction"/>
 	</jms:listener-container>
 	
 	<!-- 定义Topic监听器 (用来接收序列化的 Java对象)-->
 	<jms:listener-container destination-type="topic" container-type="default" 
 		connection-factory="connectionFactory" acknowledge="auto" message-converter="simpleMessageConverter">
-		<jms:listener destination="sampleTopic" ref="sampleObjectAction"/>
+		<jms:listener destination="sampleObjectTopic" ref="sampleObjectAction"/>
 	</jms:listener-container>
 	
-	<bean id="sampleQueue" class="org.apache.activemq.command.ActiveMQQueue">
-        <constructor-arg index="0" value="${jms.queue.somnus.sample}" />
+	<!--------------------------------------------------------------------------------------->
+	<!--                            下面定不同的topic和queue                                    -->
+	<!--------------------------------------------------------------------------------------->
+	<bean id="sampleStringQueue" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg index="0" value="${jms.queue.somnus.string.sample}" />
     </bean>
     
-    <bean id="sampleTopic" class="org.apache.activemq.command.ActiveMQTopic">
-        <constructor-arg index="0" value="${jms.topic.somnus.sample}" />
+    <bean id="sampleStringTopic" class="org.apache.activemq.command.ActiveMQTopic">
+        <constructor-arg index="0" value="${jms.topic.somnus.string.sample}" />
+    </bean>
+    
+    <bean id="sampleObjectQueue" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg index="0" value="${jms.queue.somnus.object.sample}" />
+    </bean>
+    
+    <bean id="sampleObjectTopic" class="org.apache.activemq.command.ActiveMQTopic">
+        <constructor-arg index="0" value="${jms.topic.somnus.object.sample}" />
     </bean>
 
 </beans>
