@@ -34,9 +34,9 @@
 		<jms:listener destination="sampleObjectTopic" ref="sampleObjectAction"/>
 	</jms:listener-container>
 	
-	<!--------------------------------------------------------------------------------------->
-	<!--                            下面定不同的topic和queue                                    -->
-	<!--------------------------------------------------------------------------------------->
+	<!-- ************************************************************************************************* -->
+	<!-- *                  下面定不同的topic和queue                                                          *-->
+	<!-- ************************************************************************************************* -->
 	<bean id="sampleStringQueue" class="org.apache.activemq.command.ActiveMQQueue">
         <constructor-arg index="0" value="${jms.queue.somnus.string.sample}" />
     </bean>

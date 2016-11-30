@@ -9,7 +9,7 @@
 		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
 
 	<!-- ************************************************************************************************* -->
-	<!-- * 环境配置切换(在web.xml中的spring.profiles.default上启用) * -->
+	<!-- * 环境配置切换(在web.xml中的spring.profiles.default上启用)                                              *-->
 	<!-- ************************************************************************************************* -->
 	<!-- 开发环境 -->
 	<beans profile="dev">
