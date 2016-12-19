@@ -55,7 +55,7 @@ public class RestClient {
         // 保持长连接配置，需要在头添加Keep-Alive
         httpClientBuilder.setKeepAliveStrategy(new DefaultConnectionKeepAliveStrategy());
  
-        List<Header> headers = new ArrayList<>();
+        List<Header> headers = new ArrayList<Header>();
         headers.add(new BasicHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.16 Safari/537.36"));
         headers.add(new BasicHeader("Accept-Encoding", "gzip,deflate"));
         headers.add(new BasicHeader("Accept-Language", "zh-CN"));
@@ -75,7 +75,7 @@ public class RestClient {
         // clientHttpRequestFactory.setBufferRequestBody(false);
  
         // 添加内容转换器
-        List<HttpMessageConverter<?>> messageConverters = new ArrayList<>();
+        List<HttpMessageConverter<?>> messageConverters = new ArrayList<HttpMessageConverter<?>>();
         messageConverters.add(new StringHttpMessageConverter(Charset.forName("UTF-8")));
         messageConverters.add(new FormHttpMessageConverter());
         messageConverters.add(new MappingJackson2HttpMessageConverter());

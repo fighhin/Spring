@@ -37,7 +37,7 @@ public class SimpleRestClient {
         requestFactory.setConnectTimeout(5000);
  
         // 添加转换器
-        List<HttpMessageConverter<?>> messageConverters = new ArrayList<>();
+        List<HttpMessageConverter<?>> messageConverters = new ArrayList<HttpMessageConverter<?>>();
         messageConverters.add(new StringHttpMessageConverter(Charset.forName("UTF-8")));
         messageConverters.add(new FormHttpMessageConverter());
         messageConverters.add(new MappingJackson2HttpMessageConverter());
