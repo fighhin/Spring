@@ -1,9 +1,5 @@
 package com.somnus.cache;
 
-import java.io.Serializable;
-
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 

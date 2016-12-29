@@ -198,8 +198,7 @@ public class MessageListenerContainer implements InitializingBean, DisposableBea
      * 
      * @param listeners
      */
-    @SuppressWarnings("unchecked")
-    public void setSubscribers(Map subscribers) {
+    public void setSubscribers(Map<RocketMQTopic, ? extends AbstractJmsReceiveListener<?>> subscribers) {
         this.subscribers = subscribers;
     }
 

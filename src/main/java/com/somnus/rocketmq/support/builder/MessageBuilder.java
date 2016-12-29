@@ -65,7 +65,8 @@ public class MessageBuilder {
     }
 
 
-    public <T> Message build(MessageBodyConverter<T> converter) {
+    @SuppressWarnings("unchecked")
+	public <T> Message build(MessageBodyConverter<T> converter) {
         if (StringUtils.isBlank(this.topic)) {
             throw new IllegalArgumentException("Blank topic");
         }

@@ -27,7 +27,8 @@ public abstract class AbstractJmsReceiveListener<T> implements MessageListenerCo
         try {
         	MDC.put(Constants.SESSION_ID, SessionUtil.getSessionId());
         	
-        	T body = (T) this.messageBodyConverter.fromByteArray(msg.getBody());
+        	@SuppressWarnings("unchecked")
+			T body = (T) this.messageBodyConverter.fromByteArray(msg.getBody());
         	
 			execute(body);
 		} catch (Throwable e) {
