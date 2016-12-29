@@ -1,7 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
 	<groupId>com.somnus</groupId>
 	<artifactId>Spring</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -9,20 +8,20 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<!-- log -->
+		<!-- junit -->
+		<junit.version>4.12</junit.version>
+		<!-- logback and slf4j -->
 		<slf4j.version>1.7.2</slf4j.version>
 		<logback.version>1.0.6</logback.version>
 		<!-- spring -->
 		<spring.version>4.3.5.RELEASE</spring.version>
 		<!-- aspect -->
 		<aspectj.version>1.7.4</aspectj.version>
+		<!-- proxy -->
+		<cglib.version>2.2.2</cglib.version>
 		<!-- datasource -->
 		<alibaba.druid.version>1.0.25</alibaba.druid.version>
 		<jdbcdslog.version>1.0.6.2</jdbcdslog.version>
-		<!-- proxy -->
-		<cglib.version>2.2.2</cglib.version>
-		<!-- junit -->
-		<junit.version>4.11</junit.version>
 		<!-- JDBC Driver -->
 		<jdbc.driver.groupId>mysql</jdbc.driver.groupId>
 		<jdbc.driver.artifactId>mysql-connector-java</jdbc.driver.artifactId>
@@ -48,7 +47,16 @@
 	</properties>
 
 	<dependencies>
-		<!--******** logback and slf4j ******** -->
+
+		<!-- 加入junit依赖包 -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!--logback and slf4j -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId>
@@ -69,21 +77,13 @@
 			<artifactId>logback-access</artifactId>
 			<version>${logback.version}</version>
 		</dependency>
-		<!--**************** logback and slf4j **************** -->
+
 		<!-- jdbc driver -->
 		<dependency>
 			<groupId>${jdbc.driver.groupId}</groupId>
 			<artifactId>${jdbc.driver.artifactId}</artifactId>
 			<version>${jdbc.driver.version}</version>
 			<scope>runtime</scope>
-		</dependency>
-
-		<!-- 加入junit依赖包 -->
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>${junit.version}</version>
-			<scope>test</scope>
 		</dependency>
 
 		<!-- aspect -->
@@ -96,6 +96,13 @@
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
 			<version>${aspectj.version}</version>
+		</dependency>
+
+		<!-- proxy -->
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>${cglib.version}</version>
 		</dependency>
 
 		<!-- spring -->
@@ -125,7 +132,7 @@
 			<artifactId>spring-jms</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		
+
 		<!-- datasource -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
@@ -136,13 +143,6 @@
 			<groupId>com.googlecode.usc</groupId>
 			<artifactId>jdbcdslog</artifactId>
 			<version>${jdbcdslog.version}</version>
-		</dependency>
-		
-		<!-- proxy -->
-		<dependency>
-			<groupId>cglib</groupId>
-			<artifactId>cglib</artifactId>
-			<version>${cglib.version}</version>
 		</dependency>
 
 		<!-- jms -->
@@ -156,20 +156,20 @@
 			<artifactId>geronimo-jta_1.1_spec</artifactId>
 			<version>${geronimo.version}</version>
 		</dependency>
-		
+
 		<!-- activeMQ -->
 		<dependency>
 			<groupId>org.apache.activemq</groupId>
 			<artifactId>activemq-pool</artifactId>
 			<version>${activemq.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.alibaba.rocketmq</groupId>
 			<artifactId>rocketmq-client</artifactId>
 			<version>${alibaba.rocketmq.version}</version>
 		</dependency>
-		
+
 		<!-- redis -->
 		<dependency>
 			<groupId>org.springframework.data</groupId>
@@ -181,7 +181,7 @@
 			<artifactId>jedis</artifactId>
 			<version>${redis.version}</version>
 		</dependency>
-		
+
 		<!-- memcached -->
 		<dependency>
 			<groupId>net.spy</groupId>
@@ -242,7 +242,6 @@
 		</plugins>
 	</build>
 
-	<!-- 指定Maven仓库 -->
 	<!-- 指定Maven仓库 -->
 	<repositories>
 		<repository>
