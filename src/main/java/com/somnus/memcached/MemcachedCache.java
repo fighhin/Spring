@@ -1,5 +1,7 @@
 package com.somnus.memcached;
 
+import java.util.concurrent.Callable;
+
 import net.spy.memcached.MemcachedClient;
 
 import org.apache.commons.lang.StringUtils;
@@ -120,4 +122,16 @@ public class MemcachedCache implements Cache {
             return name + "_" + key;
         }
     }
+
+	@Override
+	public <T> T get(Object arg0, Callable<T> arg1) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ValueWrapper putIfAbsent(Object arg0, Object arg1) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

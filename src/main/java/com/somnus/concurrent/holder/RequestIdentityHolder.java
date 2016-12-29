@@ -3,9 +3,9 @@ package com.somnus.concurrent.holder;
 import org.apache.commons.configuration.PropertiesConfiguration;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.MDC;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
 
 /**
  * 请求信息持有者
@@ -52,7 +52,7 @@ public final class RequestIdentityHolder {
 	public static void set(RequestInfo requestInfo){
 		if(requestInfo != null){
 			MDC.put(RID, requestInfo.getId());
-			MDC.put(RSTEP, requestInfo.getStep());
+			MDC.put(RSTEP, requestInfo.getStep()+"");
 			MDC.put(RIP, StringUtils.trimToEmpty(requestInfo.getIp()));
 			MDC.put(RNAME, StringUtils.trimToEmpty(requestInfo.getName()));
 			MDC.put(RVERSION, StringUtils.trimToEmpty(requestInfo.getVersion()));

@@ -1,9 +1,10 @@
 package com.somnus.rocketmq.support.builder;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.alibaba.rocketmq.client.exception.MQClientException;
 import com.alibaba.rocketmq.common.message.Message;
 import com.somnus.rocketmq.support.converter.MessageBodyConverter;
-import com.taobao.gecko.core.util.StringUtils;
 
 public class MessageBuilder {
 	
