@@ -32,7 +32,7 @@ public abstract class AbstractJmsReceiveListener<T> implements MessageListenerCo
         	
 			execute(body);
 		} catch (Throwable e) {
-			logger.error("MQ消息处理异常{},：{}", msg.toString(), e);
+			logger.error("MQ消息处理异常：{}", msg.toString(), e);
 		} finally {
             MDC.remove(Constants.SESSION_ID);
         }

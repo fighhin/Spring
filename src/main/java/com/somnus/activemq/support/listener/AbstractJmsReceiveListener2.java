@@ -17,7 +17,7 @@ public abstract class AbstractJmsReceiveListener2 extends MessageListenerAdapter
             MDC.put(Constants.SESSION_ID, SessionUtil.getSessionId());
             execute(message);
         } catch (Throwable e) {
-            logger.error("MQ消息处理异常{},：{}", message.toString(), e);
+            logger.error("MQ消息处理异常：{}", message.toString(), e);
         } finally {
             MDC.remove(Constants.SESSION_ID);
         }
