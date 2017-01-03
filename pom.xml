@@ -16,9 +16,8 @@
 		<!-- spring -->
 		<spring.version>4.3.5.RELEASE</spring.version>
 		<!-- aspect -->
-		<aspectj.version>1.7.4</aspectj.version>
-		<!-- proxy -->
-		<cglib.version>2.2.2</cglib.version>
+		<aspectj.version>1.8.10</aspectj.version>
+		<cglib.version>3.2.4</cglib.version>
 		<!-- datasource -->
 		<alibaba.druid.version>1.0.25</alibaba.druid.version>
 		<jdbcdslog.version>1.0.6.2</jdbcdslog.version>
