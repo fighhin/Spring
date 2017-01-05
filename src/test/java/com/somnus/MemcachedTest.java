@@ -1,14 +1,17 @@
-package com.somnus.memcached;
+package com.somnus;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.somnus.AbstractTestSupport;
-import com.somnus.ApplicationContextHolder;
 import com.somnus.cache.Account;
 import com.somnus.cache.AccountCache;
 import com.somnus.memcached.MemCachedUtil;
 
-public class SpringTest extends AbstractTestSupport {
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = "classpath:spring-memcached.xml")
+public class MemcachedTest extends AbstractTestSupport {
 	
 	@Test
 	public void cache(){

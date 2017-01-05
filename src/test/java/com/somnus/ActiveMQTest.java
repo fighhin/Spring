@@ -1,14 +1,19 @@
-package com.somnus.activemq;
+package com.somnus;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.somnus.AbstractTestSupport;
-import com.somnus.ApplicationContextHolder;
+import com.somnus.activemq.JmsService;
+import com.somnus.activemq.JmsServiceImpl;
 
-public class JmsTest extends AbstractTestSupport {
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = "classpath:spring-basic.xml")
+public class ActiveMQTest {
 	
     @Test
     public void sendStringQueueMessage() {

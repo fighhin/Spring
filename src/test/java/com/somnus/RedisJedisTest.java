@@ -1,21 +1,19 @@
-package com.somnus.redis;
+package com.somnus;
 
 import java.util.HashMap;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import redis.clients.jedis.BinaryClient.LIST_POSITION;
 
-import com.somnus.AbstractTestSupport;
 import com.somnus.redis.util.JedisUtil;
 
-/**  
- * @Description: TODO
- * @author Somnus
- * @date 2015年11月28日 下午8:16:32 
- * @version 1.0 
- */
-public class JedisTest extends AbstractTestSupport{
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = "classpath:spring-redis.xml")
+public class RedisJedisTest {
 	
 	@Test
 	public void stringSet(){
