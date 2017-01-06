@@ -38,9 +38,6 @@
 		<jackson.version>2.2.3</jackson.version>
 		<!-- memcached -->
 		<memcached.version>2.12.0</memcached.version>
-		<!-- redis -->
-		<spring.data.redis>1.7.6.RELEASE</spring.data.redis>
-		<redis.version>2.7.3</redis.version>
 	</properties>
 
 	<dependencies>
@@ -165,18 +162,6 @@
 			<groupId>com.alibaba.rocketmq</groupId>
 			<artifactId>rocketmq-client</artifactId>
 			<version>${alibaba.rocketmq.version}</version>
-		</dependency>
-
-		<!-- redis -->
-		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-redis</artifactId>
-			<version>${spring.data.redis}</version>
-		</dependency>
-		<dependency>
-			<groupId>redis.clients</groupId>
-			<artifactId>jedis</artifactId>
-			<version>${redis.version}</version>
 		</dependency>
 
 		<!-- memcached -->
