@@ -2,48 +2,28 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:aop="http://www.springframework.org/schema/aop"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd   
-		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd ">
-
-	<!-- 强制CGLIB代理 -->
-	<!-- proxy-target-class属性，默认为false，表示使用jdk动态代理织入增强，当配为true时，
-	表示使用CGLib动态代理技术织入增强。不过即使proxy-target-class设置为false，如果目标类没有声明接口，
-	则spring将自动使用CGLib动态代理。@see http://blog.chinaunix.net/uid-11898547-id-3417894.html -->
-	<aop:aspectj-autoproxy proxy-target-class="true"/>
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<!-- 以下当做没看到，是我个人用来讲解的aspect的demo -->
-	<!-- <bean id="greetAspector" class="com.somnus.annotation.aop.GreetAspector"></bean> -->
-	
-	<!-- 配置哪些方法参与事务 -->
-	<!-- <aop:config>
-		<aop:aspect id="logAspect" ref="greetAspector">
-			<aop:pointcut id="allMethod" expression="execution(* service.*.*(..))"/>
-			<aop:before method="beforeMethod" pointcut="allMethod" />
-			<aop:after method="afterMethod" pointcut="allMethod" />
-			<aop:after method="afterMethod" pointcut="allMethod" />
-			<aop:after-returning method="afterReturning" pointcut="allMethod" />
-			<aop:after-throwing method="afterThrowing" pointcut="allMethod" />
-			<aop:around method="aroundMethod" pointcut="allMethod" />
+    <!-- application 上下文 -->
+    <bean class="com.somnus.ApplicationContextHolder"/>
+    
+    <bean id="greetAspector" class="com.somnus.spring.xml.aop.aspector.GreetAspector"/>
+    
+    <aop:config>
+		<aop:aspect id="greetAspect" ref="greetAspector">
+			<aop:pointcut expression="execution(* com.somnus.spring.xml.aop.GreetingImpl.*(..))" id="p"/>
+			<aop:before method="before" pointcut-ref="p" />
+			<aop:after method="after" pointcut-ref="p" />
+			<aop:around method="around" pointcut-ref="p" />
+			<!-- <aop:after-returning method="afterReturning" pointcut-ref="p" />
+			<aop:after-throwing method="afterThrowing" pointcut-ref="p" /> -->
+			<aop:declare-parents types-matching="com.somnus.spring.xml.aop.GreetingImpl" 
+				implement-interface="com.somnus.spring.xml.aop.Apology"
+				default-impl="com.somnus.spring.xml.aop.ApologyImpl"/>
 		</aop:aspect>
-	</aop:config> -->
-	
+	</aop:config>
+    
+    <bean id="greetingImpl" class="com.somnus.spring.xml.aop.GreetingImpl"/>
+    
 </beans>

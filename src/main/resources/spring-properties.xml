@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+    <!-- application 上下文 -->
+    <bean class="com.somnus.ApplicationContextHolder"/>
+    
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations" value="classpath:requestinfo.properties"/>
+	</bean>
+    
+    <bean id="propertiesService" class="com.somnus.spring.xml.properties.PropertiesService">
+    	<property name="ip" value="${system.ip}"/>
+    	<property name="version" value="${system.version}"/>
+    	<property name="properties">
+    		<props>
+    			<prop key="ip">8.8.8.8</prop>
+    			<prop key="version">1.1.0</prop>
+    		</props>
+    	</property>
+    </bean>
+    
+    
+</beans>

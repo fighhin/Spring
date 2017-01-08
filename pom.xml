@@ -25,19 +25,11 @@
 		<jdbc.driver.groupId>mysql</jdbc.driver.groupId>
 		<jdbc.driver.artifactId>mysql-connector-java</jdbc.driver.artifactId>
 		<jdbc.driver.version>5.1.27</jdbc.driver.version>
-		<geronimo.version>1.1.1</geronimo.version>
-		<!-- MQ -->
-		<activemq.version>5.7.0</activemq.version>
-		<alibaba.rocketmq.version>3.2.6</alibaba.rocketmq.version>
 		<!-- commons tools -->
 		<commons.configuration.version>1.10</commons.configuration.version>
 		<commons.lang3.version>3.1</commons.lang3.version>
 		<commons.collections.version>3.2.1</commons.collections.version>
 		<httpcomponents.version>4.5.2</httpcomponents.version>
-		<!-- data protocol -->
-		<jackson.version>2.2.3</jackson.version>
-		<!-- memcached -->
-		<memcached.version>2.12.0</memcached.version>
 	</properties>
 
 	<dependencies>
@@ -139,38 +131,6 @@
 			<version>${jdbcdslog.version}</version>
 		</dependency>
 
-		<!-- jms -->
-		<dependency>
-			<groupId>org.apache.geronimo.specs</groupId>
-			<artifactId>geronimo-jms_1.1_spec</artifactId>
-			<version>${geronimo.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.geronimo.specs</groupId>
-			<artifactId>geronimo-jta_1.1_spec</artifactId>
-			<version>${geronimo.version}</version>
-		</dependency>
-
-		<!-- activeMQ -->
-		<dependency>
-			<groupId>org.apache.activemq</groupId>
-			<artifactId>activemq-pool</artifactId>
-			<version>${activemq.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.alibaba.rocketmq</groupId>
-			<artifactId>rocketmq-client</artifactId>
-			<version>${alibaba.rocketmq.version}</version>
-		</dependency>
-
-		<!-- memcached -->
-		<dependency>
-			<groupId>net.spy</groupId>
-			<artifactId>spymemcached</artifactId>
-			<version>${memcached.version}</version>
-		</dependency>
-
 		<!-- commons tool -->
 		<dependency>
 			<groupId>commons-configuration</groupId>
@@ -186,13 +146,6 @@
 			<groupId>commons-collections</groupId>
 			<artifactId>commons-collections</artifactId>
 			<version>${commons.collections.version}</version>
-		</dependency>
-
-		<!-- jackson -->
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>${jackson.version}</version>
 		</dependency>
 
 		<!-- HttpClient -->
