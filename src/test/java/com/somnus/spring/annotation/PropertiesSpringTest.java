@@ -16,8 +16,10 @@ public class PropertiesSpringTest{
 	public void say(){
 		PropertiesService service = (PropertiesService)ApplicationContextHolder.getBean(PropertiesService.class);
 		System.out.println(service.getClass());
+		service.sayPort();
 		service.sayIp();
 		service.sayVersion();
+		service.saySign();
 		service.sayall();
 	}
 }
