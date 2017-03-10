@@ -29,6 +29,8 @@
 		<commons.configuration.version>1.10</commons.configuration.version>
 		<commons.lang3.version>3.1</commons.lang3.version>
 		<commons.collections.version>3.2.1</commons.collections.version>
+		<commons.digester.version>2.1</commons.digester.version>
+		<apache.commons.collections.version>4.1</apache.commons.collections.version>
 		<httpcomponents.version>4.5.2</httpcomponents.version>
 	</properties>
 
@@ -147,12 +149,29 @@
 			<artifactId>commons-collections</artifactId>
 			<version>${commons.collections.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>commons-digester</groupId>
+			<artifactId>commons-digester</artifactId>
+			<version>${commons.digester.version}</version>
+		</dependency>
+		<!-- apache tools -->
+        <dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+			<version>${apache.commons.collections.version}</version>
+		</dependency>
 
 		<!-- HttpClient -->
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
 			<version>${httpcomponents.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>21.0</version>
 		</dependency>
 	</dependencies>
 
