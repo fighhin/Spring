@@ -1,5 +1,6 @@
 package com.somnus.spring.annotation.aop;
 
+import java.lang.reflect.Method;
 import java.util.Arrays;
 
 import org.aspectj.lang.JoinPoint;
@@ -22,9 +23,11 @@ public class GreetAspector {
      * @param joinPoint
      */
     @Before("@annotation(com.somnus.spring.annotation.aop.Tag)")
-    public void before(JoinPoint joinPoint) {
-        String methodName = joinPoint.getSignature().getName();
-        Object[] args = joinPoint.getArgs();
+    public void before(JoinPoint point) {
+        String methodName = point.getSignature().getName();
+        Method method = ((MethodSignature) point.getSignature()).getMethod();
+        System.out.println(method.getName());
+        Object[] args = point.getArgs();
         System.out.println("The method 【" + methodName + "】 begins with " + Arrays.asList(args));
     }
     
@@ -34,9 +37,9 @@ public class GreetAspector {
      * @param joinPoint
      */
     @After("@annotation(com.somnus.spring.annotation.aop.Tag)")
-    public void after(JoinPoint joinPoint) {
-        String methodName = joinPoint.getSignature().getName();
-        Object[] args = joinPoint.getArgs();
+    public void after(JoinPoint point) {
+        String methodName = point.getSignature().getName();
+        Object[] args = point.getArgs();
         System.out.println("The method 【" + methodName + "】 ends with " + Arrays.asList(args));
     }
     
@@ -47,8 +50,8 @@ public class GreetAspector {
      * @param result
      */
     @AfterReturning(value="@annotation(com.somnus.spring.annotation.aop.Tag)",returning="result")
-    public void afterReturning(JoinPoint joinPoint,Object result) {
-        String methodName = joinPoint.getSignature().getName();
+    public void afterReturning(JoinPoint point,Object result) {
+        String methodName = point.getSignature().getName();
         System.out.println("The method 【" + methodName + "】 return with " + result);
     }
     
@@ -59,8 +62,8 @@ public class GreetAspector {
      * @param ex
      */
     @AfterThrowing(value="@annotation(com.somnus.spring.annotation.aop.Tag)", throwing="ex")
-    public void afterThrowing(JoinPoint joinPoint, Exception ex) {
-        String methodName = joinPoint.getSignature().getName();
+    public void afterThrowing(JoinPoint point, Exception ex) {
+        String methodName = point.getSignature().getName();
         System.out.println("The method " + methodName + " occurs exception: " + ex);
     }
     
@@ -73,16 +76,17 @@ public class GreetAspector {
      * @throws Throwable
      */
     @Around("execution(public * *(..)) && @within(org.springframework.validation.annotation.Validated)")
-    public Object around(ProceedingJoinPoint pjp) throws Throwable {
+    public Object around(ProceedingJoinPoint point) throws Throwable {
         Object result = null;
-        System.out.println("target:"+pjp.getTarget());
-        MethodSignature signature = (MethodSignature) pjp.getSignature();
-        String methodName = signature.getName();
+        System.out.println("target:" + point.getTarget());
+        Method method = ((MethodSignature) point.getSignature()).getMethod();
+        System.out.println(method.getName());
+        String methodName = point.getSignature().getName();
         //执行目标方法
         try {
             //前置通知
-            System.out.println("ARROUND-->The method 【" + methodName + "】 begins with 【" + Arrays.asList(pjp.getArgs()) +"】");
-            result = pjp.proceed();
+            System.out.println("ARROUND-->The method 【" + methodName + "】 begins with 【" + Arrays.asList(point.getArgs()) +"】");
+            result = point.proceed();
         } catch (Throwable e) {
             //后置异常通知【在方法出现异常时会执行的代码】
             System.out.println("ARROUND-->The method 【" + methodName + "】 occurs expection : 【" + e +"】");
