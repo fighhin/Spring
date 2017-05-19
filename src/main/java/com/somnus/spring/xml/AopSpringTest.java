@@ -10,7 +10,7 @@ import com.somnus.spring.xml.aop.Apology;
 import com.somnus.spring.xml.aop.GreetingInterface;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:spring-aop.xml")
+@ContextConfiguration(locations = "classpath:spring-aop-xml.xml")
 public class AopSpringTest{
 	@Test
 	public void say(){

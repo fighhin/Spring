@@ -1,6 +1,4 @@
-package com.somnus.spring.annotation.aop;
-
-import org.springframework.stereotype.Component;
+package com.somnus.spring.namespace.aop;
 
 /** 
  * @Title: GreetingImpl.java 
@@ -10,20 +8,16 @@ import org.springframework.stereotype.Component;
  * @date 2015年6月1日 下午12:39:06 
  * @version V1.0 
  */
-@Component
 public class GreetingImpl implements GreetingInterface {
     
     @Override
     public void sayHello(String name) {
         System.out.println("Hello! " + name);
     }
-    
     @Override
-    public String goodMorning(String name) {  
+    public void goodMorning(String name) {  
         System.out.println("Good Morning! " + name);  
-        return name.concat(" Good Morning! ");
     }
-    
     @Override
     public void goodNight(String name) {  
         System.out.println("Good Night! " + name);  

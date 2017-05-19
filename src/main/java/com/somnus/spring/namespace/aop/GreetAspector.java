@@ -1,11 +1,10 @@
-package com.somnus.spring.xml.aop.aspector;
+package com.somnus.spring.namespace.aop;
 
 import java.util.Arrays;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
-
 
 public class GreetAspector {
 	

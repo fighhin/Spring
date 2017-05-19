@@ -22,7 +22,7 @@ public class GreetAspector {
      * 方法开始之前执行一段代码
      * @param joinPoint
      */
-    @Before("@annotation(com.somnus.spring.annotation.aop.Tag)")
+    @Before("execution(* com.somnus.spring.annotation.aop.GreetingImpl.*(..))")
     public void before(JoinPoint point) {
         String methodName = point.getSignature().getName();
         Method method = ((MethodSignature) point.getSignature()).getMethod();
@@ -36,7 +36,7 @@ public class GreetAspector {
      * 无论该方法是否出现异常
      * @param joinPoint
      */
-    @After("@annotation(com.somnus.spring.annotation.aop.Tag)")
+    @After("execution(* com.somnus.spring.annotation.aop.GreetingImpl.*(..))")
     public void after(JoinPoint point) {
         String methodName = point.getSignature().getName();
         Object[] args = point.getArgs();
@@ -49,7 +49,7 @@ public class GreetAspector {
      * @param joinPoint
      * @param result
      */
-    @AfterReturning(value="@annotation(com.somnus.spring.annotation.aop.Tag)",returning="result")
+    @AfterReturning(value="execution(* com.somnus.spring.annotation.aop.GreetingImpl.*(..))",returning="result")
     public void afterReturning(JoinPoint point,Object result) {
         String methodName = point.getSignature().getName();
         System.out.println("The method 【" + methodName + "】 return with " + result);
@@ -61,7 +61,7 @@ public class GreetAspector {
      * @param joinPoint
      * @param ex
      */
-    @AfterThrowing(value="@annotation(com.somnus.spring.annotation.aop.Tag)", throwing="ex")
+    @AfterThrowing(value="execution(* com.somnus.spring.annotation.aop.GreetingImpl.*(..))", throwing="ex")
     public void afterThrowing(JoinPoint point, Exception ex) {
         String methodName = point.getSignature().getName();
         System.out.println("The method " + methodName + " occurs exception: " + ex);
@@ -75,7 +75,7 @@ public class GreetAspector {
      * @return
      * @throws Throwable
      */
-    @Around("execution(public * *(..)) && @within(org.springframework.validation.annotation.Validated)")
+    @Around("execution(* com.somnus.spring.annotation.aop.GreetingImpl.*(..))")
     public Object around(ProceedingJoinPoint point) throws Throwable {
         Object result = null;
         System.out.println("target:" + point.getTarget());
