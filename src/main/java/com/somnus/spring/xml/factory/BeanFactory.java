@@ -10,8 +10,8 @@ package com.somnus.spring.xml.factory;
  */
 public class BeanFactory {
 	
-	public static User getInstance(Somnus somnus, String name){
-		System.out.println(name + "---->" +somnus.say());
+	public static User getInstance(String name){
+		System.out.println(name);
 		return new User();
 	}
 	
