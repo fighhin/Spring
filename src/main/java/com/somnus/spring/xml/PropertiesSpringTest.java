@@ -14,7 +14,25 @@ public class PropertiesSpringTest {
 	
 	@Test
 	public void say(){
-		PropertiesService service = (PropertiesService)ApplicationContextHolder.getBean(PropertiesService.class);
+		PropertiesService service = (PropertiesService)ApplicationContextHolder.getBean("p1");
+		System.out.println(service.getClass());
+		service.sayIp();
+		service.sayVersion();
+		service.sayall();
+	}
+	
+	@Test
+	public void say2(){
+		PropertiesService service = (PropertiesService)ApplicationContextHolder.getBean("p2");
+		System.out.println(service.getClass());
+		service.sayIp();
+		service.sayVersion();
+		service.sayall();
+	}
+	@Test
+	
+	public void say3(){
+		PropertiesService service = (PropertiesService)ApplicationContextHolder.getBean("p3");
 		System.out.println(service.getClass());
 		service.sayIp();
 		service.sayVersion();
